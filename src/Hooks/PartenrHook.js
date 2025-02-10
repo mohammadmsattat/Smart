@@ -4,7 +4,7 @@ import toast from 'react-hot-toast';
 
 
 import upload from '../images/public/upload.webp'
-import { DeletePartner, GetAllPartners,PostPartner } from '../Store/Requests/PartnersRequests';
+import { DeletePartner, GetAllPartners,GetOnePartner,PostPartner } from '../Store/Requests/PartnersRequests';
 
 
 //get all partners hook
@@ -144,4 +144,36 @@ useEffect(() => {
 }, [DeleteLoading])
 
     return [response,SubmitDelete,show,setshow,handleClose,handleShow]
+};
+
+//get one partner hook
+export const UseGetOnePartner = (id) => {
+
+    const [partner,setpartner]=useState([]);
+    const dispatch = useDispatch();
+
+    useEffect(() => {
+        dispatch(GetOnePartner(id));
+    }, [])
+
+    //get data from store
+    const response = useSelector(state => state.PartnerSlice.getOne)
+    const Loading = useSelector(state => state.PartnerSlice.GetOneLoading)
+   
+
+useEffect(() => {
+    if (Loading === false) {
+      
+        if (response.status === 200) {
+                  
+            setpartner(response.data.data) 
+        }
+        else{
+            setpartner([])
+        }
+        
+    }
+}, [Loading])
+
+    return [partner]
 };

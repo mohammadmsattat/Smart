@@ -96,8 +96,14 @@ export const GetOneProject = createAsyncThunk(
 
 export const UpdateOneProject = createAsyncThunk(
     "project/updateproject",
-    async (id,formdata) => {
+    async (id,name,des,img) => {
         try {   
+            console.log(name);
+            console.log(des);
+            console.log(img);
+            
+            
+            
             console.log(id);
                    
             const config = {
@@ -107,7 +113,7 @@ export const UpdateOneProject = createAsyncThunk(
                 }
             }
       
-            const response = await BaseUrl.put(`/api/v1/project/${id}`,formdata,config);  
+            const response = await BaseUrl.put(`/api/v1/project/${id}`,name,config);  
                             console.log(response);
                                   
             return response; 

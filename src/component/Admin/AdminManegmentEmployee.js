@@ -67,9 +67,15 @@ const AdminManegmentEmployee = () => {
                                         </Card.Text>
                                         <div className='manage-btn'>
 
-                                        <Button onClick={()=> deleteModel(item._id)} variant="primary">Delete</Button>
-                                        <Button variant="primary">Update</Button>
-                                        </div>
+                                            <Button onClick={()=> deleteModel(item._id)} variant="primary">Delete</Button>
+
+                                            <Button variant="primary">
+                                            <Link to={`/admin/edit-employee/${item._id}`} style={{color:'white'}}>
+
+                                            Update
+                                            </Link>
+                                            </Button>                                       
+                                         </div>
                                     </Card.Body>
                                 </Card>
 

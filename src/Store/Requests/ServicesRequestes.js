@@ -24,7 +24,7 @@ export const GetAllServices = createAsyncThunk(
 export const PostService = createAsyncThunk(
     "service/postservice",
     async (formData) => {
-        try {          
+        try {                       
             const config = {
                 headers: {
                     "Content-Type": "multipart/form-data",
@@ -80,13 +80,10 @@ export const GetOneService = createAsyncThunk(
             }
       
             const response = await BaseUrl.get(`/api/v1/service/${id}`,config);  
-                            console.log(response);
                                   
             return response; 
         } catch (error) {
-            console.log(error);
 
-            console.log(error.response.data);
             return error.response; 
             
         }
@@ -98,7 +95,13 @@ export const GetOneService = createAsyncThunk(
 
 export const UpdateOneService = createAsyncThunk(
     "services/updateservice",
-    async (id,formdata) => {
+    async (id,name,description,selectedFile) => {
+        
+        console.log(name);
+        console.log(description);
+        console.log(selectedFile);
+
+        
         try {   
             console.log(id);
                    
@@ -109,7 +112,7 @@ export const UpdateOneService = createAsyncThunk(
                 }
             }
       
-            const response = await BaseUrl.put(`/api/v1/service/${id}`,formdata,config);  
+            const response = await BaseUrl.put(`/api/v1/service/${id}`,name,config);  
                             console.log(response);
                                   
             return response; 

@@ -1,6 +1,6 @@
 import  { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux'
-import { DeleteEmployee, GetAllTeam,PostEmployee } from '../Store/Requests/TeamRequests';
+import { DeleteEmployee, GetAllTeam,GetOneEmployee,PostEmployee } from '../Store/Requests/TeamRequests';
 import toast from 'react-hot-toast';
 import upload from '../images/public/upload.webp'
 
@@ -129,9 +129,6 @@ export const UseDeleteOneEmployee = () => {
     }
 
 
-
-   
-
 useEffect(() => {
     if (DeleteLoading === false) {
       
@@ -148,3 +145,37 @@ useEffect(() => {
 
     return [response,SubmitDelete,show,setshow,handleClose,handleShow]
 };
+
+//get one employee hook
+export const UseGetOneEmployee = (id) => {
+
+    const [employee,setemployee]=useState([]);
+    const dispatch = useDispatch();
+
+    useEffect(() => {
+        dispatch(GetOneEmployee(id));
+    }, [])
+
+    //get data from store
+    const response = useSelector(state => state.TeamSlice.getOneEmployee)
+    const Loading = useSelector(state => state.TeamSlice.GstOneLoading)
+   
+    
+useEffect(() => {
+    if (Loading === false) {
+      
+        if (response.status === 200) {
+                  
+               setemployee(response.data.data)
+                
+        }
+        else{
+            setemployee([])
+        }
+        
+    }
+}, [Loading])
+
+    return [employee]
+};
+

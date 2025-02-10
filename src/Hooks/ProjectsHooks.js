@@ -4,7 +4,7 @@ import toast from 'react-hot-toast';
 
 
 import upload from '../images/public/upload.webp'
-import { DeleteProject, GetAllProjects, GetOneProject, PostProject } from '../Store/Requests/ProjectsRequests';
+import { DeleteProject, GetAllProjects, GetOneProject, PostProject, UpdateOneProject } from '../Store/Requests/ProjectsRequests';
 
 //get all projects hook
  export const UseGetAllProjects = () => {
@@ -153,7 +153,7 @@ useEffect(() => {
 //get one project hook
 export const UseGetOneProject = (id) => {
 
-    const [Service,setService]=useState([]);
+    const [project,setproject]=useState([]);
     const dispatch = useDispatch();
 
     useEffect(() => {
@@ -170,14 +170,114 @@ useEffect(() => {
       
         if (response.status === 200) {
                   
-               setService(response.data.data) 
+            setproject(response.data.data) 
         }
         else{
-            setService([])
+            setproject([])
         }
         
     }
 }, [Loading])
 
-    return [Service]
+    return [project]
+};
+
+////update project
+export const UseUpdateProject = (id) => {
+    
+    const dispatch = useDispatch();
+
+    //service  variabels
+    const [img, setImg] = useState(upload)
+    const [name, setName] = useState('')
+    const [selectedFile, setSelectedFile] = useState(null)
+    const [description, setDescription] = useState('')
+    
+    useEffect(() => {
+        const run = async () => {
+            await dispatch(GetOneProject(id))
+        }
+        run();
+    }, [])
+
+    const project = useSelector(state => state.ProjectsSlice.getoneproject)
+
+    useEffect(()=>{
+        if(project.data){            
+            setImg(project.data.data.imageCover)
+            setName(project.data.data.name)    
+            console.log(name);
+                    
+            setDescription(project.data.data.description)
+        }
+    },[project])
+    
+    //when image change save it 
+    const onImageChange = (event) => {
+        if (event.target.files && event.target.files[0]) {
+            setImg(URL.createObjectURL(event.target.files[0]))
+            setSelectedFile(event.target.files[0])
+        }
+    }
+
+    //to change name state
+    const onChangeName = (event) => {
+        event.persist();
+        setName(event.target.value)
+    }
+    //to change description state
+    const onChangeDecription = (event) => {
+        event.persist();
+        setDescription(event.target.value)
+    }
+    //to change file state
+    const onChangeImage = (event) => {
+        event.persist();
+        onImageChange(event)
+    }
+
+    //get data from store
+    const response = useSelector(state => state.ServicesSlice.update)
+    const Loading = useSelector(state => state.ServicesSlice.UpdateLoading)
+
+     //save data in database
+     const handelupdate = async (event) => {
+        event.preventDefault();
+        if (name === "" || selectedFile === null || description==="") {
+            toast.error('pleas complete data')  
+            return;         
+        }
+      
+
+
+        console.log(name);
+        console.log(description);
+        console.log(selectedFile);
+
+        
+        
+        await dispatch(UpdateOneProject(id,name,description,selectedFile))
+        
+
+    }
+
+    useEffect(() => {
+        if (Loading === false) {
+           
+            console.log(response);
+            
+
+            if (response.status === 200) {
+                toast.success('service updated successfully') 
+                window.location.reload(false); 
+                console.log('suc');
+                        
+
+            }
+            
+        }
+    }, [Loading])
+   
+
+    return [img,name,onChangeName,onChangeImage,setImg,description,onChangeDecription,onImageChange,handelupdate,response, Loading]
 };

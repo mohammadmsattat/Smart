@@ -80,7 +80,8 @@ export const GetOneEmployee = createAsyncThunk(
                     Authorization: `Bearer ${sessionStorage.getItem("token")}`
                 }
             }
-      
+            
+            
             const response = await BaseUrl.get(`/api/v1/team/${id}`,config);  
                                   
             return response; 

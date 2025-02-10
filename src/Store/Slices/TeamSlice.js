@@ -59,7 +59,7 @@ const TeamSlice = createSlice({
       })
       .addCase(GetOneEmployee.fulfilled, (state, action) => {
         state.getOneEmployee = action.payload;
-        state.GetAllLoading = false;
+        state.GstOneLoading = false;
 
       })
       .addCase(GetOneEmployee.rejected, (state) => {

@@ -71,7 +71,8 @@ export const GetOnePartner = createAsyncThunk(
     "partner/getonepartner",
     async (id) => {
         try {   
-                   
+                 
+            
             const config = {
                 headers: {
                     Authorization: `Bearer ${sessionStorage.getItem("token")}`
@@ -82,6 +83,7 @@ export const GetOnePartner = createAsyncThunk(
                                   
             return response; 
         } catch (error) {
+            
 
             return error.response; 
             

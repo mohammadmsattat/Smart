@@ -44,7 +44,7 @@ useEffect(() => {
 };
 
 
-//////////////////////post service////////////////////
+//////////////////////post service/////////
 export const UsePostService = () => {
 
     const dispatch = useDispatch();
@@ -54,9 +54,6 @@ export const UsePostService = () => {
     const [name, setName] = useState('')
     const [selectedFile, setSelectedFile] = useState(null)
     const [description, setDescription] = useState('')
-
-    
-
 
     //when image change save it 
     const onImageChange = (event) => {
@@ -78,30 +75,23 @@ export const UsePostService = () => {
             return;         
         }
       
-
         await dispatch(PostService({
             name:name,
             imageCover:selectedFile,
             description:description,
         }))
-        
-
     }
 
     useEffect(() => {
         if (PostLoading === false) {
             setImg(upload)
             setName("")
-            setSelectedFile(null)
-            console.log(response);
-            
+            setSelectedFile(null)            
 
             if (response.status === 201) {
-                toast.success('project added successfully') 
+                toast.success('Service added successfully') 
                 window.location.reload(false);         
-
-            }
-            
+            }   
         }
     }, [PostLoading])
    
@@ -135,10 +125,6 @@ export const UseDeleteOneSrevice = () => {
          setshow("none");
 
     }
-
-
-
-   
 
 useEffect(() => {
     if (DeleteLoading === false) {
@@ -190,3 +176,102 @@ useEffect(() => {
     return [Service]
 };
 
+////update service/////////
+export const UseUpdateService = (id) => {
+    
+    const dispatch = useDispatch();
+
+    //service  variabels
+    const [img, setImg] = useState(upload)
+    const [name, setName] = useState('')
+    const [selectedFile, setSelectedFile] = useState(null)
+    const [description, setDescription] = useState('')
+    
+    useEffect(() => {
+        const run = async () => {
+            await dispatch(GetOneService(id))
+        }
+        run();
+    }, [])
+
+    const OneService = useSelector(state => state.ServicesSlice.getOneService)
+
+    useEffect(()=>{
+        if(OneService.data){            
+            setImg(OneService.data.data.imageCover)
+            setName(OneService.data.data.name)    
+            console.log(name);
+                    
+            setDescription(OneService.data.data.description)
+        }
+    },[OneService])
+    
+    //when image change save it 
+    const onImageChange = (event) => {
+        if (event.target.files && event.target.files[0]) {
+            setImg(URL.createObjectURL(event.target.files[0]))
+            setSelectedFile(event.target.files[0])
+        }
+    }
+
+    //to change name state
+    const onChangeName = (event) => {
+        event.persist();
+        setName(event.target.value)
+    }
+    //to change description state
+    const onChangeDecription = (event) => {
+        event.persist();
+        setDescription(event.target.value)
+    }
+    //to change file state
+    const onChangeImage = (event) => {
+        event.persist();
+        onImageChange(event)
+    }
+
+    //get data from store
+    const response = useSelector(state => state.ServicesSlice.update)
+    const Loading = useSelector(state => state.ServicesSlice.UpdateLoading)
+
+     //save data in database
+     const handelupdate = async (event) => {
+        event.preventDefault();
+        if (name === "" || selectedFile === null || description==="") {
+            toast.error('pleas complete data')  
+            return;         
+        }
+      
+
+
+        console.log(name);
+        console.log(description);
+        console.log(selectedFile);
+
+        
+        
+        await dispatch(UpdateOneService(id,name,description,selectedFile))
+        
+
+    }
+
+    useEffect(() => {
+        if (Loading === false) {
+           
+            console.log(response);
+            
+
+            if (response.status === 200) {
+                toast.success('service updated successfully') 
+                window.location.reload(false); 
+                console.log('suc');
+                        
+
+            }
+            
+        }
+    }, [Loading])
+   
+
+    return [img,name,onChangeName,onChangeImage,setImg,description,onChangeDecription,onImageChange,handelupdate,response, Loading]
+};

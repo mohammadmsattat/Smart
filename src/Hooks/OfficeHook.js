@@ -4,7 +4,7 @@ import toast from 'react-hot-toast';
 
 
 import upload from '../images/public/upload.webp'
-import { DeleteOffice, GetAllOffices,PostOffice } from '../Store/Requests/OfficeRequests';
+import { DeleteOffice, GetAllOffices,GetOneOffice,PostOffice } from '../Store/Requests/OfficeRequests';
 
 
 //get all offices hook
@@ -149,4 +149,36 @@ useEffect(() => {
 }, [DeleteLoading])
 
     return [response,SubmitDelete,show,setshow,handleClose,handleShow]
+};
+
+//get one  office
+export const UseGetOneOffice = (id) => {
+
+    const [office,setOffice]=useState([]);
+    const dispatch = useDispatch();
+
+    useEffect(() => {
+        dispatch(GetOneOffice(id));
+    }, [])
+
+    //get data from store
+    const response = useSelector(state => state.OfficeSlice.getOne)
+    const Loading = useSelector(state => state.OfficeSlice.GetOneLoading)
+   
+
+useEffect(() => {
+    if (Loading === false) {
+      
+        if (response.status === 200) {
+                  
+            setOffice(response.data.data) 
+        }
+        else{
+            setOffice([])
+        }
+        
+    }
+}, [Loading])
+
+    return [office]
 };

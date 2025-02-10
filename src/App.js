@@ -33,6 +33,12 @@ import AdminManegmentProjectPage from './pages/Admin/ManegmentProjects';
 import  AdminmanegmentEmployeePage from './pages/Admin/AdminmanegmentEmployee'
 import AdminManegmentPartnersPage from './pages/Admin/AdminmanegmentPartners';
 import AdminManegmentOfficePage from './pages/Admin/AdminmanegmentOffice';
+import AdminEditProjectPage from './pages/Admin/AdminEditProject';
+import AdminEditServicePage from './pages/Admin/AdminEditService';
+import AdminEditEmployeePage from './pages/Admin/AdminEditEmployee';
+import AdminEditPartnerPage from './pages/Admin/AdminEditPartner';
+import AdminEditOfficePage from './pages/Admin/AdminEditOffice';
+
 
 
 const App = () => {
@@ -65,6 +71,11 @@ const App = () => {
 				<Route path={ "/admin/manegment-employee"} element={<AdminmanegmentEmployeePage />}/>
 				<Route path={ "/admin/manegment-partner"} element={<AdminManegmentPartnersPage />}/>
 				<Route path={ "/admin/manegment-office"} element={<AdminManegmentOfficePage />}/>
+				<Route path={ "/admin/edit-project/:id"} element={<AdminEditProjectPage />}/>
+				<Route path={ "/admin/edit-service/:id"} element={<AdminEditServicePage />}/>
+				<Route path={ "/admin/edit-employee/:id"} element={<AdminEditEmployeePage />}/>
+				<Route path={ "/admin/edit-partner/:id"} element={<AdminEditPartnerPage />}/>
+				<Route path={ "/admin/edit-office/:id"} element={<AdminEditOfficePage />}/>
 				<Route path={ "/admin/addproject"} element={<AdminAddProjectPage />}/>
 				<Route path={ "/admin/addpartner"} element={<AdminAddPartnerPage />}/>
 				<Route path={ "/admin/addemployee"} element={<AdminAddEmplyeePage />}/>

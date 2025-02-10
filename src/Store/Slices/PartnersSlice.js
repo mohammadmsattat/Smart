@@ -56,7 +56,7 @@ const PartnerSlice = createSlice({
               state.GetOneLoading = true;
             })
             .addCase(GetOnePartner.fulfilled, (state, action) => {
-              state.GetOnePartner = action.payload;
+              state.getOne = action.payload;
               state.GetOneLoading = false;
       
             })
