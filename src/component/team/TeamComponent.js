@@ -1,10 +1,10 @@
 import React from 'react';
-import { UseGetAllTeam } from '../../Hooks/TeamHooks';
+import { UseGetAllEmployees } from '../../Hooks/Employees-Hooks/UseGetAllEmployees';
 
 
 const TeamComponent = () => {
 
-    const [team] =UseGetAllTeam();
+    const [team] =UseGetAllEmployees();
     
 
 

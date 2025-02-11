@@ -1,128 +1,107 @@
-import { createAsyncThunk } from '@reduxjs/toolkit';
-import BaseUrl from '../BaseUrl'
-
-
+import { createAsyncThunk } from "@reduxjs/toolkit";
+import BaseUrl from "../BaseUrl";
 
 //get all projects request
 export const GetAllProjects = createAsyncThunk(
-    "Projects/getAllProjects",
-    async () => {
-        try {
-      
-            const response = await BaseUrl.get("/api/v1/project");  
-                                  
-            return response; 
-        } catch (error) {
-            return error.response; 
-            
-        }
-    }
-);
+  "Projects/getAllProjects",
+  async () => {
+    try {
+      const response = await BaseUrl.get("/api/v1/project");
 
+      return response;
+    } catch (error) {
+      return error.response;
+    }
+  }
+);
 
 //post project request
 export const PostProject = createAsyncThunk(
-    "postProjects/postproject",
-    async (formData) => {
-        try {          
-            const config = {
-                headers: {
-                    "Content-Type": "multipart/form-data",
-                    Authorization: `Bearer ${sessionStorage.getItem("token")}`
-                }
-            }
-      
-            const response = await BaseUrl.post("/api/v1/project",formData,config);  
-                                  
-            return response; 
-        } catch (error) {
+  "postProjects/postproject",
+  async (formData) => {
+    try {
+      const config = {
+        headers: {
+          "Content-Type": "multipart/form-data",
+          Authorization: `Bearer ${sessionStorage.getItem("token")}`,
+        },
+      };
 
-            console.log(error.response.data);
-            return error.response; 
-            
-        }
+      const response = await BaseUrl.post("/api/v1/project", formData, config);
+
+      return response;
+    } catch (error) {
+      console.log(error.response.data);
+      return error.response;
     }
+  }
 );
-
 
 //Delete project request
 export const DeleteProject = createAsyncThunk(
-    "project/deleteproject",
-    async (id) => {
-        try {   
-            const config = {
-                headers: {
-                    Authorization: `Bearer ${sessionStorage.getItem("token")}`
-                }
-            }
-      
-            const response = await BaseUrl.delete(`/api/v1/project/${id}`,config);  
-                                  
-            return response; 
-        } catch (error) {
+  "project/deleteproject",
+  async (id) => {
+    try {
+      const config = {
+        headers: {
+          Authorization: `Bearer ${sessionStorage.getItem("token")}`,
+        },
+      };
 
-            return error.response; 
-            
-        }
+      const response = await BaseUrl.delete(`/api/v1/project/${id}`, config);
+
+      return response;
+    } catch (error) {
+      return error.response;
     }
+  }
 );
-
 
 ///////////////get one  project request
 export const GetOneProject = createAsyncThunk(
-    "project/getoneproject",
-    async (id) => {
-        try {   
-                   
-            const config = {
-                headers: {
-                    Authorization: `Bearer ${sessionStorage.getItem("token")}`
-                }
-            }
-      
-            const response = await BaseUrl.get(`/api/v1/project/${id}`,config);  
-                                  
-            return response; 
-        } catch (error) {
+  "project/getoneproject",
+  async (id) => {
+    try {
+      const config = {
+        headers: {
+          Authorization: `Bearer ${sessionStorage.getItem("token")}`,
+        },
+      };
 
-            return error.response; 
-            
-        }
+      const response = await BaseUrl.get(`/api/v1/project/${id}`, config);
+
+      return response;
+    } catch (error) {
+      return error.response;
     }
+  }
 );
 
-
-////////////////update  project request//////
-
+///update  project request
 export const UpdateOneProject = createAsyncThunk(
-    "project/updateproject",
-    async (id,name,des,img) => {
-        try {   
-            console.log(name);
-            console.log(des);
-            console.log(img);
-            
-            
-            
-            console.log(id);
-                   
-            const config = {
-                headers: {
-                    "Content-Type": "multipart/form-data",
-                    Authorization: `Bearer ${sessionStorage.getItem("token")}`
-                }
-            }
-      
-            const response = await BaseUrl.put(`/api/v1/project/${id}`,name,config);  
-                            console.log(response);
-                                  
-            return response; 
-        } catch (error) {
-            console.log(error);
+  "project/updateproject",
+  async ({ id, formData }, { rejectWithValue }) => {
+    try {
+      const config = {
+        headers: {
+          Authorization: ` Bearer ${sessionStorage.getItem("token")}`,
+        },
+      };
 
-            console.log(error.response.data);
-            return error.response; 
-            
-        }
+      const response = await BaseUrl.put(
+        `/api/v1/project/${id}`,
+        formData,
+        config
+      );
+      return response;
+    } catch (error) {
+      if (error.response) {
+        return rejectWithValue(error.response.data);
+      } else {
+        return rejectWithValue({
+          message: "An error occurred while updating the project.",
+        });
+      }
     }
+  }
 );

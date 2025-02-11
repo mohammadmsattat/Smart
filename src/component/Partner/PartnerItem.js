@@ -1,5 +1,5 @@
 import React from 'react';
-import { UseGetAllPartners } from '../../Hooks/PartenrHook';
+import { UseGetAllPartners } from '../../Hooks/Partners-Hooks/UseGetPartners';
 
 const Data = [
     {

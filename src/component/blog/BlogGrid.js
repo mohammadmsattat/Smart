@@ -99,7 +99,7 @@ const BlogGrid = () => {
                         }  
                     </div>
                     <p>{data.excerpt}</p>
-                    <Link className="axil-btn btn-borderd btn-large" to={process.env.PUBLIC_URL + `/blog-details/${data.id}`}>Read More</Link>
+                    <Link className="axil-btn btn-borderd btn-large" to={ `/blog-details`}>Read More</Link>
                 </div>
             ))}
 
