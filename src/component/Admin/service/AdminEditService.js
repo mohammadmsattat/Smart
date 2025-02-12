@@ -18,7 +18,7 @@ const AdminEditService = () => {
 
   
   return (
-    <div>
+    <div className="Add-page">
       <Row>
         <div className="admin-content-text pb-4">Edit Service </div>
         <Col sm="8">

@@ -27,7 +27,7 @@ const AdminManegmentOffices = () => {
 
       <h3>Manegment Office</h3>
 
-      <Link to="/admin/addoffice" style={{ textDecoration: "none" }}>
+      <Link to="/admin/add-office" style={{ textDecoration: "none" }}>
         <div>
           <button className="add-btn-2">Add Office</button>
         </div>
@@ -40,7 +40,9 @@ const AdminManegmentOffices = () => {
                 <Card key={index} style={{ width: "18rem", margin: ".4em" }}>
                   <Card.Img variant="top" src={item.imageCover} />
                   <Card.Body>
-                    <Card.Title>{item.location}</Card.Title>
+                    <Card.Title className="card-head">
+                      {item.location}
+                    </Card.Title>
                     <Card.Text>{trimString(item.description)}</Card.Text>
                     <div className="manage-btn">
                       <Button

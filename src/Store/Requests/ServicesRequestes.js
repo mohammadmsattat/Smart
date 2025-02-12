@@ -85,7 +85,7 @@ export const UpdateService = createAsyncThunk(
     try {
       const config = {
         headers: {
-        "Content-Type": "multipart/form-data",
+          "Content-Type": "multipart/form-data",
           Authorization: ` Bearer ${sessionStorage.getItem("token")}`,
         },
       };

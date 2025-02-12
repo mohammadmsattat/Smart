@@ -8,7 +8,7 @@ const AdminAddProject = () => {
     UsePostProject();
 
   return (
-    <div>
+    <div className="Add-page">
       <Row>
         <div className="admin-content-text pb-4">Add new Project </div>
         <Col sm="8">
@@ -56,7 +56,7 @@ const AdminAddProject = () => {
 
             <div className="check-comming-soon">
               <input id="comming-soon" type="checkbox" />
-              <label for="comming-soon">Comming soon</label>
+              <label className="form-label" for="comming-soon">Comming soon</label>
             </div>
           </div>
         </Col>

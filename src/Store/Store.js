@@ -5,6 +5,8 @@ import TeamSlice from './Slices/TeamSlice'
 import LogInSlice from './Slices/LogInSlice'
 import PartnerSlice from './Slices/PartnersSlice'
 import OfficeSlice from './Slices/OfficeSlice'
+import OurInformationSlice from './Slices/OurInformationSlice'
+import ContactSlice from './Slices/ContactUsSlice'
 
 const Store=configureStore({
     reducer:{
@@ -14,6 +16,8 @@ const Store=configureStore({
         LogInSlice:LogInSlice,
         PartnerSlice:PartnerSlice,
         OfficeSlice:OfficeSlice,
+        OurInformation:OurInformationSlice,
+        ContactSlice:ContactSlice,
     }
     ,devTools:true
 });

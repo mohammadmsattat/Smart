@@ -18,7 +18,7 @@ const AdminEditProject = () => {
   } = UseUpdateProject(id);
 
   return (
-    <div>
+    <div className="Add-page">
       <Row>
         <div className="admin-content-text pb-4">Edit Project </div>
         <Col sm="8">

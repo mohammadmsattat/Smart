@@ -9,7 +9,7 @@ export const UseUpdateEmployee = (id) => {
 
   const dispatch = useDispatch();
 
-  //service  variabels
+  //  variabels
   const [img, setImg] = useState(null);
   const [name, setName] = useState("");
   const [selectedFile, setSelectedFile] = useState(null);

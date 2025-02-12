@@ -1,15 +1,22 @@
 import React from "react";
 import { Col, Row } from "react-bootstrap";
 import { Toaster } from "react-hot-toast";
-import { UseGetOneOffice } from "../../../Hooks/office-Hooks/UseGetOneOffice";
 import { useParams } from "react-router-dom";
+import { UseUpdateOffice } from "../../../Hooks/office-Hooks/UseUpdateOffice";
 
 const AdminEditOffice = () => {
   const { id } = useParams();
-  const [office] = UseGetOneOffice(id);
-
+const {
+  img,
+  location,
+  onChangeLocation,
+  onChangeImage,
+  Address,
+  onChangeAddress,
+  handelupdate,
+}=UseUpdateOffice(id);
   return (
-    <div>
+    <div className="Add-page">
       <Row className=" ">
         <div className="admin-content-text pb-4">Edit Office Details </div>
         <Col sm="8">
@@ -17,7 +24,8 @@ const AdminEditOffice = () => {
           <div>
             <label for="upload-photo">
               <img
-                src={office.imageCover}
+                src={img}
+                
                 alt="fzx"
                 height="100px"
                 width="120px"
@@ -29,6 +37,7 @@ const AdminEditOffice = () => {
               type="file"
               name="photo"
               id="upload-photo"
+              onChange={onChangeImage}
             />
           </div>
           <div className="form-input-text">
@@ -38,7 +47,8 @@ const AdminEditOffice = () => {
             <input
               id="name"
               type="text"
-              value={office.location}
+              value={location}
+              onChange={onChangeLocation}
               className="input-form d-block mt-3 px-3"
               placeholder=" Enter name..."
             />
@@ -51,14 +61,15 @@ const AdminEditOffice = () => {
               placeholder=" Enter description..."
               rows="5"
               cols="33"
-              value={office.description}
+              value={Address}
+              onChange={onChangeAddress}
             />
           </div>
         </Col>
       </Row>
       <Row>
         <Col sm="8" className="d-flex justify-content-start add-btn">
-          <button className="btn-save d-inline mt-2 "> Update</button>
+          <button onClick={handelupdate} className="btn-save d-inline mt-2 "> Update</button>
         </Col>
       </Row>
 

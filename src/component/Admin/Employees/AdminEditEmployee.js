@@ -11,16 +11,12 @@ const {
   name,
   onChangeName,
   onChangeImage,
-  setImg,
   job,
   onChangejob,
-  onImageChange,
   handelupdate,
-  response,
-  Loading,
 }=UseUpdateEmployee(id);
   return (
-    <div>
+    <div className="Add-page">
       <Row className=" ">
         <div className="admin-content-text pb-4">Edit Employee Data </div>
         <Col sm="8">

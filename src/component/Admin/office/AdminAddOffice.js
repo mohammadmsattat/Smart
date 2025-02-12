@@ -8,7 +8,7 @@ const AdminAddOffice = () => {
     UsePostOffice();
 
   return (
-    <div>
+    <div className="Add-page">
       <Row className=" ">
         <div className="admin-content-text pb-4">Add new Office </div>
         <Col sm="8">

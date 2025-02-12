@@ -73,9 +73,10 @@ export const UseUpdateProject = (id) => {
     const formData = {
       name: name,
       description: description,
+      imageCover:selectedFile,
     };
-    // Log FormData contents
-
+    console.log(selectedFile);
+    
     // Dispatch the thunk
     await dispatch(UpdateOneProject({ id, formData }));
   };
@@ -86,7 +87,7 @@ export const UseUpdateProject = (id) => {
 
       if (response.status === 200) {
           toast.success("service updated successfully");
-        navigate("/admin/manegment-service");
+        navigate("/admin/manegment-project");
         window.location.reload(false);
       }
     }

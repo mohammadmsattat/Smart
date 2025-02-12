@@ -28,7 +28,7 @@ const AdminManegmentProjects = () => {
 
       <h3>Manegment Projects</h3>
 
-      <Link to="/admin/addproject" style={{ textDecoration: "none" }}>
+      <Link to="/admin/add-project" style={{ textDecoration: "none" }}>
         <div>
           <button className="add-btn-2">Add project</button>
         </div>
@@ -44,7 +44,6 @@ const AdminManegmentProjects = () => {
                   <Card.Title>
                     <Link
                       to={`/project/${item._id}`}
-                      style={{ color: "black" }}
                     >
                       {item.name}
                     </Link>

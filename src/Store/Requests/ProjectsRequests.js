@@ -95,6 +95,8 @@ export const UpdateOneProject = createAsyncThunk(
       );
       return response;
     } catch (error) {
+      console.log(error);
+
       if (error.response) {
         return rejectWithValue(error.response.data);
       } else {

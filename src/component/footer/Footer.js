@@ -8,9 +8,15 @@ import {
 } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
 import { UseGetAllServices } from "../../Hooks/service-Hooks/UseGetAllServices";
+import { UseGetinformation } from "../../Hooks/OurInformation-Hooks/UseGetinformation";
+import { UseSendEmailFooter } from "../../Hooks/Contact-Hooks/UseSendEmailFooter";
+import { Toaster } from "react-hot-toast";
 
 const Footer = ({ parentClass }) => {
   const [Services] = UseGetAllServices();
+  const { social } = UseGetinformation();
+
+  const { handelSend, setEmail } = UseSendEmailFooter();
 
   return (
     <footer className={`footer-area ${parentClass}`}>
@@ -19,22 +25,22 @@ const Footer = ({ parentClass }) => {
           <div className="footer-social-link">
             <ul className="list-unstyled">
               <li>
-                <Link to="https://facebook.com/">
+                <Link to={social.facebook}>
                   <FaFacebookF />
                 </Link>
               </li>
               <li>
-                <Link to="https://twitter.com/">
+                <Link to={social.x}>
                   <FaXTwitter />
                 </Link>
               </li>
               <li>
-                <Link to="https://www.linkedin.com/">
+                <Link to={social.linkedin}>
                   <FaLinkedin />
                 </Link>
               </li>
               <li>
-                <Link to="https://www.instagram.com/">
+                <Link to={social.insta}>
                   <FaInstagram />
                 </Link>
               </li>
@@ -54,14 +60,19 @@ const Footer = ({ parentClass }) => {
                   <form>
                     <div className="input-group">
                       <span className="mail-icon">
-                        <FaEnvelopeOpen />{" "}
+                        <FaEnvelopeOpen />
                       </span>
                       <input
+                        onChange={(event) => setEmail(event.target.value)}
                         type="email"
                         className="form-control"
                         placeholder="Email address"
                       />
-                      <button className="subscribe-btn" type="submit">
+                      <button
+                        onClick={handelSend}
+                        className="subscribe-btn"
+                        type="submit"
+                      >
                         Subscribe
                       </button>
                     </div>
@@ -130,12 +141,12 @@ const Footer = ({ parentClass }) => {
               <div className="footer-bottom-link">
                 <ul className="list-unstyled">
                   <li>
-                    <Link to={process.env.PUBLIC_URL + "/privacy-policy"}>
+                    <Link to={ "/privacy-policy"}>
                       Privacy Policy
                     </Link>
                   </li>
                   <li>
-                    <Link to={process.env.PUBLIC_URL + "/terms-use"}>
+                    <Link to={ "/terms-use"}>
                       Terms of Use
                     </Link>
                   </li>
@@ -145,6 +156,7 @@ const Footer = ({ parentClass }) => {
           </div>
         </div>
       </div>
+      <Toaster position="top-center" reverseOrder={false} />
     </footer>
   );
 };

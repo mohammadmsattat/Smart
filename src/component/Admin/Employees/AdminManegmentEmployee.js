@@ -25,7 +25,7 @@ const AdminManegmentEmployee = () => {
         Delid={Delid}
       />
       <h3>Manegment Employees</h3>
-      <Link to="/admin/addemployee" style={{ textDecoration: "none" }}>
+      <Link to="/admin/add-employee" style={{ textDecoration: "none" }}>
         <div>
           <button className="add-btn-2">Add Empolyee</button>
         </div>
@@ -36,7 +36,7 @@ const AdminManegmentEmployee = () => {
             <Card key={index} style={{ width: "18rem", margin: ".4em" }}>
               <Card.Img variant="top" src={item.imageCover} />
               <Card.Body>
-                <Card.Title>{item.name}</Card.Title>
+                <Card.Title className="card-head">{item.name}</Card.Title>
                 <Card.Text>{item.job}</Card.Text>
                 <div className="manage-btn">
                   <Button

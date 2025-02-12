@@ -28,7 +28,7 @@ const AdminManegmentService = () => {
 
       <h3>Manegment Services</h3>
 
-      <Link to="/admin/addservice" style={{ textDecoration: "none" }}>
+      <Link to="/admin/add-service" style={{ textDecoration: "none" }}>
         <div>
           <button className="add-btn-2">Add Service</button>
         </div>
@@ -44,7 +44,7 @@ const AdminManegmentService = () => {
                   <Card.Title>
                     <Link
                       to={`/service/${item._id}`}
-                      style={{ color: "black" }}
+                     
                     >
                       {item.name}
                     </Link>

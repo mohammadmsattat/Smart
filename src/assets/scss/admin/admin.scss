@@ -8,155 +8,188 @@ $background-color_2: #272727;
 $background-color_3: #f9f9f9;
 $background-color_4: #fcfcfc;
 
-
 //side bar
 .sidebar {
-	height: 660px;
-	width: 100%;
-	border-radius: 10px;
-	background-color: $background-color_1;
+  height: 660px;
+  width: 100%;
+  border-radius: 10px;
+  background-color: $background-color_1;
 }
 .admin-side-text {
-	background-color: $background-color_4;
-	color: $color_1;
-	font-size: 15px;
-	font-weight: bold;
-	letter-spacing: 0;
-	line-height: 20px;
-	text-align: right;
-	width: 100%;
-	border-radius: 5px;
-	cursor: pointer;
-	&:hover {
-		background-color: $background-color_2;
-		color: $color_2;
-		font-size: 14px;
-	}
+  background-color: $background-color_4;
+  color: $color_1;
+  font-size: 15px;
+  font-weight: bold;
+  letter-spacing: 0;
+  line-height: 20px;
+  text-align: right;
+  width: 100%;
+  border-radius: 5px;
+  cursor: pointer;
+  &:hover {
+    background-color: $background-color_2;
+    color: $color_2;
+    font-size: 14px;
+  }
 }
 .admin-content-text {
-	color: $color_3;
-	font-size: 21px;
-	font-weight: 800;
-	letter-spacing: 0;
-	line-height: 28px;
-	text-align: right;
+  color: $color_3;
+  font-size: 21px;
+  font-weight: 800;
+  letter-spacing: 0;
+  line-height: 28px;
+  text-align: right;
 }
 
-.admin-page{
-    margin:0;
-	padding-top: 10%;
-	padding-left: 8%;
-	width: 100%;
-	position: relative;
-
+.admin-page {
+  margin: 0;
+  padding-top: 10%;
+  padding-left: 8%;
+  width: 100%;
+  position: relative;
+  .card {
+    .card-title {
+      a {
+        color: black;
+      }
+    }
+  }
 }
 
+.login-page {
+  margin: 0;
+  padding-top: 8%;
+  width: 100%;
+  position: relative;
+}
+.login-card {
+  border-radius: 1rem;
+  max-width: 400px;
+  background-color: #5e6bff;
+  h2 {
+    color: white;
+  }
+  label {
+    color: white;
+    margin-bottom: 0.4em;
+  }
+  input {
+    background-color: white;
+  }
+  button {
+    background-color: #5956e9;
+    color: white;
+    padding: 1em;
+    border-radius: 0.7em;
+    transform: none;
+    color: "white";
+    &:hover {
+      background-color: #625fff;
+    }
+  }
+}
 
 //Add partner
 .admin-content-text {
-	color: #555550;
-	font-size: 21px;
-	font-weight: 800;
-	letter-spacing: 0;
-	line-height: 28px;
-	text-align: left;
+  color: #555550;
+  font-size: 21px;
+  font-weight: 800;
+  letter-spacing: 0;
+  line-height: 28px;
+  text-align: left;
+}
+.text-form {
+  color: #979797;
+  font-size: 16px;
+  letter-spacing: 0;
+  line-height: 20px;
+  text-align: left;
+  margin-bottom: 0.9em;
+}
+.input-form {
+  height: 37px;
+  width: 100%;
+  border: 1px solid #979797;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+  &::placeholder {
+    color: rgb(161, 161, 161);
+    opacity: 1;
   }
-  .text-form {
-	color: #979797;
-	font-size: 16px;
-	letter-spacing: 0;
-	line-height: 20px;
-	text-align: left;
-	margin-bottom: 0.9em;
+  &:focus {
+    border-color: black;
+    border-width: 0.1em;
   }
-  .input-form {
-	height: 37px;
-	width: 100%;
-	border: 1px solid #979797;
-	border-radius: 8px;
-	background-color: #f9f9f9;
-	&::placeholder {
-		color: rgb(161, 161, 161);
-		opacity: 1;
-	  }
-	  &:focus {
-		border-color: black;
-		border-width: .1em;
-	  }
+}
+.input-form-textarea {
+  width: 100%;
+  border: 1px solid #979797;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+  &::placeholder {
+    color: rgb(161, 161, 161);
+    opacity: 1;
   }
-  .input-form-textarea {
-	width: 100%;
-	border: 1px solid #979797;
-	border-radius: 8px;
-	background-color: #f9f9f9;
-	&::placeholder {
-		color: rgb(161, 161, 161);
-		opacity: 1;
-	  }
-	  &:focus {
-		border-color: black;
-		border-width: .1em;
-	  }
+  &:focus {
+    border-color: black;
+    border-width: 0.1em;
   }
-  .add-btn{
-	margin-top: 1em;
+}
+.add-btn {
+  margin-top: 1em;
+}
+.add-btn-2 {
+  margin-bottom: 0.9em;
+  padding: 0.7em;
+  border-radius: 0.4em;
+  border-width: 0;
+  color: white;
+  width: 100%;
+  background-color: #3788ff;
+  &:hover {
+    background-color: rgb(2, 38, 198);
   }
-  .add-btn-2{
-	margin-bottom: 0.9em;
-    padding: 0.7em;
-    border-radius: 0.4em;
-    border-width: 0;
-    color: white;
-    width: 100%;
-    background-color: #3788ff;
-	&:hover {
-		background-color: rgb(2, 38, 198);
-	  }
+}
+.manage-btn {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.manage-btn button {
+  width: 40%;
+  padding: 0.4em;
+}
+.add-btn button {
+  color: white;
+  background-color: #5956e9;
+  padding: 0.5em;
+  width: 8em;
+  border-radius: 0.4em;
+  font-size: 1.2em;
+  &:hover {
+    background-color: #6865ff;
+    color: $color_2;
+  }
+}
 
-  }
-  .manage-btn{
-	display: flex;
-	flex-direction: row;
-	justify-content: space-between;
-	
-  }
-  .manage-btn button{
-	width: 40%;
-    padding: 0.4em;
+//add emplyee
 
-  }
-  .add-btn button{
-	color: white;
-	background-color: #5956E9;
-	padding: .5em;
-	width: 8em;
-	border-radius: .4em;
-	font-size: 1.2em;
-	&:hover {
-		background-color: #6865FF;
-		color: $color_2;
-	}
-  }
+.form-input-text {
+  padding-top: 1.5em;
+}
+.form-label {
+  font-weight: 800;
+  padding-top: 0.9em;
+}
 
-
-  //add emplyee
-
-  .form-input-text{
-	padding-top: 1.5em;
-  }
-  .form-label{
-	font-weight: 800;
-	padding-top: 0.9em;
-  }
-
-  //add service
-  .check-comming-soon{
-	display: flex;
-	align-items: center;
-  }
-  .check-comming-soon label{
-	margin-left: 0.8em;
-  }
-  .check-comming-soon input{
-	width: 1.4em;
-  }
+//add service
+.check-comming-soon {
+  display: flex;
+  align-items: center;
+}
+.check-comming-soon label {
+  margin-left: 0.8em;
+}
+.check-comming-soon input {
+  width: 1.4em;
+}

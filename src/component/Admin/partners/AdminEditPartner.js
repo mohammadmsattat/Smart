@@ -2,14 +2,21 @@ import React from "react";
 import { Col, Row } from "react-bootstrap";
 import { Toaster } from "react-hot-toast";
 import { useParams } from "react-router-dom";
-import { UseGetOnePartner } from "../../../Hooks/Partners-Hooks/UseGetOnePartner";
+import { UseUpdatePartner } from "../../../Hooks/Partners-Hooks/UseUpdatePartner";
 
 const AdminEditPartner = () => {
   const { id } = useParams();
-  const [partner] = UseGetOnePartner(id);
+  const {
+    img,
+    setImg,
+    onImageChange,
+    handelupdate,
+    response,
+    Loading,
+  }=UseUpdatePartner(id);
 
   return (
-    <div>
+    <div className="Add-page">
       <Row className=" ">
         <div className="admin-content-text pb-4">Edit Partner Data</div>
         <Col sm="8">
@@ -17,14 +24,16 @@ const AdminEditPartner = () => {
           <div>
             <label for="upload-photo">
               <img
-                src={partner.logo}
+                src={img}
                 alt="fzx"
                 height="100px"
                 width="120px"
                 style={{ cursor: "pointer" }}
+
               />
             </label>
             <input
+              onChange={onImageChange}
               style={{ display: "none" }}
               type="file"
               name="photo"
@@ -35,7 +44,7 @@ const AdminEditPartner = () => {
       </Row>
       <Row>
         <Col sm="8" className="d-flex justify-content-start add-btn">
-          <button className="btn-save d-inline mt-2 "> Add</button>
+          <button onClick={handelupdate} className="btn-save d-inline mt-2 "> Update</button>
         </Col>
       </Row>
       <Toaster position="top-center" reverseOrder={false} />

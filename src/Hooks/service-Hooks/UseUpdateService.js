@@ -83,10 +83,7 @@ export const UseUpdateService = (id) => {
   useEffect(() => {
     if (Loading === false) {
       if (response.status === 200) {
-        setTimeout(() => {
-          toast.success("service updated successfully");
-        }, 2000);
-
+        toast.success("service updated successfully");
         navigate("/admin/manegment-service");
         window.location.reload(false);
       }

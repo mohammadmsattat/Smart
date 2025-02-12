@@ -27,7 +27,7 @@ const AdminManegmentPartners = () => {
 
       <h3>Manegment Partners</h3>
 
-      <Link to="/admin/addpartner" style={{ textDecoration: "none" }}>
+      <Link to="/admin/add-partner" style={{ textDecoration: "none" }}>
         <div>
           <button className="add-btn-2">Add partner</button>
         </div>
@@ -37,7 +37,7 @@ const AdminManegmentPartners = () => {
         {partner.map((item, index) => {
           return (
             <Card key={index} style={{ width: "18rem", margin: ".4em" }}>
-              <Card.Img variant="top" src={item.imageCover} />
+              <Card.Img variant="top" src={item.logo} />
               <Card.Body>
                 <div className="manage-btn">
                   <Button

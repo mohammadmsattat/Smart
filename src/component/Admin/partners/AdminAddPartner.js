@@ -7,7 +7,7 @@ const AdminAddPartner = () => {
   const { img, onImageChange, handelPost } = UsePostPartners();
 
   return (
-    <div>
+    <div className="Add-page">
       <Row className=" ">
         <div className="admin-content-text pb-4">Add new partner </div>
         <Col sm="8">

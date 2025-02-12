@@ -38,9 +38,9 @@ const HomePage = () => {
                     </div>
                 </div>
                 <ul className="list-unstyled shape-group-10">
-                    <li className="shape shape-1"><img src={process.env.PUBLIC_URL + "/images/others/line-9.png"} alt="Circle" /></li>
-                    <li className="shape shape-2"><img src={process.env.PUBLIC_URL + "/images/others/bubble-42.png"} alt="Circle" /></li>
-                    <li className="shape shape-3"><img src={process.env.PUBLIC_URL + "/images/others/bubble-43.png"} alt="Circle" /></li>
+                    <li className="shape shape-1"><img src={ "/images/others/line-9.png"} alt="Circle" /></li>
+                    <li className="shape shape-2"><img src={ "/images/others/bubble-42.png"} alt="Circle" /></li>
+                    <li className="shape shape-3"><img src={ "/images/others/bubble-43.png"} alt="Circle" /></li>
                 </ul>
             </div>
             <AboutUs />

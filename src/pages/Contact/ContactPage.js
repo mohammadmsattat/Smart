@@ -4,10 +4,13 @@ import DiscipWithBack from '../../component/descripSection/DiscipWithBack';
 import SectionTitle from '../../component/sectionTitle/SectionTitle';
 import FormTwo from '../../component/Contact/FormTwo';
 import ContactLocation from '../../component/Contact/ContactLocation';
+import { UseGetinformation } from '../../Hooks/OurInformation-Hooks/UseGetinformation';
 
 
 
 const ContactPage = () => {
+    const {info}=UseGetinformation();
+    
     return (
         <>
             <SEO title="Blog Grid" />
@@ -30,12 +33,12 @@ const ContactPage = () => {
                             <div className="contact-info mb--100 mb_md--30 mt_md--0 mt--150">
                                 <h4 className="title">Phone</h4>
                                 <p>Our customer care is open from Mon-Fri, 10:00 am to 6:00 pm</p>
-                                <h4 className="phone-number"><a href="tel:1234567890">(123) 456 7890</a></h4>
+                                <h4 className="phone-number"><a href="tel:1234567890">{info.phone}</a></h4>
                             </div>
                             <div className="contact-info mb--30">
                                 <h4 className="title">Email</h4>
                                 <p>Our support team will get back to in 48-h during standard business hours.</p>
-                                <h4 className="phone-number"><a href="mailto:info@example.com">info@example.com</a></h4>
+                                <h4 className="phone-number"><a href="mailto:info@example.com">{info.email}</a></h4>
                             </div>
                         </div>
                     </div>
