@@ -4,9 +4,9 @@ import BaseUrl from "../BaseUrl";
 //get all projects request
 export const GetAllProjects = createAsyncThunk(
   "Projects/getAllProjects",
-  async () => {
+  async (url) => {
     try {
-      const response = await BaseUrl.get("/api/v1/project");
+      const response = await BaseUrl.get(url);
 
       return response;
     } catch (error) {
@@ -82,6 +82,8 @@ export const UpdateOneProject = createAsyncThunk(
   "project/updateproject",
   async ({ id, formData }, { rejectWithValue }) => {
     try {
+    console.log(formData);
+    
       const config = {
         headers: {
           Authorization: ` Bearer ${sessionStorage.getItem("token")}`,

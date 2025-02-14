@@ -62,18 +62,22 @@ export const UseUpdateOffice = (id) => {
   const handelupdate = async (event) => {
     event.preventDefault();
 
-    if (location === "" || Address === "") {
+    if (Address === "" || location === "") {
       toast.error("Please complete all fields");
-      navigate("/admin/manegment-office");
       return;
     }
-
-    const formData = {
-      location: location,
-      description: Address,
-    };
-
-    // Dispatch the thunk
+  
+    // Create a FormData object
+    const formData = new FormData();
+    formData.append("name", Address);
+    formData.append("description", location);
+  
+    // If there's a file selected, append it
+    if (selectedFile) {
+      formData.append("imageCover", selectedFile);
+    }
+  
+    // Dispatch the thunk with the FormData
     await dispatch(UpdateOneOffice({ id, formData }));
   };
 

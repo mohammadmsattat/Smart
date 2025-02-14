@@ -48,6 +48,7 @@ import AdminEditBlogPage from "./pages/Admin/Blog/AdminEditBlogs";
 import ProtectedRoute from "./component/Protect-Route/ProtectRoute";
 
 const App = () => {
+
   return (
     <BrowserRouter>
       <ScrollToTop>
@@ -60,7 +61,7 @@ const App = () => {
           <Route path={"/blog"} element={<BlogPage />} />
           <Route path={"/contact"} element={<ContactPage />} />
           <Route path={"/service"} element={<ServicePage />} />
-          <Route path={"/Blog-details"} element={<BlogDetails />} />
+          <Route path={"/Blog-details/:id"} element={<BlogDetails />} />
 
           <Route path={"/service/:id"} element={<ServiceDetails />} />
           <Route path={"/project/:id"} element={<ProjectDetails />} />

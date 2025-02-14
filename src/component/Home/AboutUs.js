@@ -1,8 +1,11 @@
 import React from 'react';
 import FormOne from '../Contact/FormOne';
+import { useTranslation } from 'react-i18next';
 
 
 const AboutUs = () => {
+                const { t } = useTranslation();
+    
     return (
         <section className="section section-padding-equal bg-color-light">
             <div className="container">
@@ -10,10 +13,10 @@ const AboutUs = () => {
                     <div className="col-lg-6">
                         <div className="about-us">
                             <div className="section-heading heading-left mb-0">
-                                <span className="subtitle">About Us</span>
-                                <h2 className="title mb--40">We do design, code &amp; develop.</h2>
-                                <p>Nulla et velit gravida, facilisis quam a, molestie ante. Mauris placerat suscipit dui, eget maximus tellus blandit a. Praesent non tellus sed ligula commodo blandit in et mauris. Quisque efficitur ipsum ut dolor molestie pellentesque. </p>
-                                <p>Nulla pharetra hendrerit mi quis dapibus. Quisque luctus, tortor a venenatis fermentum, est lacus feugiat nisl, id pharetra odio enim eget libero. </p>
+                                <span className="subtitle">{t('Home:AboutUs.AboutUs')}</span>
+                                <h2 className="title mb--40">{t('Home:AboutUs.title')}</h2>
+                                <p>{t('Home:AboutUs.description1')} </p>
+                                <p> {t('Home:AboutUs.description2')}</p>
                             </div>
                         </div>
                     </div>

@@ -1,18 +1,16 @@
 import React from "react";
 import ProjectCard from "./ProjectCard";
 import SectionTitle from "../sectionTitle/SectionTitle";
-import ProjectData from "../../data/project/ProjectData.json";
-
 import { UseGetAllProjects } from "../../Hooks/project-Hooks/UseGetAllProjects";
 
 const filters = [
   {
     id: 1,
-    label: "All Works",
+    label: "backend",
   },
   {
     id: 2,
-    label: "Branding",
+    label: "design",
   },
   {
     id: 3,
@@ -22,6 +20,8 @@ const filters = [
 
 const OurProjects = ({ colSize, slice }) => {
   const [Projects] = UseGetAllProjects();
+  console.log(Projects);
+  
 
   let Data = [];
   if (slice) {

@@ -10,11 +10,19 @@ const AdminEditProject = () => {
   const {
     img,
     name,
+    commingSoon,
+    category,
     onChangeName,
     onChangeImage,
+    onchecked,
+    setcategory,
+    setImg,
     description,
     onChangeDecription,
+    onImageChange,
     handelupdate,
+    response,
+    Loading,
   } = UseUpdateProject(id);
 
   return (
@@ -53,6 +61,18 @@ const AdminEditProject = () => {
               className="input-form d-block mt-3 px-3"
               placeholder=" Enter name..."
             />
+             <label className="form-label" for="category">
+              category
+            </label>
+            <input
+              id="category"
+              value={category}
+
+              type="text"
+              onChange={(e) => setcategory(e.target.value)}
+              className="input-form d-block mt-3 px-3"
+              placeholder=" Enter category..."
+            />
             <label className="form-label" for="job">
               Description
             </label>
@@ -67,7 +87,11 @@ const AdminEditProject = () => {
             />
 
             <div className="check-comming-soon">
-              <input id="comming-soon" type="checkbox" />
+            {
+              commingSoon? <input onClick={onchecked} id="comming-soon" type="checkbox" checked/>:
+                          <input onClick={onchecked}  id="comming-soon" type="checkbox" />
+            }
+              
               <label for="comming-soon">Comming soon</label>
             </div>
           </div>

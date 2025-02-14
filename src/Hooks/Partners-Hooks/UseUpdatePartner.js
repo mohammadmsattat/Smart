@@ -21,12 +21,16 @@ export const UseUpdatePartner = (id) => {
   }, []);
 
   const partner = useSelector((state) => state.PartnerSlice.GetOnePartner);
+  //const lo = useSelector((state) => state.PartnerSlice.GetOnePartner);
+
   console.log(partner);
   
 
   useEffect(() => {
     if (partner.data) {
       setImg(partner.data.data.logo);
+      console.log(partner.data);
+      
     }
   }, [partner]);
 
@@ -53,11 +57,13 @@ export const UseUpdatePartner = (id) => {
       return;
     }
 
-    // Create FormData object
-    const formData = {
-      logo: selectedFile,
-    };
+    const formData = new FormData();
+
     // Log FormData contents
+     // If there's a file selected, append it
+     if (selectedFile) {
+      formData.append("imageCover", selectedFile);
+    }
 
     // Dispatch the thunk
     await dispatch(UpdatePartner({ id, formData }));
@@ -65,7 +71,6 @@ export const UseUpdatePartner = (id) => {
 
   useEffect(() => {
     if (Loading === false) {
-      console.log(response);
 
       if (response.status === 200) {
           toast.success("service updated successfully");

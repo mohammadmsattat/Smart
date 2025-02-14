@@ -116,10 +116,16 @@
     }
     .author {
         display: flex;
-        align-items: center;
-        .info {
-            flex: 1;
-            margin-left: 20px;
+        flex-direction: column;
+            .info {
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+
+                margin-top: 1em;
+                .data{
+                    margin-left: 1.5em;
+                }
         }
         .author-name {
             margin-bottom: 6px;
@@ -571,6 +577,7 @@
                 font-size: 16px;
             }
         }
+       
         .axil-btn {
             padding: 12px 25px;
             border-radius: 10px;

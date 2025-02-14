@@ -17,7 +17,6 @@ export const UseSendEmailForm = () => {
   //get data from store
   const response = useSelector((state) => state.ContactSlice.email);
   const Loading = useSelector((state) => state.ContactSlice.emailLoading);
-    console.log(name);
     
   //send method
   const handelSend = async (event) => {

@@ -6,7 +6,6 @@ export const ContactEmail = createAsyncThunk(
   async (formData) => {
     try {
       const response = await BaseUrl.post("/api/v1/contactUs", formData);
-      console.log(response);
 
       return response;
     } catch (error) {

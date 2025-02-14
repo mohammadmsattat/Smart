@@ -7,6 +7,7 @@ const AdminAddService = () => {
   const {
     img,
     setName,
+    onchecked,
     setDescription,
     onImageChange,
     handelPost,
@@ -60,8 +61,8 @@ const AdminAddService = () => {
             />
 
             <div className="check-comming-soon">
-              <input id="comming-soon" type="checkbox" />
-              <label for="comming-soon">Comming soon</label>
+            <input onClick={onchecked} id="comming-soon" type="checkbox" />
+            <label for="comming-soon">Comming soon</label>
             </div>
           </div>
         </Col>

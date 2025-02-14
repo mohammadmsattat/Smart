@@ -17,6 +17,10 @@ export const UseUpdateProject = (id) => {
   const [name, setName] = useState("");
   const [selectedFile, setSelectedFile] = useState(null);
   const [description, setDescription] = useState("");
+  const [commingSoon, setCommingSoon] = useState(false);
+  const [category, setcategory] = useState('');
+
+
 
   useEffect(() => {
     const run = async () => {
@@ -32,6 +36,8 @@ export const UseUpdateProject = (id) => {
       setImg(project.data.data.imageCover);
       setName(project.data.data.name);
       setDescription(project.data.data.description);
+      setCommingSoon(project.data.data.commingSoon);
+      setcategory(project.data.data.category);
     }
   }, [project]);
 
@@ -55,7 +61,18 @@ export const UseUpdateProject = (id) => {
   const onChangeImage = (event) => {
     onImageChange(event);
   };
+  console.log(selectedFile);
+  
 
+  //check box clicke
+  const onchecked=()=>{
+    if(commingSoon===false){
+      setCommingSoon(true)
+    }
+    else{
+      setCommingSoon(false)
+    }
+  }
   //get data from store
   const response = useSelector((state) => state.ProjectsSlice.updateProject);
   const Loading = useSelector((state) => state.ProjectsSlice.UpdateLoading);
@@ -64,21 +81,26 @@ export const UseUpdateProject = (id) => {
   const handelupdate = async (event) => {
     event.preventDefault();
 
-    if (name === "" || description === "") {
-      toast.error("Please complete all fields");
-      return;
-    }
+  if (name === "" || description === "") {
+    toast.error("Please complete all fields");
+    return;
+  }
 
-    // Create FormData object
-    const formData = {
-      name: name,
-      description: description,
-      imageCover:selectedFile,
-    };
-    console.log(selectedFile);
-    
-    // Dispatch the thunk
-    await dispatch(UpdateOneProject({ id, formData }));
+  // Create a FormData object
+  const formData = new FormData();
+  formData.append("name", name);
+  formData.append("description", description);
+  formData.append("category", category);
+  formData.append("commingSoon", commingSoon);
+
+  // If there's a file selected, append it
+  if (selectedFile) {
+    formData.append("imageCover", selectedFile);
+  }
+
+  // Dispatch the thunk with the FormData
+  await dispatch(UpdateOneProject({ id, formData }));
+
   };
 
   useEffect(() => {
@@ -96,8 +118,12 @@ export const UseUpdateProject = (id) => {
   return {
     img,
     name,
+    commingSoon,
+    category,
     onChangeName,
     onChangeImage,
+    setcategory,
+    onchecked,
     setImg,
     description,
     onChangeDecription,

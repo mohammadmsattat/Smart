@@ -1,0 +1,16 @@
+{
+  "title": "Welcome to react using ",
+  "description": {
+    "part1": "To get started, part1",
+    "part2": "Switch language between english and german using buttons above."
+  },
+  "header": {
+    "hmoe": "Home",
+    "service": "Service",
+    "porfolio": "Portfolio",
+    "adoutus": "AboutUs",
+    "blog": "Blog",
+    "contact": "Contact",
+    "team": "Team"
+  }
+}

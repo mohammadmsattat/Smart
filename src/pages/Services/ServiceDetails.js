@@ -9,6 +9,7 @@ import SectionTitle from "../../component/sectionTitle/SectionTitle";
 import ContactUsSectoin from "../../component/Contact/ContactUsSection";
 import AboutTwo from "../../component/AboutUs/AboutTwo";
 import { UseGetOneService } from "../../Hooks/service-Hooks/UseGetOneService";
+import ComingSoon from "../commingSoon/ComingSoon";
 
 const ServiceDetails = () => {
   const { id } = useParams();
@@ -19,7 +20,7 @@ const ServiceDetails = () => {
 
   return (
     <>
-      <main className="main-wrapper">
+      {service.commingSoon?<ComingSoon img={service.imageCover}/>:(<main className="main-wrapper">
         <DescripSection
           title={service.name}
           paragraph={service.description}
@@ -130,7 +131,7 @@ const ServiceDetails = () => {
         </div>
         <ContactUsSectoin />
       </main>
-    </>
+)}    </>
   );
 };
 

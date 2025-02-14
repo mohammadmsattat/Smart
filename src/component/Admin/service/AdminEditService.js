@@ -9,6 +9,8 @@ const AdminEditService = () => {
   const {
     img,
     name,
+    commingSoon,
+    onchecked,
     onChangeName,
     onChangeImage,
     description,
@@ -67,8 +69,11 @@ const AdminEditService = () => {
             />
 
             <div className="check-comming-soon">
-              <input id="comming-soon" type="checkbox" />
-              <label for="comming-soon">Comming soon</label>
+            {
+              commingSoon? <input onClick={onchecked} id="comming-soon" type="checkbox" checked/>:
+                          <input onClick={onchecked}  id="comming-soon" type="checkbox" />
+            }              
+            <label for="comming-soon">Comming soon</label>
             </div>
           </div>
         </Col>

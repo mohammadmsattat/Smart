@@ -7,6 +7,7 @@ import PartnerSlice from './Slices/PartnersSlice'
 import OfficeSlice from './Slices/OfficeSlice'
 import OurInformationSlice from './Slices/OurInformationSlice'
 import ContactSlice from './Slices/ContactUsSlice'
+import BlogsSlice from './Slices/BlogSlice'
 
 const Store=configureStore({
     reducer:{
@@ -18,6 +19,7 @@ const Store=configureStore({
         OfficeSlice:OfficeSlice,
         OurInformation:OurInformationSlice,
         ContactSlice:ContactSlice,
+        BlogsSlice:BlogsSlice,
     }
     ,devTools:true
 });

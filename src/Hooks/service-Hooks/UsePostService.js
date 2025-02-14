@@ -3,8 +3,11 @@ import { useDispatch, useSelector } from "react-redux";
 import { PostService } from "../../Store/Requests/ServicesRequestes";
 import upload from "../../images/public/upload.webp";
 import toast from "react-hot-toast";
+import { useNavigate } from "react-router-dom";
 
 export const UsePostService = () => {
+  const navigate = useNavigate();
+
   const dispatch = useDispatch();
 
   //form data variabels
@@ -12,6 +15,8 @@ export const UsePostService = () => {
   const [name, setName] = useState("");
   const [selectedFile, setSelectedFile] = useState(null);
   const [description, setDescription] = useState("");
+  const [commingSoon, setcommingSoon] = useState(false);
+
 
   //when image change save it
   const onImageChange = (event) => {
@@ -20,6 +25,16 @@ export const UsePostService = () => {
       setSelectedFile(event.target.files[0]);
     }
   };
+
+  //check box clicke
+  const onchecked=()=>{
+    if(commingSoon===false){
+      setcommingSoon(true)
+    }
+    else{
+      setcommingSoon(false)
+    }
+  }
 
   //get data from store
   const response = useSelector((state) => state.ServicesSlice.post);
@@ -38,6 +53,8 @@ export const UsePostService = () => {
         name: name,
         imageCover: selectedFile,
         description: description,
+        commingSoon: commingSoon,
+
       })
     );
   };
@@ -50,6 +67,8 @@ export const UsePostService = () => {
 
       if (response.status === 201) {
         toast.success("Service added successfully");
+        navigate("/admin/manegment-service");
+
         window.location.reload(false);
       }
     }
@@ -60,6 +79,7 @@ export const UsePostService = () => {
     setName,
     setSelectedFile,
     setImg,
+    onchecked,
     setDescription,
     onImageChange,
     handelPost,

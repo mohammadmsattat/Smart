@@ -2,21 +2,20 @@ import React from "react";
 import { Link, useParams } from "react-router-dom";
 import Accordion from "react-bootstrap/Accordion";
 import { FaCompress, FaCode, FaGlobe } from "react-icons/fa";
-import SEO from "../../component/SEO";
 import DiscripProduct from "../../component/descripSection/DiscripProduct";
 
 import ContactUsSectoin from "../../component/Contact/ContactUsSection";
 import { UseGetOneProject } from "../../Hooks/project-Hooks/UseGetOneProject";
+import ComingSoon from "../commingSoon/ComingSoon";
 
 const ProjectDetails = () => {
   const { id } = useParams();
   const [project] = UseGetOneProject(id);
-  console.log(project);
+  console.log(project.commingSoon);
 
   return (
     <>
-      <SEO title="Project Details" />
-      <main className="main-wrapper">
+      {project.commingSoon?<ComingSoon img={project.imageCover}/>:(<main className="main-wrapper">
         <DiscripProduct
           title={project.name}
           paragraph={project.description}
@@ -79,7 +78,7 @@ const ProjectDetails = () => {
           </div>
         </section>
         <ContactUsSectoin />
-      </main>
+      </main>)}
     </>
   );
 };

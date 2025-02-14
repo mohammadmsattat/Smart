@@ -56,25 +56,27 @@ export const UseUpdateEmployee = (id) => {
   //get data from store
   const response = useSelector((state) => state.TeamSlice.UpdateEmployee);
   const Loading = useSelector((state) => state.TeamSlice.UpdateLoading);
-console.log(response);
 
   //save data in database
   const handelupdate = async (event) => {
     event.preventDefault();
 
-    if (name === "" || setjob === "") {
+    if (name === "" || job === "") {
       toast.error("Please complete all fields");
       return;
     }
-
-    // Create FormData object
-    const formData = {
-      name: name,
-      job: job,
-    };
-    // Log FormData contents
-
-    // Dispatch the thunk
+  
+    // Create a FormData object
+    const formData = new FormData();
+    formData.append("name", name);
+    formData.append("job", job);
+  
+    // If there's a file selected, append it
+    if (selectedFile) {
+      formData.append("imageCover", selectedFile);
+    }
+  
+    // Dispatch the thunk with the FormData
     await dispatch(UpdateEmployee({ id, formData }));
   };
 

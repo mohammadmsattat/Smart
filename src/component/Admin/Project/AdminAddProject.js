@@ -4,7 +4,7 @@ import { UsePostProject } from "../../../Hooks/project-Hooks/UsePostProject";
 import { Toaster } from "react-hot-toast";
 
 const AdminAddProject = () => {
-  const { img, setName, setDescription, onImageChange, handelPost } =
+  const { img, setName, setDescription,  setcategory, onchecked, onImageChange, handelPost } =
     UsePostProject();
 
   return (
@@ -42,6 +42,16 @@ const AdminAddProject = () => {
               className="input-form d-block mt-3 px-3"
               placeholder=" Enter name..."
             />
+             <label className="form-label" for="category">
+              category
+            </label>
+            <input
+              id="category"
+              type="text"
+              onChange={(e) => setcategory(e.target.value)}
+              className="input-form d-block mt-3 px-3"
+              placeholder=" Enter category..."
+            />
             <label className="form-label" for="job">
               Description
             </label>
@@ -55,8 +65,8 @@ const AdminAddProject = () => {
             />
 
             <div className="check-comming-soon">
-              <input id="comming-soon" type="checkbox" />
-              <label className="form-label" for="comming-soon">Comming soon</label>
+              <input onClick={onchecked} id="comming-soon" type="checkbox" />
+              <label  className="form-label" for="comming-soon">Comming soon</label>
             </div>
           </div>
         </Col>
@@ -64,7 +74,6 @@ const AdminAddProject = () => {
       <Row>
         <Col sm="8" className="d-flex justify-content-start add-btn">
           <button onClick={handelPost} className="btn-save d-inline mt-2 ">
-            {" "}
             Add
           </button>
         </Col>

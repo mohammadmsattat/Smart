@@ -53,7 +53,7 @@ export const UsePostEmployee = () => {
       setSelectedFile(null);
 
       if (response.status === 201) {
-        toast.success("project added successfully");
+        toast.success("Employee added successfully");
         navigate("/admin/manegment-employee");
         window.location.reload(false);     
        }

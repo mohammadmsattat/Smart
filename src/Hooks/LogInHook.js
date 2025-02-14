@@ -1,9 +1,12 @@
 import { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { LogInRequest } from "../Store/Requests/LogInRequest";
+import { useNavigate } from "react-router-dom";
 
 //login Hook
 export const UseLogIn = () => {
+  const navigate = useNavigate();
+
   const dispatch = useDispatch();
 
   const [email, SetEmail] = useState(""); //email state
@@ -41,7 +44,7 @@ export const UseLogIn = () => {
         if (response) {
           sessionStorage.setItem("token", response.data.token);
           setTimeout(() => {
-            window.location.href = '/';
+            navigate("/admin/manegment-information");
           }, 1500);
         }
         if (response === "Incorrect email or password") {

@@ -1,0 +1,21 @@
+{
+    "introduction":{
+        "header":" Build beautiful website &amp; mobile apps.",
+        "description":"Create live segments and target the right people for messages based on their behaviors.",
+        "button":"Get Started"
+
+    },
+    "Service":{
+        "title":"What We Can Do For You",
+        "services":"Services we can help you with",
+        "description":"Nulla facilisi. Nullam in magna id dolor blandit rutrum eget vulputate augue sed eu imperdiet"
+
+    },
+    "AboutUs":{
+        "AboutUs":"About Us",
+        "title":"We do design, code &amp; develop.",
+        "description1":"Nulla et velit gravida, facilisis quam a, molestie ante. Mauris placerat suscipit dui, eget maximus tellus blandit a. Praesent non tellus sed ligula commodo blandit in et mauris. Quisque efficitur ipsum ut dolor molestie pellentesque.",
+        "description2":"Nulla pharetra hendrerit mi quis dapibus. Quisque luctus, tortor a venenatis fermentum, est lacus feugiat nisl, id pharetra odio enim eget libero."
+    }
+    
+}

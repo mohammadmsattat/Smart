@@ -11,12 +11,15 @@ import Partner from '../../component/Partner/Partner'
 import SEO from '../../component/SEO';
 import SectionTitle from '../../component/sectionTitle/SectionTitle';
 import ContactUsSectoin from '../../component/Contact/ContactUsSection';
+import { useTranslation } from 'react-i18next';
 
 //import custom hooks
 
 
 
 const HomePage = () => {
+            const { t } = useTranslation();
+    
 
     return (
         <>
@@ -26,10 +29,9 @@ const HomePage = () => {
             <div className="section section-padding-2 bg-color-dark">
                 <div className="container">
                     <SectionTitle 
-                        subtitle="What We Can Do For You"
-                        title="Services we can help you with"
-                        description="Nulla facilisi. Nullam in magna id dolor 
-                        blandit rutrum eget vulputate augue sed eu imperdiet."
+                        subtitle={t('Home:Service.title')}
+                        title={t('Home:Service.services')}
+                        description={t('Home:Service.description')}
                         textAlignment="heading-light-left"
                         textColor=""
                     />

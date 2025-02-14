@@ -16,6 +16,9 @@ export const UseUpdateService = (id) => {
   const [name, setName] = useState("");
   const [selectedFile, setSelectedFile] = useState(null);
   const [description, setDescription] = useState("");
+  const [commingSoon, setCommingSoon] = useState(false);
+
+
 
   useEffect(() => {
     const run = async () => {
@@ -32,6 +35,8 @@ export const UseUpdateService = (id) => {
       setSelectedFile(service.data.data.imageCover);
       setName(service.data.data.name);
       setDescription(service.data.data.description);
+      setCommingSoon(service.data.data.commingSoon)
+
     }
   }, [service]);
 
@@ -56,6 +61,15 @@ export const UseUpdateService = (id) => {
     onImageChange(event);
   };
 
+  //check box clicke
+  const onchecked=()=>{
+    if(commingSoon===false){
+      setCommingSoon(true)
+    }
+    else{
+      setCommingSoon(false)
+    }
+  }
   //get data from store
   const response = useSelector((state) => state.ServicesSlice.update);
   const Loading = useSelector((state) => state.ServicesSlice.UpdateLoading);
@@ -68,15 +82,19 @@ export const UseUpdateService = (id) => {
       toast.error("Please complete all fields");
       return;
     }
-
-    // Create FormData object
-    const formData = {
-      name: name,
-      description: description,
-    };
-    console.log(selectedFile);
-
-    // Dispatch the thunk
+  
+    // Create a FormData object
+    const formData = new FormData();
+    formData.append("name", name);
+    formData.append("description", description);
+    formData.append("commingSoon", commingSoon);
+  
+    // If there's a file selected, append it
+    if (selectedFile) {
+      formData.append("imageCover", selectedFile);
+    }
+  
+    // Dispatch the thunk with the FormData
     await dispatch(UpdateService({ id, formData }));
   };
 
@@ -93,6 +111,8 @@ export const UseUpdateService = (id) => {
   return {
     img,
     name,
+    commingSoon,
+    onchecked,
     onChangeName,
     onChangeImage,
     setImg,
