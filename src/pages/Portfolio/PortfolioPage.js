@@ -3,17 +3,19 @@ import DescripSection from '../../component/descripSection/DescripSection';
 import SEO from '../../component/SEO';
 import OurProjects from '../../component/project/OurProjects';
 import ContactUsSectoin from '../../component/Contact/ContactUsSection';
+import { useTranslation } from 'react-i18next';
 
 const PortfolioPage = () => {
+          const { t } = useTranslation();
+    
 
     return (
         <div>
         <SEO title="Project Three Column" />
         <main className="main-wrapper">
             <DescripSection 
-                title="Our Projects"
-                paragraph ="A quick view of industry specific problems solved with design by the awesome team at Abstrak.
-                "
+                title={t('portfolio:Head.title')}
+                paragraph ={t('portfolio:Head.paragraph')}
                 styleClass=""
                 mainThumb="/images/banner/banner-thumb-1.png"
             />

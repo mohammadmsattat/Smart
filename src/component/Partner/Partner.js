@@ -1,16 +1,19 @@
 import React from 'react';
 import SectionTitle from '../sectionTitle/SectionTitle';
 import PartnerItem from './PartnerItem';
+import { useTranslation } from 'react-i18next';
 
 
 const BrandOne = () => {
+          const { t } = useTranslation();
+    
     return (
         <div className="section section-padding-2 bg-color-dark">
         <div className="container">
             <SectionTitle 
-                subtitle="Top Partners"
-                title="We have partner with..."
-                description="Design anything from simple icons to fully featured websites and applications."
+                subtitle={t("Home:partners.subtitle")}
+                title={t("Home:partners.title")}
+                description={t("Home:partners.description")}
                 textAlignment="heading-light-left"
                 textColor=""
             />

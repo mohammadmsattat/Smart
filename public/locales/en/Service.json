@@ -1,0 +1,17 @@
+{
+    
+    "Head":{
+        "title":"Best solutions for your business",
+        "paragraph":"A quick view of industry specific problems solved with design by the awesome team at Abstrak."
+    },
+    "counter":{
+        "subtitle":"Experts in field",
+        "title":"What makes us special?",
+        "p":"In vel varius turpis, non dictum sem. Aenean in efficitur ipsum, in egestas ipsum. Mauris in mi ac tellus",
+        "button":"Careers"
+    },
+    "services":{
+        "subtitle":"What We Can Do For You",
+        "title":"Services we can <br> help you with"
+    }
+}

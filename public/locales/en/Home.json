@@ -16,6 +16,29 @@
         "title":"We do design, code &amp; develop.",
         "description1":"Nulla et velit gravida, facilisis quam a, molestie ante. Mauris placerat suscipit dui, eget maximus tellus blandit a. Praesent non tellus sed ligula commodo blandit in et mauris. Quisque efficitur ipsum ut dolor molestie pellentesque.",
         "description2":"Nulla pharetra hendrerit mi quis dapibus. Quisque luctus, tortor a venenatis fermentum, est lacus feugiat nisl, id pharetra odio enim eget libero."
+    },
+    "ourProject":{
+        "subTitle":"Our Project",
+        "title":"Some of our <br> finest work."
+    },
+    "counterUp":{
+        "subtitle":"Featured Case Study,",
+        "title":"Design startup movement",
+        "description":"In vel varius turpis, non dictum sem. Aenean in efficitur ipsum, in egestas ipsum. Mauris in mi ac tellus."
+    },
+    "testimonial":{
+        "subtitle":"Testimonial",
+        "title":"From getting started",
+        "description":"In vel varius turpis, non dictum sem. Aenean in efficitur ipsum, in egestas ipsum. Mauris in mi ac tellus."
+    },
+    "partners":{
+        "subtitle":"Top Partners",
+        "title":"We have partner with...",
+        "description":"Design anything from simple icons to fully featured websites and applications."
+    },
+    "contactus":{
+        "subtitle":"Let's Work Together",
+        "title":"Need a successful project?",
+        "button":"Estimate Project"
     }
-    
 }

@@ -1,0 +1,34 @@
+{
+  "Head":  {
+        "title":"Contact",
+        "page":"Contact"
+
+    },
+    "ourInformayion":{
+        "phone":{
+            "head":"Phone",
+            "p":"Our customer care is open from Mon-Fri, 10:00 am to 6:00 pm"
+
+        },
+        "email":{
+            "head":"Email",
+            "p":"Our support team will get back to in 48-h during standard business hours."
+        }
+    },
+    "offices":{
+        "subtitle":"Find Us",
+        "title":"Our office"
+    },
+    "contact":"Get a free Abstrak quote now",
+    
+
+    "contactFormTwo":{
+        "name":"Name",
+        "email":"Email",
+        "phone":"Phone",
+        "masseg":"How can we help you?",
+        "buttoun":"Get Pricing Now"
+
+    }
+
+}

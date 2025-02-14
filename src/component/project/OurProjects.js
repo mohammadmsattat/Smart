@@ -2,49 +2,52 @@ import React from "react";
 import ProjectCard from "./ProjectCard";
 import SectionTitle from "../sectionTitle/SectionTitle";
 import { UseGetAllProjects } from "../../Hooks/project-Hooks/UseGetAllProjects";
+import { useTranslation } from "react-i18next";
 
-const filters = [
-  {
-    id: 1,
-    label: "backend",
-  },
-  {
-    id: 2,
-    label: "design",
-  },
-  {
-    id: 3,
-    label: "Mobile",
-  },
-];
 
 const OurProjects = ({ colSize, slice }) => {
-  const [Projects] = UseGetAllProjects();
-  console.log(Projects);
-  
+  const { t } = useTranslation();
 
-  let Data = [];
-  if (slice) {
-    Data = Projects.slice(0, 6);
-  } else {
-    Data = Projects;
-  }
+  const [Projects,Data,filters] = UseGetAllProjects();
+
+
+//   const handleChange = (e) => {
+//     e.preventDefault();
+// let target = e.target.textContent;
+
+//     setActiveFilter(target);
+
+//     let tempData = [];
+//     if (target === filters[0].label) {
+//   tempData = getAllItems.filter((data) => data.id <= visiableProject);
+//     } else {
+//   for (let i = 0; i < getAllItems.length; i++) {
+//     const element = getAllItems[i];
+//     let categories = element['category'];
+    
+//     if (categories.includes(target)) {
+//       tempData.push(element)
+//     } 
+//   }
+//     }
+//     setVisibleItems(tempData);
+// };
+ 
 
   return (
     <>
       <div className={`section section-padding-2 `}>
         <div className="container">
           <SectionTitle
-            subtitle="Our Project"
-            title="Some of our <br>
-                        finest work."
+            subtitle={t("Home:ourProject.subTitle")}
+            title={t("Home:ourProject.title")}
             textAlignment="heading-left mb--40"
             textColor=""
           />
           <div className="isotope-button isotope-project-btn">
             {filters.map((filter) => (
-              <button className="is-checked" key={filter.id}>
-                {filter.label}
+              <button className="is-checked" key={filter._id}>
+                {filter.category}
               </button>
             ))}
           </div>

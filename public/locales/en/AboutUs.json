@@ -1,0 +1,19 @@
+{
+    "Head":{
+        "title":"One of the fastest growing agency",
+        "paragraph":"We design and develop web and mobile applications for our clients worldwide."
+    },
+    "aboutfour":{
+        "subtitle":"Who we are",
+        "tittle":"Building software for world changers",
+        "p1":"Donec metus lorem, vulputate at sapien sit amet, auctor iaculis lorem. In vel hendrerit nisi. Vestibulum eget risus velit. Aliquam tristique libero at dui sodales, et placerat orci lobortis.",
+        "p2":"Maecenas ipsum neque, elementum id dignissim et, imperdiet vitae mauris.",
+        "buttoun":"Read More"
+    },
+    "aboutfive":{
+        "subtitle":"Our Team",
+        "tittle":"Alone we can do so little; together we can do so much.",
+        "p":"Donec metus lorem, vulputate at sapien sit amet, auctoriaculis lorem. In vel hendrerit nisi. Vestibulum eget risuslit. Aliquam tristique libero.",
+        "buttoun":"Our Team"
+    }
+}

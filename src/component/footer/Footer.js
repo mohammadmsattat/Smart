@@ -11,8 +11,11 @@ import { UseGetAllServices } from "../../Hooks/service-Hooks/UseGetAllServices";
 import { UseGetinformation } from "../../Hooks/OurInformation-Hooks/UseGetinformation";
 import { UseSendEmailFooter } from "../../Hooks/Contact-Hooks/UseSendEmailFooter";
 import { Toaster } from "react-hot-toast";
+import { useTranslation } from "react-i18next";
 
 const Footer = ({ parentClass }) => {
+      const { t } = useTranslation();
+  
   const [Services] = UseGetAllServices();
   const { social } = UseGetinformation();
 
@@ -52,10 +55,9 @@ const Footer = ({ parentClass }) => {
             <div className="col-xl-6 col-lg-5">
               <div className="footer-widget border-end">
                 <div className="footer-newsletter">
-                  <h2 className="title">Get in touch!</h2>
+                  <h2 className="title">{t('footer.email.title')}</h2>
                   <p>
-                    Fusce varius, dolor tempor interdum tristique, dui urna bib
-                    endum magna, ut ullamcorper purus
+                  {t('footer.email.p')}
                   </p>
                   <form>
                     <div className="input-group">
@@ -66,14 +68,14 @@ const Footer = ({ parentClass }) => {
                         onChange={(event) => setEmail(event.target.value)}
                         type="email"
                         className="form-control"
-                        placeholder="Email address"
+                        placeholder={t('footer.email.placeHolder')}
                       />
                       <button
                         onClick={handelSend}
                         className="subscribe-btn"
                         type="submit"
                       >
-                        Subscribe
+                        {t('footer.email.buttoun')}
                       </button>
                     </div>
                   </form>
@@ -84,7 +86,7 @@ const Footer = ({ parentClass }) => {
               <div className="row">
                 <div className="col-sm-6">
                   <div className="footer-widget">
-                    <h6 className="widget-title">Services</h6>
+                    <h6 className="widget-title">{t('footer.srvices')}</h6>
                     <div className="footer-menu-link">
                       <ul className="list-unstyled">
                         {Services.slice(0, 6).map((item, index) => (
@@ -98,14 +100,14 @@ const Footer = ({ parentClass }) => {
                 </div>
                 <div className="col-sm-3">
                   <div className="footer-widget">
-                    <h6 className="widget-title">Resourses</h6>
+                    <h6 className="widget-title">{t('footer.Resources')}</h6>
                     <div className="footer-menu-link">
                       <ul className="list-unstyled">
                         <li>
-                          <Link to={"/blog"}>Blog</Link>
+                          <Link to={"/blog"}>{t('header.blog')}</Link>
                         </li>
                         <li>
-                          <Link to={"/portfolio"}>Portfolio</Link>
+                          <Link to={"/portfolio"}>{t('header.porfolio')}</Link>
                         </li>
                       </ul>
                     </div>
@@ -113,11 +115,11 @@ const Footer = ({ parentClass }) => {
                 </div>
                 <div className="col-sm-3">
                   <div className="footer-widget">
-                    <h6 className="widget-title">Support</h6>
+                    <h6 className="widget-title">{t('footer.support')}</h6>
                     <div className="footer-menu-link">
                       <ul className="list-unstyled">
                         <li>
-                          <Link to={"/contact"}>Contact</Link>
+                          <Link to={"/contact"}>{t('header.contact')}</Link>
                         </li>
                       </ul>
                     </div>

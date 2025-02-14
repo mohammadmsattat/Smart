@@ -1,8 +1,11 @@
 import React from 'react';
 import { UseGetAllEmployees } from '../../Hooks/Employees-Hooks/UseGetAllEmployees';
+import { useTranslation } from 'react-i18next';
 
 
 const TeamComponent = () => {
+        const { t } = useTranslation();
+    
 
     const [team] =UseGetAllEmployees();
     
@@ -12,10 +15,9 @@ const TeamComponent = () => {
         <div className="section section-padding bg-color-dark pb--70 pb_lg--20 pb_md--0">
         <div className="container">
             <div className="section-heading heading-light">
-            <span className="subtitle">Our Team</span>
-            <h2 className="title mb--50">Meet The Team</h2>
-            <p>Nulla facilisi. Nullam in magna id dolor 
-                blandit rutrum eget vulputate augue sed eu leo eget risus imperdiet.</p>
+            <span className="subtitle">{t('Team:ourteam.subtitle')}</span>
+            <h2 className="title mb--50">{t('Team:ourteam.tittle')}</h2>
+            <p>{t('Team:ourteam.p')}.</p>
             </div>
             <div className="row">
                 {team.map((item) => (

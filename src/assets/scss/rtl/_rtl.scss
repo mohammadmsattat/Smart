@@ -2,10 +2,10 @@
     RTL Style
 -------------------------*/
 
-html {
+.RTL {
     direction: rtl;
     unicode-bidi: isolate;
-}
+
 
 // Form
 .form-control, input {
@@ -958,4 +958,5 @@ html {
 .op-blog-modal .post-content .blog-share .share-label {
     margin-right: 0;
     margin-left: 25px;
+}
 }

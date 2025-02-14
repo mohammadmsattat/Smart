@@ -2,9 +2,12 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import CountUp from 'react-countup';
 import TrackVisibility from 'react-on-screen';
+import { useTranslation } from 'react-i18next';
 
 
 const AboutFour = () => {
+        const { t } = useTranslation();
+    
     return (
             <div className="section section-padding case-study-featured-area">
                 <div className="container">
@@ -17,11 +20,11 @@ const AboutFour = () => {
                     <div className="col-xl-5 col-lg-6">
                         <div className="case-study-featured">
                         <div className="section-heading heading-left">
-                            <span className="subtitle">Who we are</span>
-                            <h2 className="title">Building software for world changers</h2>
-                            <p>Donec metus lorem, vulputate at sapien sit amet, auctor iaculis lorem. In vel hendrerit nisi. Vestibulum eget risus velit. Aliquam tristique libero at dui sodales, et placerat orci lobortis.</p>
-                            <p>Maecenas ipsum neque, elementum id dignissim et, imperdiet vitae mauris.</p>
-                            <Link to="#" className="axil-btn btn-fill-primary btn-large">Read More</Link>
+                            <span className="subtitle">{t('AboutUs:aboutfour.subtitle')}</span>
+                            <h2 className="title">{t('AboutUs:aboutfour.tittle')}</h2>
+                            <p>{t('AboutUs:aboutfour.p1')}</p>
+                            <p>{t('AboutUs:aboutfour.p2')}</p>
+                            <Link to="#" className="axil-btn btn-fill-primary btn-large">{t('AboutUs:aboutfour.buttoun')}</Link>
                         </div>
                         <div className="case-study-counterup">
                             <div className="single-counterup">

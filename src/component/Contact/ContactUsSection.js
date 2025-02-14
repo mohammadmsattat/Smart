@@ -1,8 +1,11 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
 
 
 const ContactUsSectoin = () => {
+          const { t } = useTranslation();
+    
 
     return (
 
@@ -10,10 +13,10 @@ const ContactUsSectoin = () => {
             <div className="container">
                 <div className="call-to-action">
                     <div className="section-heading heading-light">
-                        <span className="subtitle">Let's Work Together</span>
-                        <h2 className="title">Need a successful project?</h2>
+                        <span className="subtitle">{t("Home:contactus.subtitle")}</span>
+                        <h2 className="title">{t("Home:contactus.title")}</h2>
                         <Link to={ "/contact"} className="axil-btn btn-large btn-fill-white">
-                            Estimate Project
+                        {t("Home:contactus.button")}
                         </Link>
                     </div>
                     <div className="thumbnail">

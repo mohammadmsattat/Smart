@@ -35,5 +35,12 @@ export const UseGetAllProjects = (cat) => {
     }
   }, [Loading]);
 
-  return [Projects];
+  //slice data for home page
+  let Data = Projects.slice(0, 6);
+  let filters=Data.splice(0,2) 
+  console.log(filters);
+  
+ 
+
+  return [Projects,Data,filters];
 };

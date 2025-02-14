@@ -12,5 +12,23 @@
     "blog": "Blog",
     "contact": "Contact",
     "team": "Team"
+  },
+  "footer":{
+    "srvices":"Services",
+    "Resources":"Resources",
+    "support":"Support",
+    "email":{
+      "title":"Get in touch",
+      "p":" Fusce varius, dolor tempor interdum tristique, dui urna bi  endum magna, ut ullamcorper purus",
+      "buttoun":"Subscribe",
+      "placeHolder":"Email Address"
+
+    }
+
+  },
+  "language":{
+    "language":"language",
+    "english":"English",
+    "Arabic":"Arabic"
   }
 }

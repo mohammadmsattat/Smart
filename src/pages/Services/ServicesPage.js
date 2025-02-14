@@ -9,8 +9,11 @@ import CounterUpData from "../../component/CounterUp/CounterUpData";
 import ServiceCard from "../../component/service/ServiceCard";
 
 import { UseGetAllServices } from "../../Hooks/service-Hooks/UseGetAllServices";
+import { useTranslation } from "react-i18next";
 
 const ServicePage = () => {
+      const { t } = useTranslation();
+  
   const [services] = UseGetAllServices();
 
   return (
@@ -19,9 +22,8 @@ const ServicePage = () => {
 
       <main className="main-wrapper">
         <DescripSection
-          title="Best solutions for your business"
-          paragraph="Give your business a unique logo to stand out from crowd. We’ll create logo specifically for your company.
-                "
+          title={t('Service:Head.title')}
+          paragraph={t('Service:Head.paragraph')}
           styleClass=""
           mainThumb="/images/banner/banner-thumb-4.png"
         />
@@ -29,8 +31,8 @@ const ServicePage = () => {
         <div className="section section-padding bg-color-light">
           <div className="container">
             <SectionTitle
-              subtitle="What We Can Do For You"
-              title="Services we can <br> help you with"
+              subtitle={t('Service:services.subtitle')}
+              title={t('Service:services.title')}
               description=""
               textAlignment="heading-left"
               textColor=""

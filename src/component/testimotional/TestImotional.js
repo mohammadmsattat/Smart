@@ -1,15 +1,18 @@
 import React from 'react';
 import SectionTitle from '../sectionTitle/SectionTitle';
 import TestimonialItem from './TestImotionalProp'
+import { useTranslation } from 'react-i18next';
 
 const Testimonial = () => {
+      const { t } = useTranslation();
+    
     return (
         <div className="section section-padding">
             <div className="container">
                 <SectionTitle 
-                    subtitle="Testimonial"
-                    title="From getting started"
-                    description="Nulla facilisi. Nullam in magna id dolor blandit rutrum eget vulputate augue sed eu leo eget risus imperdiet."
+                    subtitle={t("Home:testimonial.subtitle")}
+                    title={t("Home:testimonial.title")}
+                    description={t("Home:testimonial.description")}
                     textAlignment="heading-left"
                     textColor=""
                 />
@@ -19,7 +22,7 @@ const Testimonial = () => {
             </div>
             <ul className="shape-group-4 list-unstyled">
                 <li className="shape-1">
-                    <img src={process.env.PUBLIC_URL + "/images/others/bubble-1.png"} alt="Bubble" />
+                    <img src={ "/images/others/bubble-1.png"} alt="Bubble" />
                 </li>
             </ul>
         </div>

@@ -1,16 +1,19 @@
 import React from 'react';
 import SectionTitle from '../sectionTitle/SectionTitle';
 import Counter from './Counter';
+import { useTranslation } from 'react-i18next';
 
 
 const CounterUp = () => {
+                      const { t } = useTranslation();
+    
     return (
         <div className="section section-padding bg-color-dark">
             <div className="container">
             <SectionTitle 
-                    subtitle="Featured Case Study"
-                    title="Design startup movement"
-                    description="In vel varius turpis, non dictum sem. Aenean in efficitur ipsum, in egestas ipsum. Mauris in mi ac tellus."
+                    subtitle={t("Home:counterUp.subtitle")}
+                    title={t("Home:counterUp.title")}
+                    description={t("Home:counterUp.description")}
                     textAlignment="heading-light"
                     textColor=""
                 />
