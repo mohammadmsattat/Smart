@@ -35,7 +35,14 @@ export const UsePostOffice = () => {
       toast.error("pleas complete data");
       return;
     }
-
+    if (location.length < 3) {
+      toast.error(" location is short  ");
+      return;
+    }
+    if (description.length < 30) {
+      toast.error(" description is short");
+      return;
+    }
     await dispatch(
       PostOffice({
         location: location,
@@ -53,9 +60,11 @@ export const UsePostOffice = () => {
       setSelectedFile(null);
 
       if (response.status === 201) {
-        toast.success("project added successfully");
-        navigate("/admin/manegment-office");
-        window.location.reload(false);
+        toast.success("office updated successfully");
+        setTimeout(() => {
+          navigate("/admin/manegment-office");
+          window.location.reload(false);
+        }, 1500);
       }
     }
   }, [Loading]);
@@ -70,5 +79,5 @@ export const UsePostOffice = () => {
     handelPost,
     response,
     Loading,
-};
+  };
 };

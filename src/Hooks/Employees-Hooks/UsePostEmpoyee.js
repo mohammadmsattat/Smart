@@ -35,6 +35,14 @@ export const UsePostEmployee = () => {
       toast.error("pleas complete data");
       return;
     }
+    if (name.length < 3) {
+      toast.error(" name is short ");
+      return;
+    }
+    if (job.length < 3) {
+      toast.error(" job is short ");
+      return;
+    }
 
     await dispatch(
       PostEmployee({
@@ -54,9 +62,11 @@ export const UsePostEmployee = () => {
 
       if (response.status === 201) {
         toast.success("Employee added successfully");
-        navigate("/admin/manegment-employee");
-        window.location.reload(false);     
-       }
+        setTimeout(() => {
+          navigate("/admin/manegment-employee");
+          window.location.reload(false);
+        }, 1500);
+      }
     }
   }, [postLoading]);
 
@@ -70,5 +80,5 @@ export const UsePostEmployee = () => {
     handelPost,
     response,
     postLoading,
-};
+  };
 };

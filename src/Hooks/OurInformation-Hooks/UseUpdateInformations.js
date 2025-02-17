@@ -79,8 +79,8 @@ export const UseUpdataInformations = () => {
   };
 
   //get update data from store
-  const update = useSelector((state) => state.OurInformation.Update);
-  const Loading = useSelector((state) => state.OurInformation.UpdateLoading);
+  const update = useSelector((state) => state.OurInformation.update);
+  const Loading = useSelector((state) => state.OurInformation.updateLoading);
 
   //handel update
   const handelupdate = async (event) => {
@@ -116,13 +116,13 @@ export const UseUpdataInformations = () => {
 
   useEffect(() => {
     if (Loading === false) {
-      console.log(update);
-
       if (update.status === 200) {
         toast.success("information updated successfully");
-        navigate("/");
+        setTimeout(() => {
+          navigate("/");
 
-        window.location.reload(false);
+          window.location.reload(false);
+        }, 1500);
       }
     }
   }, [Loading]);

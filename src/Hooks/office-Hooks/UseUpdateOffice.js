@@ -1,5 +1,8 @@
 import { useEffect, useState } from "react";
-import { GetOneOffice, UpdateOneOffice } from "../../Store/Requests/OfficeRequests";
+import {
+  GetOneOffice,
+  UpdateOneOffice,
+} from "../../Store/Requests/OfficeRequests";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import toast from "react-hot-toast";
@@ -23,7 +26,6 @@ export const UseUpdateOffice = (id) => {
   }, []);
 
   const office = useSelector((state) => state.OfficeSlice.getOne);
-  
 
   useEffect(() => {
     if (office.data) {
@@ -66,29 +68,38 @@ export const UseUpdateOffice = (id) => {
       toast.error("Please complete all fields");
       return;
     }
-  
+    if (location.length < 3) {
+      toast.error(" location is short  ");
+      return;
+    }
+    if (Address.length < 30) {
+      toast.error(" description is short");
+      return;
+    }
+
     // Create a FormData object
     const formData = new FormData();
     formData.append("name", Address);
     formData.append("description", location);
-  
+
     // If there's a file selected, append it
-    if (selectedFile) {
+    if (selectedFile !== null) {
       formData.append("imageCover", selectedFile);
     }
-  
+
     // Dispatch the thunk with the FormData
     await dispatch(UpdateOneOffice({ id, formData }));
   };
 
   useEffect(() => {
     if (Loading === false) {
-            
-            if (response.status === 200) {
-                toast.success("office updated successfully");
-                navigate("/admin/manegment-office");
-                window.location.reload(false);
-            }
+      if (response.status === 200) {
+        toast.success("office updated successfully");
+        setTimeout(() => {
+          navigate("/admin/manegment-office");
+          window.location.reload(false);
+        }, 1500);
+      }
     }
   }, [Loading]);
 

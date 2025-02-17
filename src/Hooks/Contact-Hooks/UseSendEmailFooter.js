@@ -9,6 +9,12 @@ export const UseSendEmailFooter = () => {
   //form data variabels
   const [email, setEmail] = useState("");
 
+
+  function isValidEmail(email) {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return emailRegex.test(email);
+  }  
+
   //get data from store
   const response = useSelector((state) => state.ContactSlice.email);
   const Loading = useSelector((state) => state.ContactSlice.emailLoading);
@@ -20,6 +26,10 @@ export const UseSendEmailFooter = () => {
       toast.error("pleas insert email");
       return;
     }
+    if (!isValidEmail(email)) {
+      toast.error("You must insert an email");
+      return;
+    }
 
     await dispatch(ContactEmail({ email: email }));
   };
@@ -29,6 +39,8 @@ export const UseSendEmailFooter = () => {
     if (Loading === false) {
       if (response.status === 201) {
         toast.success("Your Message has been successfully sent. ");
+        window.location.reload(false)
+
       }
     }
   }, [Loading]);

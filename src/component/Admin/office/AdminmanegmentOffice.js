@@ -5,8 +5,11 @@ import { trimString } from "../../../utils";
 import { UseDeleteOneOffice } from "../../../Hooks/office-Hooks/UseDeleteOffice";
 import { UseGetAllOffice } from "../../../Hooks/office-Hooks/UseGetAllOffice";
 import Model from "../Model";
+import { useTranslation } from "react-i18next";
 
 const AdminManegmentOffices = () => {
+      const { t } = useTranslation();
+  
   const [offices] = UseGetAllOffice();
 
   const { SubmitDelete, show, handleClose, handleShow } = UseDeleteOneOffice();
@@ -25,11 +28,11 @@ const AdminManegmentOffices = () => {
         Delid={Delid}
       />
 
-      <h3>Manegment Office</h3>
+      <h3>{t("Admin:office.manegment.head")}</h3>
 
-      <Link to="/admin/add-office" style={{ textDecoration: "none" }}>
+      <Link to="/admin/add-office" >
         <div>
-          <button className="add-btn-2">Add Office</button>
+          <button className="add-btn-2">{t("Admin:office.manegment.Add")}</button>
         </div>
       </Link>
 
@@ -37,7 +40,7 @@ const AdminManegmentOffices = () => {
         {offices
           ? offices.map((item, index) => {
               return (
-                <Card key={index} style={{ width: "18rem", margin: ".4em" }}>
+                <Card key={index} className="admin-card">
                   <Card.Img variant="top" src={item.imageCover} />
                   <Card.Body>
                     <Card.Title className="card-head">
@@ -49,14 +52,14 @@ const AdminManegmentOffices = () => {
                         onClick={() => deleteModel(item._id)}
                         variant="primary"
                       >
-                        Delete
+                        {t("Admin:office.manegment.Delete")}
                       </Button>
                       <Button variant="primary">
                         <Link
                           to={`/admin/edit-office/${item._id}`}
                           style={{ color: "white" }}
                         >
-                          Update
+                          {t("Admin:office.manegment.update")}
                         </Link>
                       </Button>
                     </div>

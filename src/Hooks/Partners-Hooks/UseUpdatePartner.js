@@ -2,7 +2,10 @@ import { useEffect, useState } from "react";
 import toast from "react-hot-toast";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { GetOnePartner, UpdatePartner } from "../../Store/Requests/PartnersRequests";
+import {
+  GetOnePartner,
+  UpdatePartner,
+} from "../../Store/Requests/PartnersRequests";
 
 export const UseUpdatePartner = (id) => {
   const navigate = useNavigate();
@@ -20,17 +23,11 @@ export const UseUpdatePartner = (id) => {
     run();
   }, []);
 
-  const partner = useSelector((state) => state.PartnerSlice.GetOnePartner);
-  //const lo = useSelector((state) => state.PartnerSlice.GetOnePartner);
-
-  console.log(partner);
-  
+  const partner = useSelector((state) => state.PartnerSlice.getOne);
 
   useEffect(() => {
     if (partner.data) {
       setImg(partner.data.data.logo);
-      console.log(partner.data);
-      
     }
   }, [partner]);
 
@@ -42,11 +39,10 @@ export const UseUpdatePartner = (id) => {
     }
   };
 
- 
-
   //get data from store
-  const response = useSelector((state) => state.PartnerSlice.UpdatePartner);
+  const response = useSelector((state) => state.PartnerSlice.update);
   const Loading = useSelector((state) => state.PartnerSlice.updateLoading);
+  console.log(response);
 
   //save data in database
   const handelupdate = async (event) => {
@@ -59,10 +55,9 @@ export const UseUpdatePartner = (id) => {
 
     const formData = new FormData();
 
-    // Log FormData contents
-     // If there's a file selected, append it
-     if (selectedFile) {
-      formData.append("imageCover", selectedFile);
+    // If there's a file selected, append it
+    if (selectedFile !== null) {
+      formData.append("logo", selectedFile);
     }
 
     // Dispatch the thunk
@@ -71,11 +66,14 @@ export const UseUpdatePartner = (id) => {
 
   useEffect(() => {
     if (Loading === false) {
-
-      if (response.status === 200) {
+      if (response) {
+        if (response.status === 200) {
           toast.success("service updated successfully");
-        navigate("/admin/manegment-partner");
-        window.location.reload(false);
+          setTimeout(() => {
+            navigate("/admin/manegment-partner");
+            window.location.reload(false);
+          }, 1500);
+        }
       }
     }
   }, [Loading]);

@@ -92,12 +92,9 @@ export const UpdatePartner = createAsyncThunk(
         formData,
         config
       );
-      console.log(response);
-      
+
       return response;
     } catch (error) {
-      console.log(error);
-      
       if (error.response) {
         return rejectWithValue(error.response.data);
       } else {

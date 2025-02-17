@@ -4,6 +4,8 @@ import { GetOneBlog } from "../../Store/Requests/BlogsRequests";
 
 export const UseGetOneBlog = (id) => {
   const [blog, setBlog] = useState([]);
+  const [formattedDate, setformattedDate] = useState("");
+
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -15,15 +17,18 @@ export const UseGetOneBlog = (id) => {
   const Loading = useSelector((state) => state.BlogsSlice.GetOneLoading);
   
 
+
   useEffect(() => {
     if (Loading === false) {
       if (response.status === 200) {
         setBlog(response.data.data);
+         setformattedDate(response.data.data.publishDate.split("T")[0])
+
       } else {
         setBlog([]);
       }
     }
   }, [Loading]);
 
-  return [blog];
+  return [blog,formattedDate];
 };

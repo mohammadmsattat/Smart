@@ -5,7 +5,7 @@ import AdminManegmentService from "../../../component/Admin/service/AdminManegme
 
 const AdminManegmentServicePage = () => {
   return (
-    <div className="admin-page ">
+    <div className="admin-page admin-page-rtl">
       <Row className="py-3 container">
         <Col sm="3" xs="2" md="2">
           <AdminSideBar />

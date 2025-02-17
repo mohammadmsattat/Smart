@@ -5,8 +5,11 @@ import { trimString } from "../../../utils";
 import { UseDeleteOneProject } from "../../../Hooks/project-Hooks/UseDeleteProject";
 import { UseGetAllProjects } from "../../../Hooks/project-Hooks/UseGetAllProjects";
 import Model from "../Model";
+import { useTranslation } from "react-i18next";
 
 const AdminManegmentProjects = () => {
+  const { t } = useTranslation();
+
   const [projects] = UseGetAllProjects();
 
   const { SubmitDelete, show, handleClose, handleShow } = UseDeleteOneProject();
@@ -26,11 +29,11 @@ const AdminManegmentProjects = () => {
         Delid={Delid}
       />
 
-      <h3>Manegment Projects</h3>
+      <h3>{t("Admin:project.manegment.head")}</h3>
 
       <Link to="/admin/add-project" style={{ textDecoration: "none" }}>
         <div>
-          <button className="add-btn-2">Add project</button>
+          <button className="add-btn-2">{t("Admin:project.manegment.Add")}</button>
         </div>
       </Link>
 
@@ -38,7 +41,7 @@ const AdminManegmentProjects = () => {
         {projects ? (
           projects.map((item, index) => {
             return (
-              <Card key={index} style={{ width: "18rem", margin: ".4em" }}>
+              <Card key={index} className="admin-card">
                 <Card.Img variant="top" src={item.imageCover} />
                 <Card.Body>
                   <Card.Title>
@@ -54,7 +57,7 @@ const AdminManegmentProjects = () => {
                       onClick={() => deleteModel(item._id)}
                       variant="primary"
                     >
-                      Delete
+                      {t("Admin:project.manegment.Delete")}
                     </Button>
 
                     <Button variant="primary">
@@ -62,7 +65,7 @@ const AdminManegmentProjects = () => {
                         to={`/admin/edit-project/${item._id}`}
                         style={{ color: "white" }}
                       >
-                        Update
+                        {t("Admin:project.manegment.update")}
                       </Link>
                     </Button>
                   </div>

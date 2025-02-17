@@ -4,11 +4,15 @@ import { Link } from "react-router-dom";
 import { UseDeleteOneEmployee } from "../../../Hooks/Employees-Hooks/UseDeleteEmployee";
 import { UseGetAllEmployees } from "../../../Hooks/Employees-Hooks/UseGetAllEmployees";
 import Model from "../Model";
+import { useTranslation } from "react-i18next";
 
 const AdminManegmentEmployee = () => {
+  const { t } = useTranslation();
+
   const [team] = UseGetAllEmployees();
 
-  const {SubmitDelete, show, handleClose, handleShow}= UseDeleteOneEmployee();
+  const { SubmitDelete, show, handleClose, handleShow } =
+    UseDeleteOneEmployee();
   const [Delid, setDelId] = useState("");
 
   const deleteModel = (id) => {
@@ -24,16 +28,18 @@ const AdminManegmentEmployee = () => {
         SubmitDelete={SubmitDelete}
         Delid={Delid}
       />
-      <h3>Manegment Employees</h3>
+      <h3>{t("Admin:Employee.manegment.head")}</h3>
       <Link to="/admin/add-employee" style={{ textDecoration: "none" }}>
         <div>
-          <button className="add-btn-2">Add Empolyee</button>
+          <button className="add-btn-2">
+            {t("Admin:Employee.manegment.Add")}
+          </button>
         </div>
       </Link>
       <div className="row">
         {team.map((item, index) => {
           return (
-            <Card key={index} style={{ width: "18rem", margin: ".4em" }}>
+            <Card key={index} className="admin-card">
               <Card.Img variant="top" src={item.imageCover} />
               <Card.Body>
                 <Card.Title className="card-head">{item.name}</Card.Title>
@@ -43,7 +49,7 @@ const AdminManegmentEmployee = () => {
                     onClick={() => deleteModel(item._id)}
                     variant="primary"
                   >
-                    Delete
+                    {t("Admin:Employee.manegment.Delete")}
                   </Button>
 
                   <Button variant="primary">
@@ -51,7 +57,7 @@ const AdminManegmentEmployee = () => {
                       to={`/admin/edit-employee/${item._id}`}
                       style={{ color: "white" }}
                     >
-                      Update
+                      {t("Admin:Employee.manegment.update")}
                     </Link>
                   </Button>
                 </div>

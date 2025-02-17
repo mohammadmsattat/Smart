@@ -3,8 +3,11 @@ import { Col, Row } from "react-bootstrap";
 import { Toaster } from "react-hot-toast";
 import { useParams } from "react-router-dom";
 import { UseUpdateOffice } from "../../../Hooks/office-Hooks/UseUpdateOffice";
+import { useTranslation } from "react-i18next";
 
 const AdminEditOffice = () => {
+  const { t } = useTranslation();
+
   const { id } = useParams();
 const {
   img,
@@ -18,9 +21,9 @@ const {
   return (
     <div className="Add-page">
       <Row className=" ">
-        <div className="admin-content-text pb-4">Edit Office Details </div>
+        <div className="admin-content-text pb-4">{t("Admin:office.update.head")} </div>
         <Col sm="8">
-          <div className="text-form pb-2"> Enter photo</div>
+          <div className="text-form pb-2">{t("Admin:office.Add.photo")}</div>
           <div>
             <label for="upload-photo">
               <img
@@ -42,7 +45,7 @@ const {
           </div>
           <div className="form-input-text">
             <label className="form-label" for="name">
-              Address
+            {t("Admin:office.Add.location")}
             </label>
             <input
               id="name"
@@ -50,15 +53,15 @@ const {
               value={location}
               onChange={onChangeLocation}
               className="input-form d-block mt-3 px-3"
-              placeholder=" Enter name..."
+              placeholder={t("Admin:office.Add.placeHolderName")}
             />
             <label className="form-label" for="job">
-              Address detailes
+            {t("Admin:office.Add.Description")}
             </label>
             <textarea
               id="job"
               className="input-form-textarea d-block mt-3 px-3"
-              placeholder=" Enter description..."
+              placeholder={t("Admin:office.Add.placeHolderdes")}
               rows="5"
               cols="33"
               value={Address}
@@ -69,7 +72,7 @@ const {
       </Row>
       <Row>
         <Col sm="8" className="d-flex justify-content-start add-btn">
-          <button onClick={handelupdate} className="btn-save d-inline mt-2 "> Update</button>
+          <button onClick={handelupdate} className="btn-save d-inline mt-2 "> {t("Admin:office.update.update")}</button>
         </Col>
       </Row>
 

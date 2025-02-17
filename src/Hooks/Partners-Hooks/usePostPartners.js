@@ -48,9 +48,11 @@ export const UsePostPartners = () => {
       setSelectedFile(null);
 
       if (response.status === 201) {
-        toast.success("project added successfully");
-        navigate("/admin/manegment-partner");
-        window.location.reload(false);
+        toast.success("service updated successfully");
+        setTimeout(() => {
+          navigate("/admin/manegment-partner");
+          window.location.reload(false);
+        }, 1500);
       }
     }
   }, [Loading]);

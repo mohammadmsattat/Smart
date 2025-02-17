@@ -28,6 +28,11 @@ export const UsePostBlog = () => {
       setSelectedFile(event.target.files[0]);
     }
   };
+  //test the text if date
+  function isValidDate(text) {
+    const date = Date.parse(text); 
+    return !isNaN(date); 
+  }
   const onchagedesar = (event) => {
     setDescriptoinar(event.target.value);
   };
@@ -49,13 +54,31 @@ export const UsePostBlog = () => {
 
   //get data from store
   const response = useSelector((state) => state.BlogsSlice.post);
-  const postLoading = useSelector((state) => state.BlogsSlice.UpdateLoading);
+  const postLoading = useSelector((state) => state.BlogsSlice.PostLoading);
 
   //post method
   const handelPost = async (event) => {
     event.preventDefault();
     if (Addressar === "" ||Addressen === "" || selectedFile === null ||descriptionar === ""|| descriptionen === ""|| publisher === ""|| publisdDates === "") {
       toast.error("pleas complete data");
+      return;
+    }
+    if(publisher.length <3  ){
+      toast.error("publisher is short");
+      return;
+    }
+    console.log(isValidDate(publisdDates));
+    
+    if(!isValidDate(publisdDates) ){
+      toast.error("Pleas Enter Date ");
+      return;
+    }
+    if(Addressar.length <3 ||Addressen.length <3 ){
+      toast.error("location is short");
+      return;
+    }
+    if(descriptionar.length <3 ||descriptionen.length <3 ){
+      toast.error("description is short");
       return;
     }
 
@@ -87,8 +110,11 @@ export const UsePostBlog = () => {
 
       if (response.status === 201) {
         toast.success("Blog added successfully");
-        navigate("/admin/manegment-blog");
-        window.location.reload(false);     
+        setTimeout(() => {
+          
+          navigate("/admin/manegment-blog");
+          window.location.reload(false);     
+        }, 1500);
        }
     }
   }, [postLoading]);

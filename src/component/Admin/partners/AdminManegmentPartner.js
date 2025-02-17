@@ -4,8 +4,11 @@ import { Link } from "react-router-dom";
 import { UseDeleteOnePartner } from "../../../Hooks/Partners-Hooks/UseDeletePartner";
 import { UseGetAllPartners } from "../../../Hooks/Partners-Hooks/UseGetPartners";
 import Model from "../Model";
+import { useTranslation } from "react-i18next";
 
 const AdminManegmentPartners = () => {
+  const { t } = useTranslation();
+
   const [partner] = UseGetAllPartners();
 
   const { SubmitDelete, show, handleClose, handleShow } = UseDeleteOnePartner();
@@ -25,18 +28,18 @@ const AdminManegmentPartners = () => {
         Delid={Delid}
       />
 
-      <h3>Manegment Partners</h3>
+      <h3>{t("Admin:partner.manegment.head")}</h3>
 
       <Link to="/admin/add-partner" style={{ textDecoration: "none" }}>
         <div>
-          <button className="add-btn-2">Add partner</button>
+          <button className="add-btn-2">{t("Admin:partner.manegment.Add")}</button>
         </div>
       </Link>
 
       <div className="row">
         {partner.map((item, index) => {
           return (
-            <Card key={index} style={{ width: "18rem", margin: ".4em" }}>
+            <Card key={index} className="admin-card">
               <Card.Img variant="top" src={item.logo} />
               <Card.Body>
                 <div className="manage-btn">
@@ -44,14 +47,14 @@ const AdminManegmentPartners = () => {
                     onClick={() => deleteModel(item._id)}
                     variant="primary"
                   >
-                    Delete
+                    {t("Admin:partner.manegment.Delete")}
                   </Button>
                   <Button variant="primary">
                     <Link
                       to={`/admin/edit-partner/${item._id}`}
                       style={{ color: "white" }}
                     >
-                      Update
+                      {t("Admin:partner.manegment.update")}
                     </Link>
                   </Button>
                 </div>

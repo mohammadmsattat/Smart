@@ -17,7 +17,6 @@ export const UsePostService = () => {
   const [description, setDescription] = useState("");
   const [commingSoon, setcommingSoon] = useState(false);
 
-
   //when image change save it
   const onImageChange = (event) => {
     if (event.target.files && event.target.files[0]) {
@@ -27,14 +26,13 @@ export const UsePostService = () => {
   };
 
   //check box clicke
-  const onchecked=()=>{
-    if(commingSoon===false){
-      setcommingSoon(true)
+  const onchecked = () => {
+    if (commingSoon === false) {
+      setcommingSoon(true);
+    } else {
+      setcommingSoon(false);
     }
-    else{
-      setcommingSoon(false)
-    }
-  }
+  };
 
   //get data from store
   const response = useSelector((state) => state.ServicesSlice.post);
@@ -47,6 +45,14 @@ export const UsePostService = () => {
       toast.error("pleas complete data");
       return;
     }
+    if (name.length < 3) {
+      toast.error(" name is short ");
+      return;
+    }
+    if (description.length < 25) {
+      toast.error(" decription is short ");
+      return;
+    }
 
     await dispatch(
       PostService({
@@ -54,7 +60,6 @@ export const UsePostService = () => {
         imageCover: selectedFile,
         description: description,
         commingSoon: commingSoon,
-
       })
     );
   };
@@ -66,10 +71,11 @@ export const UsePostService = () => {
       setSelectedFile(null);
 
       if (response.status === 201) {
-        toast.success("Service added successfully");
-        navigate("/admin/manegment-service");
-
-        window.location.reload(false);
+        toast.success("service updated successfully");
+        setTimeout(() => {
+          navigate("/admin/manegment-service");
+          window.location.reload(false);
+        }, 1500);
       }
     }
   }, [PostLoading]);

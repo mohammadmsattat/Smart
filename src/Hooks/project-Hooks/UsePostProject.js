@@ -15,8 +15,7 @@ export const UsePostProject = () => {
   const [selectedFile, setSelectedFile] = useState(null);
   const [description, setDescription] = useState("");
   const [commingSoon, setcommingSoon] = useState(false);
-  const [category, setcategory] = useState('');
-
+  const [category, setcategory] = useState("");
 
   //when image change save it
   const onImageChange = (event) => {
@@ -27,15 +26,13 @@ export const UsePostProject = () => {
   };
 
   //check box clicke
-  const onchecked=()=>{
-    if(commingSoon===false){
-      setcommingSoon(true)
+  const onchecked = () => {
+    if (commingSoon === false) {
+      setcommingSoon(true);
+    } else {
+      setcommingSoon(false);
     }
-    else{
-      setcommingSoon(false)
-    }
-  }
-  
+  };
 
   //get data from store
   const response = useSelector((state) => state.ProjectsSlice.post);
@@ -49,11 +46,20 @@ export const UsePostProject = () => {
       return;
     }
 
+    if (name.length < 3) {
+      toast.error(" name is short ");
+      return;
+    }
+    if (description.length < 25) {
+      toast.error(" description is short ");
+      return;
+    }
+
     await dispatch(
       PostProject({
         name: name,
         imageCover: selectedFile,
-        category:category,
+        category: category,
         description: description,
         commingSoon: commingSoon,
       })
@@ -68,9 +74,11 @@ export const UsePostProject = () => {
       setSelectedFile(null);
 
       if (response.status === 201) {
-        toast.success("project added successfully");
-        navigate("/admin/manegment-project");
-        window.location.reload(false);
+        toast.success("service updated successfully");
+        setTimeout(() => {
+          navigate("/admin/manegment-project");
+          window.location.reload(false);
+        }, 1500);
       }
     }
   }, [GetLoading]);

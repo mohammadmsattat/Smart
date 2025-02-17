@@ -2,8 +2,11 @@ import React from "react";
 import { Col, Row } from "react-bootstrap";
 import { Toaster } from "react-hot-toast";
 import { UseUpdataInformations } from "../../../Hooks/OurInformation-Hooks/UseUpdateInformations";
+import { useTranslation } from "react-i18next";
 
 const AdminEditInformation = () => {
+  const { t } = useTranslation();
+
   const {
     email,
     phone,
@@ -23,12 +26,12 @@ const AdminEditInformation = () => {
   return (
     <div className="Add-page">
       <Row className=" ">
-        <div className="admin-content-text pb-4">Our Informations </div>
+        <div className="admin-content-text  info-head-ar pb-4">{t("Admin:information.head")} </div>
         <Col sm="8">
           <div></div>
           <div className="form-input-text">
             <label className="form-label" for="email">
-              Email
+            {t("Admin:information.email")}
             </label>
             <input
               id="email"
@@ -38,7 +41,7 @@ const AdminEditInformation = () => {
               className="input-form d-block mt-3 px-3"
             />
             <label className="form-label" for="phone">
-              Phone
+            {t("Admin:information.phone")}
             </label>
             <input
               id="phone"
@@ -48,7 +51,7 @@ const AdminEditInformation = () => {
               className="input-form d-block mt-3 px-3"
             />
             <label className="form-label" for="facebook">
-              FaceBook
+            {t("Admin:information.facebook")}
             </label>
             <input
               id="facebook"
@@ -58,7 +61,7 @@ const AdminEditInformation = () => {
               className="input-form d-block mt-3 px-3"
             />
             <label className="form-label" for="instagram">
-              instagram
+            {t("Admin:information.instagram")}
             </label>
             <input
               id="instagram"
@@ -68,7 +71,7 @@ const AdminEditInformation = () => {
               className="input-form d-block mt-3 px-3"
             />
             <label className="form-label" for="linkedin">
-              linkedin
+            {t("Admin:information.Linkein")}
             </label>
             <input
               id="linkedin"
@@ -78,7 +81,7 @@ const AdminEditInformation = () => {
               className="input-form d-block mt-3 px-3"
             />
             <label className="form-label" for="x">
-              X
+            {t("Admin:information.x")}
             </label>
             <input
               id="x"
@@ -94,7 +97,7 @@ const AdminEditInformation = () => {
         <Col sm="8" className="d-flex justify-content-start add-btn">
           <button onClick={handelupdate} className="btn-save d-inline mt-2 ">
             {" "}
-            Update
+            {t("Admin:information.update")}
           </button>
         </Col>
       </Row>

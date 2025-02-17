@@ -5,7 +5,7 @@ import AdminManegmentBlogs from "../../../component/Admin/Blogs/AdminManegmentBl
 
 const AdminmanegmentBlogsPage = () => {
   return (
-    <div className="admin-page ">
+    <div className="admin-page">
       <Row className="py-3 container">
         <Col sm="3" xs="2" md="2">
           <AdminSideBar />

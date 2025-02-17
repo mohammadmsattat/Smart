@@ -1,7 +1,10 @@
 import React from "react";
 import { Button, Modal } from "react-bootstrap";
+import { useTranslation } from "react-i18next";
 
 function Model({ show, handleClose, SubmitDelete, Delid }) {
+    const { t } = useTranslation();
+  
   return (
     <div>
       <div
@@ -20,19 +23,17 @@ function Model({ show, handleClose, SubmitDelete, Delid }) {
       >
         <Modal.Dialog>
           <Modal.Header>
-            <Modal.Title>Delete Service</Modal.Title>
+            <Modal.Title style={{marginBottom:'3.5em'}}>{t("Admin:model.head")} </Modal.Title>
           </Modal.Header>
 
-          <Modal.Body>
-            <p>Are You Shure To Delete it</p>
-          </Modal.Body>
+       
 
           <Modal.Footer >
             <Button onClick={() => handleClose()} variant="secondary">
-              Close
+            {t("Admin:model.close")}
             </Button>
             <Button onClick={() => SubmitDelete(Delid)} variant="primary" style={{marginLeft:'.7em'}}>
-              Delete
+            {t("Admin:model.deleet")}
             </Button>
           </Modal.Footer>
         </Modal.Dialog>

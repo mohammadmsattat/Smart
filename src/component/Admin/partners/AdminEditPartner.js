@@ -3,33 +3,28 @@ import { Col, Row } from "react-bootstrap";
 import { Toaster } from "react-hot-toast";
 import { useParams } from "react-router-dom";
 import { UseUpdatePartner } from "../../../Hooks/Partners-Hooks/UseUpdatePartner";
+import { useTranslation } from "react-i18next";
 
 const AdminEditPartner = () => {
+  const { t } = useTranslation();
+
   const { id } = useParams();
-  const {
-    img,
-    setImg,
-    onImageChange,
-    handelupdate,
-    response,
-    Loading,
-  }=UseUpdatePartner(id);
+  const { img, onImageChange, handelupdate } = UseUpdatePartner(id);
 
   return (
     <div className="Add-page">
       <Row className=" ">
-        <div className="admin-content-text pb-4">Edit Partner Data</div>
+        <div className="admin-content-text pb-4">{t("Admin:partner.update.head")}</div>
         <Col sm="8">
-          <div className="text-form pb-2"> partner logo</div>
+          <div className="text-form pb-2"> {t("Admin:partner.Add.head")}</div>
           <div>
             <label for="upload-photo">
               <img
                 src={img}
                 alt="fzx"
-                height="100px"
-                width="120px"
+                height="140px"
+                width="160px"
                 style={{ cursor: "pointer" }}
-
               />
             </label>
             <input
@@ -44,7 +39,10 @@ const AdminEditPartner = () => {
       </Row>
       <Row>
         <Col sm="8" className="d-flex justify-content-start add-btn">
-          <button onClick={handelupdate} className="btn-save d-inline mt-2 "> Update</button>
+          <button onClick={handelupdate} className="btn-save d-inline mt-2 ">
+            {" "}
+            {t("Admin:partner.update.update")}
+          </button>
         </Col>
       </Row>
       <Toaster position="top-center" reverseOrder={false} />

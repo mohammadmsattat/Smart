@@ -36,7 +36,10 @@ export const UseUpdateBlog = (id) => {
       setDescriptoinar(blog.data.data.text_ar);
       setDescriptoinen(blog.data.data.text_en);
       setPublisher(blog.data.data.publisher);
-      setPublihDate(blog.data.data.publishDate);
+
+      const formattedDate = blog.data.data.publishDate.split("T")[0];
+
+      setPublihDate(formattedDate);
       
 
     }
@@ -49,6 +52,12 @@ export const UseUpdateBlog = (id) => {
       setSelectedFile(event.target.files[0]);
     }
   };
+  
+  //test the text if date
+  function isValidDate(text) {
+    const date = Date.parse(text); 
+    return !isNaN(date); 
+  }
   const onchagedesar = (event) => {
     setDescriptoinar(event.target.value);
   };
@@ -68,18 +77,38 @@ export const UseUpdateBlog = (id) => {
     setAddressar(event.target.value);
   };
 
+
+
+
   //get data from store
-  const response = useSelector((state) => state.TeamSlice.UpdateEmployee);
-  const Loading = useSelector((state) => state.TeamSlice.UpdateLoading);
+  const response = useSelector((state) => state.BlogsSlice.update);
+  const Loading = useSelector((state) => state.BlogsSlice.UpdateLoading);
 
   //save data in database
   const handelupdate = async (event) => {
     event.preventDefault();
 
-    if (Addressar === "" ||Addressen === "" || selectedFile === null ||descriptionar === ""|| descriptionen === ""|| publisher === ""|| publisdDates === "") {
+    if (Addressar === "" ||Addressen === ""  ||descriptionar === ""|| descriptionen === ""|| publisher === ""|| publisdDates === "") {
       toast.error("Please complete all fields");
       return;
     }
+    if(Addressar.length <3 ||Addressen.length <3 ){
+      toast.error("address is short");
+      return;
+    }
+    if(descriptionar.length <3 ||descriptionen.length <3 ){
+      toast.error("description is short");
+      return;
+    }
+    if(publisher.length <3  ){
+      toast.error("publisher is short");
+      return;
+    }
+    if(!isValidDate(publisdDates) ){
+      toast.error("Pleas Enter Date ");
+      return;
+    }
+    
   
     // Create a FormData object
     const formData = new FormData();
@@ -92,7 +121,7 @@ export const UseUpdateBlog = (id) => {
 
   
     // If there's a file selected, append it
-    if (selectedFile) {
+    if (selectedFile!==null) {
       formData.append("imageCover", selectedFile);
     }
   
@@ -106,8 +135,11 @@ export const UseUpdateBlog = (id) => {
 
       if (response.status === 200) {
           toast.success("service updated successfully");
-        navigate("/admin/manegment-blog");
-        window.location.reload(false);
+          setTimeout(() => {
+            
+            navigate("/admin/manegment-blog");
+            window.location.reload(false);
+          }, 1500);
       }
     }
   }, [Loading]);

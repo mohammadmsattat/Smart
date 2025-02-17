@@ -18,9 +18,7 @@ export const UseUpdateProject = (id) => {
   const [selectedFile, setSelectedFile] = useState(null);
   const [description, setDescription] = useState("");
   const [commingSoon, setCommingSoon] = useState(false);
-  const [category, setcategory] = useState('');
-
-
+  const [category, setcategory] = useState("");
 
   useEffect(() => {
     const run = async () => {
@@ -61,18 +59,15 @@ export const UseUpdateProject = (id) => {
   const onChangeImage = (event) => {
     onImageChange(event);
   };
-  console.log(selectedFile);
-  
 
   //check box clicke
-  const onchecked=()=>{
-    if(commingSoon===false){
-      setCommingSoon(true)
+  const onchecked = () => {
+    if (commingSoon === false) {
+      setCommingSoon(true);
+    } else {
+      setCommingSoon(false);
     }
-    else{
-      setCommingSoon(false)
-    }
-  }
+  };
   //get data from store
   const response = useSelector((state) => state.ProjectsSlice.updateProject);
   const Loading = useSelector((state) => state.ProjectsSlice.UpdateLoading);
@@ -81,36 +76,43 @@ export const UseUpdateProject = (id) => {
   const handelupdate = async (event) => {
     event.preventDefault();
 
-  if (name === "" || description === "") {
-    toast.error("Please complete all fields");
-    return;
-  }
+    if (name === "" || description === "") {
+      toast.error("Please complete all fields");
+      return;
+    }
+    if (name.length < 3) {
+      toast.error(" name is short ");
+      return;
+    }
+    if (description.length < 25) {
+      toast.error(" description is short ");
+      return;
+    }
 
-  // Create a FormData object
-  const formData = new FormData();
-  formData.append("name", name);
-  formData.append("description", description);
-  formData.append("category", category);
-  formData.append("commingSoon", commingSoon);
+    // Create a FormData object
+    const formData = new FormData();
+    formData.append("name", name);
+    formData.append("description", description);
+    formData.append("category", category);
+    formData.append("commingSoon", commingSoon);
 
-  // If there's a file selected, append it
-  if (selectedFile) {
-    formData.append("imageCover", selectedFile);
-  }
+    // If there's a file selected, append it
+    if (selectedFile !== null) {
+      formData.append("imageCover", selectedFile);
+    }
 
-  // Dispatch the thunk with the FormData
-  await dispatch(UpdateOneProject({ id, formData }));
-
+    // Dispatch the thunk with the FormData
+    await dispatch(UpdateOneProject({ id, formData }));
   };
 
   useEffect(() => {
     if (Loading === false) {
-      console.log(response);
-
       if (response.status === 200) {
-          toast.success("service updated successfully");
-        navigate("/admin/manegment-project");
-        window.location.reload(false);
+        toast.success("service updated successfully");
+        setTimeout(() => {
+          navigate("/admin/manegment-project");
+          window.location.reload(false);
+        }, 1500);
       }
     }
   }, [Loading]);

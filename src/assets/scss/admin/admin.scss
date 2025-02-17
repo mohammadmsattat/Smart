@@ -32,6 +32,18 @@ $background-color_4: #fcfcfc;
     font-size: 14px;
   }
 }
+
+.admin-card{
+  width: 18rem; 
+  margin: .4em ;
+  padding: 0px;
+  img{
+    height: 13em;
+  }
+  .card-text{
+    height: 5em;
+  }
+}
 .admin-content-text {
   color: $color_3;
   font-size: 21px;

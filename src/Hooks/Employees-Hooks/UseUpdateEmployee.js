@@ -1,6 +1,9 @@
 import { useEffect, useState } from "react";
 import toast from "react-hot-toast";
-import { GetOneEmployee,UpdateEmployee } from "../../Store/Requests/TeamRequests";
+import {
+  GetOneEmployee,
+  UpdateEmployee,
+} from "../../Store/Requests/TeamRequests";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 
@@ -65,17 +68,25 @@ export const UseUpdateEmployee = (id) => {
       toast.error("Please complete all fields");
       return;
     }
-  
+    if (name.length < 3) {
+      toast.error(" name is short ");
+      return;
+    }
+    if (job.length < 3) {
+      toast.error(" job is short ");
+      return;
+    }
+
     // Create a FormData object
     const formData = new FormData();
     formData.append("name", name);
     formData.append("job", job);
-  
+
     // If there's a file selected, append it
-    if (selectedFile) {
+    if (selectedFile !== null) {
       formData.append("imageCover", selectedFile);
     }
-  
+
     // Dispatch the thunk with the FormData
     await dispatch(UpdateEmployee({ id, formData }));
   };
@@ -85,9 +96,11 @@ export const UseUpdateEmployee = (id) => {
       console.log(response);
 
       if (response.status === 200) {
-          toast.success("service updated successfully");
-        navigate("/admin/manegment-employee");
-        window.location.reload(false);
+        toast.success("service updated successfully");
+        setTimeout(() => {
+          navigate("/admin/manegment-employee");
+          window.location.reload(false);
+        }, 1500);
       }
     }
   }, [Loading]);

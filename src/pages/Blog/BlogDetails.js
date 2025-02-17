@@ -7,11 +7,17 @@ import BlogSidebar from "../../component/blog/BlogSidebar";
 import DiscipWithBack from "../../component/descripSection/DiscipWithBack";
 import { useParams } from "react-router-dom";
 import { UseGetOneBlog } from "../../Hooks/Blogs-Hooks/UseGetOneBlog";
+import { useTranslation } from "react-i18next";
 
 const BlogDetails = () => {
+    const {  i18n } = useTranslation();
+  
   const { id } = useParams();
-  const [blog] = UseGetOneBlog(id);
-  console.log(blog);
+  const [blog,formattedDate] = UseGetOneBlog(id);
+  //console.log(blog);
+  //const date=blog.publishDate.split("T")[0]
+  
+  console.log(formattedDate);
 
   return (
     <>
@@ -39,14 +45,14 @@ const BlogDetails = () => {
                       <div className="info" style={{marginLeft:'1.5em'}}>
                         <h6 className="author-name" style={{marginBottom:'.5em'}}>{blog.publisher}</h6>
                         <ul className="blog-meta list-unstyled">
-                          <li>{blog.updatedAt}</li>
+                          <li>{ formattedDate}</li>
                           <li>two min</li>
                         </ul>
                       </div>
                     </div>
                     <div>
                       <p>
-                     {blog.text_en}
+                     { i18n.language==='en'?blog.text_en:blog.text_ar}
                       </p>
                     </div>
                   </div>

@@ -5,8 +5,11 @@ import { Link } from "react-router-dom";
 import { Button, Card } from "react-bootstrap";
 import { trimString } from "../../../utils";
 import Model from "../Model";
+import { useTranslation } from "react-i18next";
 
 const AdminManegmentService = () => {
+  const { t } = useTranslation();
+
   const [services] = UseGetAllServices();
 
   const { SubmitDelete, show, handleClose, handleShow } = UseDeleteOneSrevice();
@@ -26,11 +29,11 @@ const AdminManegmentService = () => {
         Delid={Delid}
       />
 
-      <h3>Manegment Services</h3>
+      <h3>{t("Admin:service.manegment.head")}</h3>
 
       <Link to="/admin/add-service" style={{ textDecoration: "none" }}>
         <div>
-          <button className="add-btn-2">Add Service</button>
+          <button className="add-btn-2">{t("Admin:service.manegment.Add")}</button>
         </div>
       </Link>
 
@@ -38,13 +41,13 @@ const AdminManegmentService = () => {
         {services ? (
           services.map((item, index) => {
             return (
-              <Card key={index} style={{ width: "18rem", margin: ".4em" }}>
+              <Card key={index} className="admin-card">
                 <Card.Img variant="top" src={item.imageCover} />
                 <Card.Body>
                   <Card.Title>
                     <Link
                       to={`/service/${item._id}`}
-                     
+                    
                     >
                       {item.name}
                     </Link>
@@ -55,14 +58,14 @@ const AdminManegmentService = () => {
                       onClick={() => deleteModel(item._id)}
                       variant="primary"
                     >
-                      Delete
+                      {t("Admin:service.manegment.Delete")}
                     </Button>
                     <Button variant="primary">
                       <Link
                         to={`/admin/edit-service/${item._id}`}
                         style={{ color: "white" }}
                       >
-                        Update
+                        {t("Admin:service.manegment.update")}
                       </Link>
                     </Button>
                   </div>

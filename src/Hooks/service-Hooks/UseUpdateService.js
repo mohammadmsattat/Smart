@@ -18,8 +18,6 @@ export const UseUpdateService = (id) => {
   const [description, setDescription] = useState("");
   const [commingSoon, setCommingSoon] = useState(false);
 
-
-
   useEffect(() => {
     const run = async () => {
       await dispatch(GetOneService(id));
@@ -32,11 +30,9 @@ export const UseUpdateService = (id) => {
   useEffect(() => {
     if (service.data) {
       setImg(service.data.data.imageCover);
-      setSelectedFile(service.data.data.imageCover);
       setName(service.data.data.name);
       setDescription(service.data.data.description);
-      setCommingSoon(service.data.data.commingSoon)
-
+      setCommingSoon(service.data.data.commingSoon);
     }
   }, [service]);
 
@@ -62,14 +58,13 @@ export const UseUpdateService = (id) => {
   };
 
   //check box clicke
-  const onchecked=()=>{
-    if(commingSoon===false){
-      setCommingSoon(true)
+  const onchecked = () => {
+    if (commingSoon === false) {
+      setCommingSoon(true);
+    } else {
+      setCommingSoon(false);
     }
-    else{
-      setCommingSoon(false)
-    }
-  }
+  };
   //get data from store
   const response = useSelector((state) => state.ServicesSlice.update);
   const Loading = useSelector((state) => state.ServicesSlice.UpdateLoading);
@@ -82,18 +77,26 @@ export const UseUpdateService = (id) => {
       toast.error("Please complete all fields");
       return;
     }
-  
+    if (name.length < 3 ) {
+      toast.error(" name is short ");
+      return;
+    }
+    if (description.length < 25) {
+      toast.error(" decription is short ");
+      return;
+    }
+
     // Create a FormData object
     const formData = new FormData();
     formData.append("name", name);
     formData.append("description", description);
     formData.append("commingSoon", commingSoon);
-  
+
     // If there's a file selected, append it
-    if (selectedFile) {
+    if (selectedFile !== null) {
       formData.append("imageCover", selectedFile);
     }
-  
+
     // Dispatch the thunk with the FormData
     await dispatch(UpdateService({ id, formData }));
   };
@@ -102,8 +105,10 @@ export const UseUpdateService = (id) => {
     if (Loading === false) {
       if (response.status === 200) {
         toast.success("service updated successfully");
-        navigate("/admin/manegment-service");
-        window.location.reload(false);
+        setTimeout(() => {
+          navigate("/admin/manegment-service");
+          window.location.reload(false);
+        }, 1500);
       }
     }
   }, [Loading]);
