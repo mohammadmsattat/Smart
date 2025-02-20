@@ -12,10 +12,11 @@ export const UsePostEmployee = () => {
 
   //form data variabels
   const [img, setImg] = useState(upload);
-  const [name, setName] = useState("");
+  const [name_en, setName_en] = useState("");
+  const [name_ar, setName_ar] = useState("");
   const [selectedFile, setSelectedFile] = useState(null);
-  const [job, setJob] = useState("");
-
+  const [job_en, setjob_en] = useState("");
+  const [job_ar, setjob_ar] = useState("");
   //when image change save it
   const onImageChange = (event) => {
     if (event.target.files && event.target.files[0]) {
@@ -31,24 +32,27 @@ export const UsePostEmployee = () => {
   //post method
   const handelPost = async (event) => {
     event.preventDefault();
-    if (name === "" || selectedFile === null || job === "") {
+    if (selectedFile === null || name_en === "" || name_ar === ""||job_en === "" || job_ar === "") {
       toast.error("pleas complete data");
       return;
     }
-    if (name.length < 3) {
+    if (name_en.length < 3||name_ar.length < 3) {
       toast.error(" name is short ");
       return;
     }
-    if (job.length < 3) {
+    if (job_en.length < 3||job_ar.length < 3) {
       toast.error(" job is short ");
       return;
     }
 
     await dispatch(
       PostEmployee({
-        name: name,
+        name_en: name_en,
+        name_ar:name_ar,
         imageCover: selectedFile,
-        job: job,
+        job_en: job_en,
+        job_ar:job_ar
+
       })
     );
   };
@@ -57,7 +61,11 @@ export const UsePostEmployee = () => {
   useEffect(() => {
     if (postLoading === false) {
       setImg(upload);
-      setName("");
+      setName_en("");
+      setName_ar("");
+      setjob_en("");
+      setjob_ar("");
+
       setSelectedFile(null);
 
       if (response.status === 201) {
@@ -72,10 +80,12 @@ export const UsePostEmployee = () => {
 
   return {
     img,
-    setName,
+    setName_en,
+    setName_ar,
     setSelectedFile,
     setImg,
-    setJob,
+    setjob_en,
+    setjob_ar,
     onImageChange,
     handelPost,
     response,

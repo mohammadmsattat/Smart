@@ -7,15 +7,30 @@ import { useTranslation } from "react-i18next";
 const AdminAddOffice = () => {
   const { t } = useTranslation();
 
-  const { img, setlocation, setDescription, onImageChange, handelPost } =
+  const { img,
+    setLocation_en,
+    setLocation_ar,
+    setSelectedFile,
+    setImg,
+    setAddress_en,
+    setAddress_ar,
+    onImageChange,
+    handelPost,
+    response,
+    Loading, } =
     UsePostOffice();
 
   return (
     <div className="Add-page">
       <Row className=" ">
-        <div className="admin-content-text pb-4">{t("Admin:office.Add.head")} </div>
+        <div className="admin-content-text pb-4 info-head-ar">
+          {t("Admin:office.Add.head")}{" "}
+        </div>
         <Col sm="8">
-          <div className="text-form pb-2"> {t("Admin:office.Add.photo")}</div>
+          <div className="text-form pb-2 info-head-ar">
+            {" "}
+            {t("Admin:office.Add.photo")}
+          </div>
           <div>
             <label for="upload-photo">
               <img
@@ -35,18 +50,35 @@ const AdminAddOffice = () => {
             />
           </div>
           <div className="form-input-text">
-            <label className="form-label" for="name">
-            {t("Admin:office.Add.location")}
-            </label>
-            <input
-              id="name"
-              type="text"
-              onChange={(e) => setlocation(e.target.value)}
-              className="input-form d-block mt-3 px-3"
-              placeholder={t("Admin:office.Add.placeHolderName")}
-            />
+            <Row>
+              <Col>
+                <label className="form-label" for="name">
+                  {t("Admin:office.Add.location-en")}
+                </label>
+                <input
+                  id="name"
+                  type="text"
+                  onChange={(e) => setLocation_en(e.target.value)}
+                  className="input-form d-block mt-3 px-3"
+                  placeholder={t("Admin:office.Add.placeHolderName")}
+                />
+              </Col>
+              <Col>
+                <label className="form-label" for="name">
+                  {t("Admin:office.Add.location-ar")}
+                </label>
+                <input
+                  id="name"
+                  type="text"
+                  onChange={(e) => setLocation_ar(e.target.value)}
+                  className="input-form d-block mt-3 px-3"
+                  placeholder={t("Admin:office.Add.placeHolderName")}
+                />
+              </Col>
+            </Row>
+
             <label className="form-label" for="job">
-            {t("Admin:office.Add.Description")}
+              {t("Admin:office.Add.Description-en")}
             </label>
             <textarea
               id="job"
@@ -54,7 +86,18 @@ const AdminAddOffice = () => {
               placeholder={t("Admin:office.Add.placeHolderdes")}
               rows="5"
               cols="33"
-              onChange={(e) => setDescription(e.target.value)}
+              onChange={(e) => setAddress_en(e.target.value)}
+            />
+            <label className="form-label" for="job">
+              {t("Admin:office.Add.Description-ar")}
+            </label>
+            <textarea
+              id="job"
+              className="input-form-textarea d-block mt-3 px-3"
+              placeholder={t("Admin:office.Add.placeHolderdes")}
+              rows="5"
+              cols="33"
+              onChange={(e) => setAddress_ar(e.target.value)}
             />
           </div>
         </Col>

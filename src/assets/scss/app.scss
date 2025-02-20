@@ -1,10 +1,4 @@
 /*---------------------------------------------
-Template Name: Abstrak
-Template URL: https://new.axilthemes.com/demo/react/abstrak/
-Description: Digital Agency React JS Template.
-Author: Axilthemes
-Author URL: https://axilthemes.com/
-Version: 1.1.0
 
 ===============================================   
 STYLESHEET INDEXING
@@ -49,7 +43,6 @@ STYLESHEET INDEXING
 |
 |___Dark Style
 |
-|___Spacing
 |
 |___RTL
 |
@@ -104,7 +97,6 @@ STYLESHEET INDEXING
 =========================================================================*/
 @import "header/header";
 @import "blog/blog";
-@import "blog/widget";
 @import "footer/footer";
 
 /*=======================================================================
@@ -121,11 +113,6 @@ STYLESHEET INDEXING
 7. RTL 
 =========================================================================*/
  @import "rtl/rtl";
-
-/*=======================================================================
-8. Spacing 
-=========================================================================*/
-@import "SignUp/SignUp.scss";
 
 /*=======================================================================
 9. Spacing 

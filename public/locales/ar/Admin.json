@@ -1,161 +1,173 @@
 {
-    "sidBar": {
-      "service": "الخدمات",
-      "project": "المشاريع",
-      "Employee": "الموظفون",
-      "partner": "الشركاء",
-      "office": "المكاتب",
-      "blog": "المدونات",
-      "information": "المعلومات"
+  "sidBar": {
+    "service": "الخدمات",
+    "project": "المشاريع",
+    "Employee": "الموظفون",
+    "partner": "الشركاء",
+    "office": "المكاتب",
+    "blog": "المدونات",
+    "information": "المعلومات"
+  },
+  "service": {
+    "Add": {
+      "head": "إضافة خدمة جديدة",
+      "photo": "أدخل الصورة",
+      "name-ar": "الاسم   (عربي)",
+      "name-en": " الاسم   (إنجليزي)",
+      "Description-ar": " الوصف (عربي)",
+      "Description-en": " الوصف (إنجليزي)",
+
+      "commingSoon": "قريبًا",
+      "Add": "إضافة",
+      "placeHolderName": "أدخل الاسم...",
+      "placeHolderdes": "أدخل الوصف..."
     },
-    "service": {
-      "Add": {
-        "head": "إضافة خدمة جديدة",
-        "photo": "أدخل الصورة",
-        "name": "الاسم",
-        "Description": "الوصف",
-        "commingSoon": "قريبًا",
-        "Add": "إضافة",
-        "placeHolderName": "أدخل الاسم...",
-        "placeHolderdes": "أدخل الوصف..."
-      },
-      "manegment": {
-        "head": "إدارة الخدمات",
-        "Add": "إضافة خدمة",
-        "Delete": "حذف",
-        "update": "تحديث"
-      },
-      "update": {
-        "head": "تعديل الخدمة",
-        "update": "تحديث"
-      }
-    },
-    "project": {
-      "Add": {
-        "head": "إضافة مشروع جديد",
-        "photo": "أدخل الصورة",
-        "name": "الاسم",
-        "category": "الفئة",
-        "Description": "الوصف",
-        "commingSoon": "قريبًا",
-        "Add": "إضافة",
-        "placeHolderName": "أدخل الاسم...",
-        "placeHolderdes": "أدخل الوصف...",
-        "placeHolderCat": "أدخل الفئة..."
-      },
-      "manegment": {
-        "head": "إدارة المشاريع",
-        "Add": "إضافة مشروع",
-        "Delete": "حذف",
-        "update": "تحديث"
-      },
-      "update": {
-        "head": "تعديل المشروع",
-        "update": "تحديث"
-      }
-    },
-    "Employee": {
-      "Add": {
-        "head": "إضافة موظف جديد",
-        "photo": "أدخل الصورة",
-        "name": "الاسم",
-        "job": "الوظيفة",
-        "Add": "إضافة",
-        "placeHolderName": "أدخل الاسم...",
-        "placeHolderjob": "أدخل الوظيفة..."
-      },
-      "manegment": {
-        "head": "إدارة الموظفين",
-        "Add": "إضافة موظف",
-        "Delete": "حذف",
-        "update": "تحديث"
-      },
-      "update": {
-        "head": "تعديل الموظف",
-        "update": "تحديث"
-      }
-    },
-    "partner": {
-      "Add": {
-        "head": "إضافة شريك جديد",
-        "photo": "أدخل الشعار",
-        "Add": "إضافة"
-      },
-      "manegment": {
-        "head": "إدارة الشركاء",
-        "Add": "إضافة شريك",
-        "Delete": "حذف",
-        "update": "تحديث"
-      },
-      "update": {
-        "head": "تعديل الشريك",
-        "update": "تحديث"
-      }
-    },
-    "office": {
-      "Add": {
-        "head": "إضافة مكتب جديد",
-        "photo": "أدخل الصورة",
-        "location": "العنوان",
-        "Description": "تفاصيل العنوان",
-        "Add": "إضافة",
-        "placeHolderName": "أدخل العنوان...",
-        "placeHolderdes": "أدخل تفاصيل العنوان..."
-      },
-      "manegment": {
-        "head": "إدارة المكاتب",
-        "Add": "إضافة مكتب",
-        "Delete": "حذف",
-        "update": "تحديث"
-      },
-      "update": {
-        "head": "تعديل تفاصيل المكتب",
-        "update": "تحديث"
-      }
-    },
-    "blog": {
-      "Add": {
-        "head": "إضافة مدونة جديدة",
-        "photo": "أدخل الصورة",
-        "Publisher": "الناشر",
-        "PublishDate": "تاريخ النشر",
-        "location-en": "الموقع (إنجليزي)",
-        "location-ar": "الموقع (عربي)",
-        "Description-en": "الوصف (إنجليزي)",
-        "Description-ar": "الوصف (عربي)",
-        "Add": "إضافة",
-        "placeHolderPub": "أدخل اسم الناشر...",
-        "placeHolderateD": "أدخل تاريخ النشر...",
-        "placeHolderloc-en": "أدخل الموقع...",
-        "placeHolderloc-ar": "أدخل الموقع...",
-        "placeHolderdes-en": "أدخل الوصف...",
-        "placeHolderdes-ar": "أدخل الوصف..."
-      },
-      "manegment": {
-        "head": "إدارة المدونات",
-        "Add": "إضافة مدونة",
-        "Delete": "حذف",
-        "update": "تحديث"
-      },
-      "update": {
-        "head": "تعديل تفاصيل المدونة",
-        "update": "تحديث"
-      }
-    },
-    "information": {
-      "head": "معلوماتنا",
-      "email": "البريد الإلكتروني",
-      "phone": "رقم الهاتف",
-      "facebook": "فيسبوك",
-      "instagram": "إنستغرام",
-      "x": "إكس",
-      "Linkein": "لينكد إن",
+    "manegment": {
+      "head": "إدارة الخدمات",
+      "Add": "إضافة خدمة",
+      "Delete": "حذف",
       "update": "تحديث"
     },
-    "model":{
-        "head":"هل متأكد من حذف هذا العنصر",
-        "deleet":"حذف",
-        "close":"إغلاق"
+    "update": {
+      "head": "تعديل الخدمة",
+      "update": "تحديث"
     }
+  },
+  "project": {
+    "Add": {
+      "head": "إضافة مشروع جديد",
+      "photo": "أدخل الصورة",
+      "name-ar": "الاسم   (عربي)",
+      "name-en": " الاسم   (إنجليزي)",
+      "Description-ar": " الوصف (عربي)",
+      "Description-en": " الوصف (إنجليزي)",
+      "category-ar": "لفئة (عربي)",
+      "category-en": "لفئة (إنجليزي)",
+      "commingSoon": "قريبًا",
+      "Add": "إضافة",
+      "placeHolderName": "أدخل الاسم...",
+      "placeHolderdes": "أدخل الوصف...",
+      "placeHolderCat": "أدخل الفئة..."
+    },
+    "manegment": {
+      "head": "إدارة المشاريع",
+      "Add": "إضافة مشروع",
+      "Delete": "حذف",
+      "update": "تحديث"
+    },
+    "update": {
+      "head": "تعديل المشروع",
+      "update": "تحديث"
+    }
+  },
+  "Employee": {
+    "Add": {
+      "head": "إضافة موظف جديد",
+      "photo": "أدخل الصورة",
+      "name-ar": " الاسم (عربي) ",
+      "name-en": "الاسم (إنجليزي)",
+      "job-en": "الوظيفة (عربي)",
+
+      "job-ar": "الوظيفة (إنجليزي)",
+      "Add": "إضافة",
+      "placeHolderName": "أدخل الاسم...",
+      "placeHolderjob": "أدخل الوظيفة..."
+    },
+    "manegment": {
+      "head": "إدارة الموظفين",
+      "Add": "إضافة موظف",
+      "Delete": "حذف",
+      "update": "تحديث"
+    },
+    "update": {
+      "head": "تعديل الموظف",
+      "update": "تحديث"
+    }
+  },
+  "partner": {
+    "Add": {
+      "head": "إضافة شريك جديد",
+      "photo": "أدخل الشعار",
+      "Add": "إضافة"
+    },
+    "manegment": {
+      "head": "إدارة الشركاء",
+      "Add": "إضافة شريك",
+      "Delete": "حذف",
+      "update": "تحديث"
+    },
+    "update": {
+      "head": "تعديل الشريك",
+      "update": "تحديث"
+    }
+  },
+  "office": {
+    "Add": {
+      "head": "إضافة مكتب جديد",
+      "photo": "أدخل الصورة",
+      "location-en": " العنوان (إنجليزي)",
+      "location-ar": " العنوان (عربي)",
+
+      "Description-ar": "تفاصيل العنوان (عربي)",
+      "Description-en": "تفاصيل العنوان (إنجليزي)",
+
+      "Add": "إضافة",
+      "placeHolderName": "أدخل العنوان...",
+      "placeHolderdes": "أدخل تفاصيل العنوان..."
+    },
+    "manegment": {
+      "head": "إدارة المكاتب",
+      "Add": "إضافة مكتب",
+      "Delete": "حذف",
+      "update": "تحديث"
+    },
+    "update": {
+      "head": "تعديل تفاصيل المكتب",
+      "update": "تحديث"
+    }
+  },
+  "blog": {
+    "Add": {
+      "head": "إضافة مدونة جديدة",
+      "photo": "أدخل الصورة",
+      "Publisher": "الناشر",
+      "PublishDate": "تاريخ النشر",
+      "location-en": "الموقع (إنجليزي)",
+      "location-ar": "الموقع (عربي)",
+      "Description-en": "الوصف (إنجليزي)",
+      "Description-ar": "الوصف (عربي)",
+      "Add": "إضافة",
+      "placeHolderPub": "أدخل اسم الناشر...",
+      "placeHolderateD": "أدخل تاريخ النشر...",
+      "placeHolderloc-en": "أدخل الموقع...",
+      "placeHolderloc-ar": "أدخل الموقع...",
+      "placeHolderdes-en": "أدخل الوصف...",
+      "placeHolderdes-ar": "أدخل الوصف..."
+    },
+    "manegment": {
+      "head": "إدارة المدونات",
+      "Add": "إضافة مدونة",
+      "Delete": "حذف",
+      "update": "تحديث"
+    },
+    "update": {
+      "head": "تعديل تفاصيل المدونة",
+      "update": "تحديث"
+    }
+  },
+  "information": {
+    "head": "معلوماتنا",
+    "email": "البريد الإلكتروني",
+    "phone": "رقم الهاتف",
+    "facebook": "فيسبوك",
+    "instagram": "إنستغرام",
+    "x": "إكس",
+    "Linkein": "لينكد إن",
+    "update": "تحديث"
+  },
+  "model": {
+    "head": "هل متأكد من حذف هذا العنصر",
+    "deleet": "حذف",
+    "close": "إغلاق"
   }
-  
+}

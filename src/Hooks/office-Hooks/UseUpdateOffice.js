@@ -14,9 +14,13 @@ export const UseUpdateOffice = (id) => {
 
   //  variabels
   const [img, setImg] = useState(null);
-  const [location, setLocation] = useState("");
+  const [location_en, setLocation_en] = useState("");
+  const [location_ar, setLocation_ar] = useState("");
+
   const [selectedFile, setSelectedFile] = useState(null);
-  const [Address, setAddress] = useState("");
+  const [Address_en, setAddress_en] = useState("");
+  const [Address_ar, setAddress_ar] = useState("");
+
 
   useEffect(() => {
     const run = async () => {
@@ -26,12 +30,18 @@ export const UseUpdateOffice = (id) => {
   }, []);
 
   const office = useSelector((state) => state.OfficeSlice.getOne);
+  console.log(office);
+  
 
   useEffect(() => {
     if (office.data) {
       setImg(office.data.data.imageCover);
-      setLocation(office.data.data.location);
-      setAddress(office.data.data.description);
+      setLocation_en(office.data.data.location_en);
+      setLocation_ar(office.data.data.location_ar);
+
+      setAddress_en(office.data.data.description_en);
+      setAddress_ar(office.data.data.description_ar);
+
     }
   }, [office]);
 
@@ -44,12 +54,18 @@ export const UseUpdateOffice = (id) => {
   };
 
   //to change name state
-  const onChangeLocation = (event) => {
-    setLocation(event.target.value);
+  const onChangeLocation_en = (event) => {
+    setLocation_en(event.target.value);
+  };
+  const onChangeLocation_ar = (event) => {
+    setLocation_ar(event.target.value);
   };
   //to change description state
-  const onChangeAddress = (event) => {
-    setAddress(event.target.value);
+  const onChangeAddress_en = (event) => {
+    setAddress_en(event.target.value);
+  };
+  const onChangeAddress_ar = (event) => {
+    setAddress_ar(event.target.value);
   };
   //to change file state
   const onChangeImage = (event) => {
@@ -64,23 +80,27 @@ export const UseUpdateOffice = (id) => {
   const handelupdate = async (event) => {
     event.preventDefault();
 
-    if (Address === "" || location === "") {
+    if (location_en === "" || location_ar === "" ||Address_en === "" || Address_ar === "") {
       toast.error("Please complete all fields");
       return;
     }
-    if (location.length < 3) {
+    if (location_en.length < 3||location_ar.length < 3) {
       toast.error(" location is short  ");
       return;
     }
-    if (Address.length < 30) {
+    if (Address_en.length < 30||Address_ar.length < 30) {
       toast.error(" description is short");
       return;
     }
 
     // Create a FormData object
     const formData = new FormData();
-    formData.append("name", Address);
-    formData.append("description", location);
+    formData.append("location_en", location_en);
+    formData.append("location_ar", location_ar);
+
+    formData.append("description_en", Address_en);
+    formData.append("description_ar", Address_ar);
+
 
     // If there's a file selected, append it
     if (selectedFile !== null) {
@@ -105,12 +125,16 @@ export const UseUpdateOffice = (id) => {
 
   return {
     img,
-    location,
-    onChangeLocation,
+    location_en,
+    location_ar,
+    onChangeLocation_en,
+    onChangeLocation_ar,
     onChangeImage,
     setImg,
-    Address,
-    onChangeAddress,
+    Address_en,
+    Address_ar,
+    onChangeAddress_en,
+    onChangeAddress_ar,
     onImageChange,
     handelupdate,
     response,

@@ -11,12 +11,14 @@ export const UsePostProject = () => {
 
   //form data variabels
   const [img, setImg] = useState(upload);
-  const [name, setName] = useState("");
+  const [name_en, setName_en] = useState("");
+  const [name_ar, setName_ar] = useState("");
   const [selectedFile, setSelectedFile] = useState(null);
-  const [description, setDescription] = useState("");
+  const [description_en, setDescription_en] = useState("");
+  const [description_ar, setDescription_ar] = useState("");
   const [commingSoon, setcommingSoon] = useState(false);
-  const [category, setcategory] = useState("");
-
+  const [category_en, setcategory_en] = useState("");
+  const [category_ar, setcategory_ar] = useState("");
   //when image change save it
   const onImageChange = (event) => {
     if (event.target.files && event.target.files[0]) {
@@ -41,26 +43,37 @@ export const UsePostProject = () => {
   //save data in database
   const handelPost = async (event) => {
     event.preventDefault();
-    if (name === "" || selectedFile === null || description === "") {
+    if (
+      selectedFile === null ||
+      name_en === "" ||
+      name_ar === "" ||
+      description_en === "" ||
+      description_ar === "" ||
+      category_en === "" ||
+      category_ar === ""
+    ) {
       toast.error("pleas complete data");
       return;
     }
 
-    if (name.length < 3) {
+    if (name_en.length < 3 || name_ar.length < 3) {
       toast.error(" name is short ");
       return;
     }
-    if (description.length < 25) {
+    if (description_en.length < 25 || description_ar.length < 25) {
       toast.error(" description is short ");
       return;
     }
 
     await dispatch(
       PostProject({
-        name: name,
+        name_en: name_en,
+        name_ar: name_ar,
         imageCover: selectedFile,
-        category: category,
-        description: description,
+        category_en:category_en,
+        category_ar:category_ar ,
+        description_en: description_en,
+        description_ar: description_ar,
         commingSoon: commingSoon,
       })
     );
@@ -70,7 +83,12 @@ export const UsePostProject = () => {
   useEffect(() => {
     if (GetLoading === false) {
       setImg(upload);
-      setName("");
+      setName_en("");
+      setName_ar("");
+      setDescription_en("");
+      setDescription_ar("");
+      setcategory_en("");
+      setcategory_ar("");
       setSelectedFile(null);
 
       if (response.status === 201) {
@@ -85,11 +103,14 @@ export const UsePostProject = () => {
 
   return {
     img,
-    setName,
+    setName_en,
+    setName_ar,
     setSelectedFile,
     setImg,
-    setDescription,
-    setcategory,
+    setDescription_en,
+    setDescription_ar,
+    setcategory_en,
+    setcategory_ar,
     onchecked,
     onImageChange,
     handelPost,

@@ -9,19 +9,25 @@ const AdminAddService = () => {
   
   const {
     img,
-    setName,
+    setName_en,
+    setName_ar,
+    setSelectedFile,
+    setImg,
     onchecked,
-    setDescription,
+    setDescription_ar,
+    setDescription_en,
     onImageChange,
     handelPost,
+    response,
+    PostLoading,
   } = UsePostService();
 
   return (
     <div className="Add-page">
       <Row className=" ">
-        <div className="admin-content-text pb-4">{t("Admin:service.Add.head")} </div>
+        <div className="admin-content-text info-head-ar pb-4">{t("Admin:service.Add.head")} </div>
         <Col sm="8">
-          <div className="text-form pb-2"> {t("Admin:service.Add.photo")}</div>
+          <div className="text-form pb-2 info-head-ar"> {t("Admin:service.Add.photo")}</div>
           <div>
             <label for="upload-photo">
               <img
@@ -41,18 +47,36 @@ const AdminAddService = () => {
             />
           </div>
           <div className="form-input-text">
+
+          <Row>
+            <Col sm="6">
             <label className="form-label" for="name">
-            {t("Admin:service.Add.name")}
+            {t("Admin:service.Add.name-en")}
             </label>
             <input
               id="name"
               type="text"
-              onChange={(e) => setName(e.target.value)}
+              onChange={(e) => setName_en(e.target.value)}
               className="input-form d-block mt-3 px-3"
               placeholder={t("Admin:service.Add.placeHolderName")}
             />
+            </Col>
+            <Col sm="6">
+            <label className="form-label" for="name">
+            {t("Admin:service.Add.name-ar")}
+            </label>
+            <input
+              id="name"
+              type="text"
+              onChange={(e) => setName_ar(e.target.value)}
+              className="input-form d-block mt-3 px-3"
+              placeholder={t("Admin:service.Add.placeHolderName")}
+            />
+            </Col>
+          </Row>
+           
             <label className="form-label" for="job">
-            {t("Admin:service.Add.Description")}
+            {t("Admin:service.Add.Description-en")}
             </label>
             <textarea
               id="job"
@@ -60,7 +84,18 @@ const AdminAddService = () => {
               placeholder={t("Admin:service.Add.placeHolderdes")}
               rows="5"
               cols="33"
-              onChange={(e) => setDescription(e.target.value)}
+              onChange={(e) => setDescription_en(e.target.value)}
+            />
+             <label className="form-label" for="job">
+            {t("Admin:service.Add.Description-ar")}
+            </label>
+            <textarea
+              id="job"
+              className="input-form-textarea d-block mt-3 px-3"
+              placeholder={t("Admin:service.Add.placeHolderdes")}
+              rows="5"
+              cols="33"
+              onChange={(e) => setDescription_ar(e.target.value)}
             />
 
             <div className="check-comming-soon">

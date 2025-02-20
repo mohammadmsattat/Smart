@@ -6,6 +6,7 @@
     .thumbnail {
         margin-bottom: 30px;
         img {
+            height: 10em;
             width: 100%;
         }
     }
@@ -22,6 +23,7 @@
 }
 
 .contact-info {
+    width: fit-content;
     background-color: var(--color-dark);
     border-radius: 14px;
     padding: 60px 50px;

@@ -12,67 +12,76 @@
     "Add": {
       "head": "Add new Service",
       "photo": "Enter photo",
-      "name": "Name",
-      "Description": "Description",
+      "name-ar": "Arabic Name",
+      "name-en": "English Name",
+      "Description-ar": "Arabic Description",
+      "Description-en": "English Description",
+
       "commingSoon": "comming soon",
       "Add": "Add",
       "placeHolderName": "Enter Name...",
       "placeHolderdes": "Enter Description..."
     },
-    "manegment":{
-        "head":"Manegment Services",
-        "Add":"Add Service",
-        "Delete":"Delete",
-        "update":"update"
+    "manegment": {
+      "head": "Manegment Services",
+      "Add": "Add Service",
+      "Delete": "Delete",
+      "update": "update"
     },
-    "update":{
-        "head":"Edit Service",
-        "update":"update"
+    "update": {
+      "head": "Edit Service",
+      "update": "update"
     }
   },
   "project": {
     "Add": {
       "head": "Add new project",
       "photo": "Enter photo",
-      "name": "Name",
-      "category":"category",
-      "Description": "Description",
+      "name-ar": "Arabic Name",
+      "name-en": "English Name",
+      "Description-ar": "Arabic Description",
+      "Description-en": "English Description",
+      "category-ar": "Arabic category",
+      "category-en": "English category",
+
       "commingSoon": "comming soon",
       "Add": "Add",
       "placeHolderName": "Enter Name...",
       "placeHolderdes": "Enter Description...",
-      "placeHolderCat":"Enter Category..."
+      "placeHolderCat": "Enter Category..."
     },
-    "manegment":{
-        "head":"Manegment projects",
-        "Add":"Add project",
-        "Delete":"Delete",
-        "update":"update"
+    "manegment": {
+      "head": "Manegment projects",
+      "Add": "Add project",
+      "Delete": "Delete",
+      "update": "update"
     },
-    "update":{
-        "head":"Edit Project",
-        "update":"update"
+    "update": {
+      "head": "Edit Project",
+      "update": "update"
     }
   },
   "Employee": {
     "Add": {
       "head": "Add new Employee",
       "photo": "Enter photo",
-      "name": "Name",
-      "job": "job",
+      "name-en": "English Name",
+      "name-ar": "Arabic Name",
+      "job-en": " Englishjob",
+      "job-ar": " Arabicjob",
       "Add": "Add",
       "placeHolderName": "Enter Name...",
       "placeHolderjob": "Enter job..."
     },
-    "manegment":{
-        "head":"Manegment Employese",
-        "Add":"Add Employee",
-        "Delete":"Delete",
-        "update":"update"
+    "manegment": {
+      "head": "Manegment Employese",
+      "Add": "Add Employee",
+      "Delete": "Delete",
+      "update": "update"
     },
-    "update":{
-        "head":"Edit Employee",
-        "update":"update"
+    "update": {
+      "head": "Edit Employee",
+      "update": "update"
     }
   },
   "partner": {
@@ -80,38 +89,40 @@
       "head": "Add new Partner",
       "photo": "Enter logo",
       "Add": "Add"
-
     },
-    "manegment":{
-        "head":"Manegment Partners",
-        "Add":"Add Partner",
-        "Delete":"Delete",
-        "update":"update"
+    "manegment": {
+      "head": "Manegment Partners",
+      "Add": "Add Partner",
+      "Delete": "Delete",
+      "update": "update"
     },
-    "update":{
-        "head":"Edit Partner",
-        "update":"update"
+    "update": {
+      "head": "Edit Partner",
+      "update": "update"
     }
   },
   "office": {
     "Add": {
       "head": "Add new Office",
       "photo": "Enter photo",
-      "location": "Address",
-      "Description": "Address Details",
+      "location-en": " English Address",
+      "location-ar": " Arabic Address",
+
+      "Description-ar": "Arabic Description",
+      "Description-en": "English Description",
       "Add": "Add",
       "placeHolderName": "Enter Addres...",
       "placeHolderdes": "Enter Address details..."
     },
-    "manegment":{
-        "head":"Manegment Office",
-        "Add":"Add Office",
-        "Delete":"Delete",
-        "update":"update"
+    "manegment": {
+      "head": "Manegment Office",
+      "Add": "Add Office",
+      "Delete": "Delete",
+      "update": "update"
     },
-    "update":{
-        "head":"Edit Office details",
-        "update":"update"
+    "update": {
+      "head": "Edit Office details",
+      "update": "update"
     }
   },
   "blog": {
@@ -136,36 +147,31 @@
 
       "placeHolderdes-en": "Enter description...",
       "placeHolderdes-ar": "Enter description..."
-
-
-
     },
-    "manegment":{
-        "head":"Manegment Blogs",
-        "Add":"Add Blog",
-        "Delete":"Delete",
-        "update":"update"
+    "manegment": {
+      "head": "Manegment Blogs",
+      "Add": "Add Blog",
+      "Delete": "Delete",
+      "update": "update"
     },
-    "update":{
-        "head":"Edit Blog details",
-        "update":"update"
+    "update": {
+      "head": "Edit Blog details",
+      "update": "update"
     }
   },
   "information": {
-    
-      "head": "Our Informations",
-      "email": "Email",
-      "phone": "Phone",
-      "facebook": "Face Book",
-      "instagram": "Instagram",
-      "x": "x",
-      "Linkein": "Linkedin",
-      "update":"update"
+    "head": "Our Informations",
+    "email": "Email",
+    "phone": "Phone",
+    "facebook": "Face Book",
+    "instagram": "Instagram",
+    "x": "x",
+    "Linkein": "Linkedin",
+    "update": "update"
   },
-  "model":{
-    "head":"Are You Shure To Delete it",
-    "deleet":"Delete",
-    "close":"Close"
+  "model": {
+    "head": "Are You Shure To Delete it",
+    "deleet": "Delete",
+    "close": "Close"
+  }
 }
-}
-

@@ -13,5 +13,30 @@
     "services":{
         "subtitle":"What We Can Do For You",
         "title":"Services we can <br> help you with"
+    },
+    "Data":{
+        "subtitle":"Our Valus",
+        "title":"Why should you work with us?",
+        "description":"Nulla facilisi. Nullam in magna id dolor blandit rutrum eget vulputate augue sed eu leo eget risus imperdiet.",
+        "one":{
+            "title": "Exceed clients’ and colleagues’ expectations",
+            "para": "Ut id orci ultricies, gravida arcu ac, elementum eros. Curabitur tortor ipsum, imperdiet eget odio ac, faucibus ultricies nisl. Maecenas scelerisque dignissim elit."
+        },
+       "two": {
+            "title": "Take ownership and question the status quo in a constructive manner",
+            "para": "Nulla facilisi. Vestibulum vel urna eget magna condimentum faucibus. Sed arcu mi, semper sed suscipit vel, rhoncus vel justo."
+        },
+        "three":{
+            "title": "Be brave, curious and experiment – learn from all successes and failures",
+            "para": "Quisque aliquet quis est in faucibus. Aenean eget lorem ac risus placerat convallis eget a eros. Suspendisse dignissim ultrices tellus, id placerat mauris lacinia a."
+        },
+        "four":{
+            "title": "Act in a way that makes all of us proud",
+            "para": "Proin dignissim facilisis tortor a mattis. Morbi non maximus nunc, ut mattis tellus. In hac habitasse platea dictumst. Mauris viverra enim tellus, vel ultrices dolor aliquam non."
+        },
+        "five":{
+            "title": "Build an inclusive, transparent and socially responsible culture",
+            "para": "Maecenas eros sapien, egestas at elit nec, eleifend sagittis orci."
+        }
     }
 }

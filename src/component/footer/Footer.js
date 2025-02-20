@@ -14,7 +14,7 @@ import { Toaster } from "react-hot-toast";
 import { useTranslation } from "react-i18next";
 
 const Footer = ({ parentClass }) => {
-      const { t } = useTranslation();
+      const { t,i18n } = useTranslation();
   
   const [Services] = UseGetAllServices();
   const { social } = UseGetinformation();
@@ -91,7 +91,7 @@ const Footer = ({ parentClass }) => {
                       <ul className="list-unstyled">
                         {Services.slice(0, 6).map((item, index) => (
                           <li key={index}>
-                            <Link to={`/service/${item._id}`}>{item.name}</Link>
+                            <Link to={`/service/${item._id}`}>{i18n.language==='en'?item.name_en :item.name_ar}</Link>
                           </li>
                         ))}
                       </ul>
@@ -134,8 +134,7 @@ const Footer = ({ parentClass }) => {
             <div className="col-md-6">
               <div className="footer-copyright">
                 <span className="copyright-text">
-                  © {new Date().getFullYear()}. All rights reserved by{" "}
-                  <a href="https://axilthemes.com/">Axilthemes</a>.
+                  © {new Date().getFullYear()}. {t('footer.allRights')}
                 </span>
               </div>
             </div>
@@ -143,14 +142,10 @@ const Footer = ({ parentClass }) => {
               <div className="footer-bottom-link">
                 <ul className="list-unstyled">
                   <li>
-                    <Link to={ "/privacy-policy"}>
-                      Privacy Policy
-                    </Link>
+                    {t('footer.privecy')}
                   </li>
                   <li>
-                    <Link to={ "/terms-use"}>
-                      Terms of Use
-                    </Link>
+                    {t('footer.terms')}
                   </li>
                 </ul>
               </div>

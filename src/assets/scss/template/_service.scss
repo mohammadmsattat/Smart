@@ -61,8 +61,8 @@
         p {
             color: var(--color-white);
             opacity: 0.5;
-            letter-spacing: -0.025em;
             transition: var(--transition);
+            height: 6em;
         }
         .more-btn {
             font-weight: 500;
@@ -96,6 +96,7 @@
             p {
                 color: var(--color-light);
                 opacity: 1;
+
             }
             .more-btn {
                 color: var(--color-accent2);

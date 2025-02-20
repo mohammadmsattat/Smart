@@ -13,7 +13,6 @@ import SectionTitle from '../../component/sectionTitle/SectionTitle';
 import ContactUsSectoin from '../../component/Contact/ContactUsSection';
 import { useTranslation } from 'react-i18next';
 
-//import custom hooks
 
 
 

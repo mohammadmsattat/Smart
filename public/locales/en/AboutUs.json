@@ -1,19 +1,63 @@
 {
-    "Head":{
-        "title":"One of the fastest growing agency",
-        "paragraph":"We design and develop web and mobile applications for our clients worldwide."
-    },
-    "aboutfour":{
-        "subtitle":"Who we are",
-        "tittle":"Building software for world changers",
-        "p1":"Donec metus lorem, vulputate at sapien sit amet, auctor iaculis lorem. In vel hendrerit nisi. Vestibulum eget risus velit. Aliquam tristique libero at dui sodales, et placerat orci lobortis.",
-        "p2":"Maecenas ipsum neque, elementum id dignissim et, imperdiet vitae mauris.",
-        "buttoun":"Read More"
-    },
-    "aboutfive":{
-        "subtitle":"Our Team",
-        "tittle":"Alone we can do so little; together we can do so much.",
-        "p":"Donec metus lorem, vulputate at sapien sit amet, auctoriaculis lorem. In vel hendrerit nisi. Vestibulum eget risuslit. Aliquam tristique libero.",
-        "buttoun":"Our Team"
+  "Head": {
+    "title": "One of the fastest growing agency",
+    "paragraph": "We design and develop web and mobile applications for our clients worldwide."
+  },
+  "AboutTwo": {
+    "subtitle": "About Us",
+    "tittle": "Why branding matters?",
+    "p": "Ut condimentum enim nec diam convallis mollis. Sed felis quam, semper dapibus purus sed, rhoncus ullamcorper lacus.",
+    "Strategy": "Strategy",
+    "StrategyDescrip": "Aenean hendrerit laoreet vehicula. Nullam convallis augue at enim gravida pellentesque.",
+    "Design": "Design",
+    "DesignDescrip": " Aenean hendrerit laoreet vehicula. Nullam convallis augue at enim gravida pellentesque.",
+    "Development": "Development",
+    "DevelopmentDescrip": "Aenean hendrerit laoreet vehicula. Nullam convallis augue at enim gravida pellentesque."
+  },
+  "aboutfour": {
+    "subtitle": "Who we are",
+    "tittle": "Building software for world changers",
+    "p1": "Donec metus lorem, vulputate at sapien sit amet, auctor iaculis lorem. In vel hendrerit nisi. Vestibulum eget risus velit. Aliquam tristique libero at dui sodales, et placerat orci lobortis.",
+    "p2": "Maecenas ipsum neque, elementum id dignissim et, imperdiet vitae mauris.",
+    "buttoun": "Read More",
+    "projects-counter": "Projects delivered so far",
+    "year-counter": "Years on the market"
+  },
+  "aboutfive": {
+    "subtitle": "Our Team",
+    "tittle": "Alone we can do so little; together we can do so much.",
+    "p": "Donec metus lorem, vulputate at sapien sit amet, auctoriaculis lorem. In vel hendrerit nisi. Vestibulum eget risuslit. Aliquam tristique libero.",
+    "buttoun": "Our Team"
+  },
+  "aboutSix": {
+    "title": "Development",
+    "description": "Simply drag and drop photos and videos into your workspace to automatically add them to your Collab Cloud library.",
+    "process": {
+      "sectionSub": "Process",
+      "sectionTitle": "Our logo design process",
+      "para": "Our comprehensive logo design strategy ensures a perfectly crafted logo for your business.",
+      "steps": {
+        "one": {
+          "subtitle": "Step One",
+          "title": "Discover",
+          "paragraph":  "In this stage, we conduct comprehensive research to understand customer needs, analyze the market and competitors, and define goals and challenges to ensure a product that meets user needs."
+        },
+        "two": {
+          "subtitle": "Step Two",
+          "title": "Prototype",
+          "paragraph": "After gathering data, we create interactive prototypes to visualize ideas and test product functionality. These prototypes help identify potential issues and refine the user experience before actual development."
+        },
+        "three": {
+          "subtitle": "Step Three",
+          "title": "Test",
+          "paragraph": "We subject the product to rigorous testing to ensure its performance and usability. User feedback is gathered, and necessary adjustments are made to enhance quality before the final launch."
+        },
+        "four": {
+          "subtitle": "Step four",
+          "title": "Build",
+          "paragraph": "After completing testing, we proceed with full development, building the product using the latest technologies while ensuring compliance with high-quality standards. It is then prepared for market launch."
+        }
+      }
     }
+  }
 }

@@ -81,6 +81,8 @@ export const GetOneOffice = createAsyncThunk(
 export const UpdateOneOffice = createAsyncThunk(
   "office/updateoffice",
   async ({ id, formData }) => {
+    console.log(formData);
+    
     try {
       
       const config = {

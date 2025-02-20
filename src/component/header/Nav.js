@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
-import { Dropdown, DropdownButton } from "react-bootstrap";
+import { LuLanguages } from "react-icons/lu";
 
 const Nav = () => {
   const { t, i18n } = useTranslation();
@@ -53,14 +53,31 @@ const Nav = () => {
           <Link to={"/contact"}>{t("header.contact")}</Link>
         </li>
         <li className="menu-item-has-children">
-          <DropdownButton title={t("language.language")}>
-            <Dropdown.Item onClick={LTRLanguage}>
-              {t("language.english")}
-            </Dropdown.Item>
-            <Dropdown.Item onClick={RTLLanguage}>
-              {t("language.Arabic")}{" "}
-            </Dropdown.Item>
-          </DropdownButton>
+          <span style={{ cursor: "pointer" }}>
+            {i18n.language === "en" ? (
+              <span onClick={RTLLanguage}>
+                Arabic
+                <LuLanguages
+                  style={{
+                    marginLeft: ".5em",
+                    marginRight: ".5em",
+                    fontSize: "1.5em",
+                  }}
+                />
+              </span>
+            ) : (
+              <span onClick={LTRLanguage}>
+                الإنجليزية
+                <LuLanguages
+                  style={{
+                    marginLeft: ".5em",
+                    marginRight: ".5em",
+                    fontSize: "1.5em",
+                  }}
+                />
+              </span>
+            )}
+          </span>
         </li>
       </ul>
     </nav>

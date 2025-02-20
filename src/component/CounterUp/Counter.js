@@ -1,39 +1,44 @@
 import React from "react";
 import CountUp from "react-countup";
+import { useTranslation } from "react-i18next";
 import TrackVisibility from "react-on-screen";
 
-const Data = [
-  {
-    id: 1,
-    light_icon: "/images/icon/icon-7.png",
-    dark_icon: "/images/icon/icon-10.png",
-    countNum: 15,
-    text: "Years of operation",
-  },
-  {
-    id: 2,
-    light_icon: "/images/icon/icon-8.png",
-    dark_icon: "/images/icon/icon-11.png",
-    countNum: 360,
-    text: "Projects deliverd",
-  },
-  {
-    id: 3,
-    light_icon: "/images/icon/icon-9.png",
-    dark_icon: "/images/icon/icon-12.png",
-    countNum: 600,
-    text: "Specialist",
-  },
-  {
-    id: 4,
-    light_icon: "/images/icon/apple.png",
-    dark_icon: "/images/icon/apple-black.png",
-    countNum: 64,
-    text: "Years of operation",
-  },
-];
+ 
 
 const Counter = ({ colSize, layoutStyle, evenTopMargin }) => {
+  const { t } = useTranslation();
+
+
+  const Data = [
+    {
+      id: 1,
+      light_icon: "/images/icon/icon-7.png",
+      dark_icon: "/images/icon/icon-10.png",
+      countNum: 15,
+      text: `${t("Home:counterUp.Years")}`,
+    },
+    {
+      id: 2,
+      light_icon: "/images/icon/icon-8.png",
+      dark_icon: "/images/icon/icon-11.png",
+      countNum: 360,
+      text: `${t("Home:counterUp.Projects")}`,
+    },
+    {
+      id: 3,
+      light_icon: "/images/icon/icon-9.png",
+      dark_icon: "/images/icon/icon-12.png",
+      countNum: 600,
+      text: `${t("Home:counterUp.Specialist")}`,
+    },
+    {
+      id: 4,
+      light_icon: "/images/icon/apple.png",
+      dark_icon: "/images/icon/apple-black.png",
+      countNum: 64,
+      text: `${t("Home:counterUp.Years")}`,
+    },
+  ];
   return (
     <>
       {Data.map((data) => (

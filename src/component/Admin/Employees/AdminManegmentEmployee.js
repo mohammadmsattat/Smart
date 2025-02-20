@@ -7,9 +7,10 @@ import Model from "../Model";
 import { useTranslation } from "react-i18next";
 
 const AdminManegmentEmployee = () => {
-  const { t } = useTranslation();
+  const { t ,i18n} = useTranslation();
 
   const [team] = UseGetAllEmployees();
+  
 
   const { SubmitDelete, show, handleClose, handleShow } =
     UseDeleteOneEmployee();
@@ -42,8 +43,12 @@ const AdminManegmentEmployee = () => {
             <Card key={index} className="admin-card">
               <Card.Img variant="top" src={item.imageCover} />
               <Card.Body>
-                <Card.Title className="card-head">{item.name}</Card.Title>
-                <Card.Text>{item.job}</Card.Text>
+                <Card.Title className="card-head">{
+                  i18n.language==='en'? item.name_en:item.name_ar
+                }</Card.Title>
+                <Card.Text>{
+                  i18n.language==='en'? item.job_en:item.job_ar
+                }</Card.Text>
                 <div className="manage-btn">
                   <Button
                     onClick={() => deleteModel(item._id)}

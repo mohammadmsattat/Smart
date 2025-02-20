@@ -14,11 +14,16 @@ export const UseUpdateProject = (id) => {
 
   //service  variabels
   const [img, setImg] = useState(null);
-  const [name, setName] = useState("");
+  const [name_en, setName_en] = useState("");
+  const [name_ar, setName_ar] = useState("");
   const [selectedFile, setSelectedFile] = useState(null);
-  const [description, setDescription] = useState("");
+  const [description_en, setDescription_en] = useState("");
+  const [description_ar, setDescription_ar] = useState("");
   const [commingSoon, setCommingSoon] = useState(false);
-  const [category, setcategory] = useState("");
+  const [category_en, setcategory_en] = useState("");
+  const [category_ar, setcategory_ar] = useState("");
+
+
 
   useEffect(() => {
     const run = async () => {
@@ -32,10 +37,13 @@ export const UseUpdateProject = (id) => {
   useEffect(() => {
     if (project.data) {
       setImg(project.data.data.imageCover);
-      setName(project.data.data.name);
-      setDescription(project.data.data.description);
-      setCommingSoon(project.data.data.commingSoon);
-      setcategory(project.data.data.category);
+      setName_en(project.data.data.name_en);
+      setName_ar(project.data.data.name_ar);
+      setDescription_en(project.data.data.description_en);
+      setDescription_ar(project.data.data.description_ar);
+      setcategory_en(project.data.data.category_en);
+      setcategory_ar(project.data.data.category_ar);
+
     }
   }, [project]);
 
@@ -48,12 +56,25 @@ export const UseUpdateProject = (id) => {
   };
 
   //to change name state
-  const onChangeName = (event) => {
-    setName(event.target.value);
+  const onChangeName_en = (event) => {
+    setName_en(event.target.value);
+  };
+  const onChangeName_ar = (event) => {
+    setName_ar(event.target.value);
   };
   //to change description state
-  const onChangeDecription = (event) => {
-    setDescription(event.target.value);
+  const onChangeDecription_en = (event) => {
+    setDescription_en(event.target.value);
+  };
+  const onChangeDecription_ar = (event) => {
+    setDescription_ar(event.target.value);
+  };
+  //to change category
+  const onCategoryChange_en = (event) => {
+    setcategory_en(event.target.value);
+  };
+  const onCategoryChange_ar = (event) => {
+    setcategory_ar(event.target.value);
   };
   //to change file state
   const onChangeImage = (event) => {
@@ -76,24 +97,27 @@ export const UseUpdateProject = (id) => {
   const handelupdate = async (event) => {
     event.preventDefault();
 
-    if (name === "" || description === "") {
+    if (name_en === "" || name_ar === ""||description_en === "" || description_ar === ""||category_en===""||category_ar==="") {
       toast.error("Please complete all fields");
       return;
     }
-    if (name.length < 3) {
+    if (name_en.length < 3||name_ar.length < 3) {
       toast.error(" name is short ");
       return;
     }
-    if (description.length < 25) {
+    if (description_en.length < 25||description_ar.length < 25) {
       toast.error(" description is short ");
       return;
     }
 
     // Create a FormData object
     const formData = new FormData();
-    formData.append("name", name);
-    formData.append("description", description);
-    formData.append("category", category);
+    formData.append("name_en", name_en);
+    formData.append("name_ar", name_ar);
+    formData.append("description_en", description_en);
+    formData.append("description_ar", description_ar);
+    formData.append("category_en", category_en);
+    formData.append("category_ar", category_ar);
     formData.append("commingSoon", commingSoon);
 
     // If there's a file selected, append it
@@ -119,16 +143,22 @@ export const UseUpdateProject = (id) => {
 
   return {
     img,
-    name,
+    name_en,
+    name_ar,
     commingSoon,
-    category,
-    onChangeName,
+    category_en,
+    category_ar,
+    onChangeName_en,
+    onChangeName_ar,
     onChangeImage,
-    setcategory,
+    onCategoryChange_en,
+    onCategoryChange_ar,
     onchecked,
     setImg,
-    description,
-    onChangeDecription,
+    description_en,
+    description_ar,
+    onChangeDecription_en,
+    onChangeDecription_ar,
     onImageChange,
     handelupdate,
     response,

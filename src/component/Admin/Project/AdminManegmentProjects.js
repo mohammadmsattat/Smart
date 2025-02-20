@@ -8,7 +8,7 @@ import Model from "../Model";
 import { useTranslation } from "react-i18next";
 
 const AdminManegmentProjects = () => {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
 
   const [projects] = UseGetAllProjects();
 
@@ -33,7 +33,9 @@ const AdminManegmentProjects = () => {
 
       <Link to="/admin/add-project" style={{ textDecoration: "none" }}>
         <div>
-          <button className="add-btn-2">{t("Admin:project.manegment.Add")}</button>
+          <button className="add-btn-2">
+            {t("Admin:project.manegment.Add")}
+          </button>
         </div>
       </Link>
 
@@ -43,15 +45,18 @@ const AdminManegmentProjects = () => {
             return (
               <Card key={index} className="admin-card">
                 <Card.Img variant="top" src={item.imageCover} />
+                {console.log(item.imageCover)}
                 <Card.Body>
                   <Card.Title>
-                    <Link
-                      to={`/project/${item._id}`}
-                    >
-                      {item.name}
+                    <Link to={`/project/${item._id}`}>
+                      {i18n.language === "en" ? item.name_en : item.name_ar}
                     </Link>
                   </Card.Title>
-                  <Card.Text>{trimString(item.description)}</Card.Text>
+                  <Card.Text>
+                    {i18n.language === "en"
+                      ? trimString(item.description_en)
+                      : trimString(item.description_ar)}
+                  </Card.Text>
                   <div className="manage-btn">
                     <Button
                       onClick={() => deleteModel(item._id)}

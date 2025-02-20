@@ -1,8 +1,11 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
 
 
 const ProjectCard = ({ project}) => {
+		const { i18n } = useTranslation();
+	
 	
     return (
 		<>
@@ -14,7 +17,7 @@ const ProjectCard = ({ project}) => {
 				</div>
 				<div className="content">
 				<h4 className="title"> 
-					<Link to={`/project/${project._id}`}>{project.name}</Link>
+					<Link to={`/project/${project._id}`}>{i18n.language==='en'?project.name_en :project.name_ar}</Link>
 				</h4>
 				</div>
 			</div>

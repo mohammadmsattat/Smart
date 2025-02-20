@@ -12,9 +12,11 @@ export const UsePostService = () => {
 
   //form data variabels
   const [img, setImg] = useState(upload);
-  const [name, setName] = useState("");
+  const [name_en, setName_en] = useState("");
+  const [name_ar, setName_ar] = useState("");
   const [selectedFile, setSelectedFile] = useState(null);
-  const [description, setDescription] = useState("");
+  const [description_en, setDescription_en] = useState("");
+  const [description_ar, setDescription_ar] = useState("");
   const [commingSoon, setcommingSoon] = useState(false);
 
   //when image change save it
@@ -41,24 +43,32 @@ export const UsePostService = () => {
   //save data in database
   const handelPost = async (event) => {
     event.preventDefault();
-    if (name === "" || selectedFile === null || description === "") {
+    if (
+      name_en === "" ||
+      name_ar === "" ||
+      description_en === "" ||
+      description_ar === "" ||
+      selectedFile === null
+    ) {
       toast.error("pleas complete data");
       return;
     }
-    if (name.length < 3) {
+    if (name_en.length < 3 || name_ar.length < 3) {
       toast.error(" name is short ");
       return;
     }
-    if (description.length < 25) {
+    if (description_en.length < 25 || description_ar.length < 25) {
       toast.error(" decription is short ");
       return;
     }
 
     await dispatch(
       PostService({
-        name: name,
+        name_en: name_en,
+        name_ar: name_ar,
         imageCover: selectedFile,
-        description: description,
+        description_en: description_en,
+        description_ar: description_ar,
         commingSoon: commingSoon,
       })
     );
@@ -67,7 +77,10 @@ export const UsePostService = () => {
   useEffect(() => {
     if (PostLoading === false) {
       setImg(upload);
-      setName("");
+      setName_en("");
+      setName_ar("");
+      setDescription_ar("");
+      setDescription_en("");
       setSelectedFile(null);
 
       if (response.status === 201) {
@@ -82,11 +95,13 @@ export const UsePostService = () => {
 
   return {
     img,
-    setName,
+    setName_en,
+    setName_ar,
     setSelectedFile,
     setImg,
     onchecked,
-    setDescription,
+    setDescription_ar,
+    setDescription_en,
     onImageChange,
     handelPost,
     response,

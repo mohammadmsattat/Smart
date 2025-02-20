@@ -7,8 +7,11 @@ import DiscripProduct from "../../component/descripSection/DiscripProduct";
 import ContactUsSectoin from "../../component/Contact/ContactUsSection";
 import { UseGetOneProject } from "../../Hooks/project-Hooks/UseGetOneProject";
 import ComingSoon from "../commingSoon/ComingSoon";
+import { useTranslation } from "react-i18next";
 
 const ProjectDetails = () => {
+  const { t,i18n } = useTranslation();
+
   const { id } = useParams();
   const [project] = UseGetOneProject(id);
   console.log(project.commingSoon);
@@ -17,8 +20,8 @@ const ProjectDetails = () => {
     <>
       {project.commingSoon?<ComingSoon img={project.imageCover}/>:(<main className="main-wrapper">
         <DiscripProduct
-          title={project.name}
-          paragraph={project.description}
+          title={i18n.language==='en'?project.name_en :project.name_ar}
+          paragraph={i18n.language==='en'?project.description_en :project.description_ar}
           mainThumb={project.imageCover}
         />
         <section className="section-padding single-portfolio-area">
@@ -26,54 +29,47 @@ const ProjectDetails = () => {
             <div className="row">
               <div className="col-lg-5">
                 <div className="section-heading heading-left mb-0">
-                  <h3 className="title">{project.name}</h3>
+                  <h3 className="title">{i18n.language==='en'?project.name_en :project.name_ar}</h3>
                 </div>
-                {project.description}
-                <Link to="#" className="axil-btn btn-fill-primary">
-                  Get it Now
-                </Link>
+                {i18n.language==='en'?project.description_en :project.description_ar}
+                
               </div>
               <div className="col-lg-6 offset-xl-1">
-                <div className="why-choose-us">
-                  <div className="section-heading heading-left">
-                    <h3 className="title">We delivered</h3>
-                    <p>
-                      Digital technology has made our world more transparent and
-                      interconnected, posing new challenges and opportunities
-                      for every business.
-                    </p>
-                  </div>
-                  <Accordion defaultActiveKey="1">
-                    <Accordion.Item eventKey="1">
-                      <Accordion.Header>
-                        <FaCompress /> Strategy
-                      </Accordion.Header>
-                      <Accordion.Body>
-                        Aenean hendrerit laoreet vehicula. Nullam convallis
-                        augue at enim gravida pellentesque.
-                      </Accordion.Body>
-                    </Accordion.Item>
-                    <Accordion.Item eventKey="2">
-                      <Accordion.Header>
-                        <FaCode /> Design
-                      </Accordion.Header>
-                      <Accordion.Body>
-                        Aenean hendrerit laoreet vehicula. Nullam convallis
-                        augue at enim gravida pellentesque.
-                      </Accordion.Body>
-                    </Accordion.Item>
-                    <Accordion.Item eventKey="3">
-                      <Accordion.Header>
-                        <FaGlobe /> Development
-                      </Accordion.Header>
-                      <Accordion.Body>
-                        Aenean hendrerit laoreet vehicula. Nullam convallis
-                        augue at enim gravida pellentesque.
-                      </Accordion.Body>
-                    </Accordion.Item>
-                  </Accordion>
-                </div>
+              <div className="why-choose-us">
+              <div className="section-heading heading-left">
+                <span className="subtitle">{t('AboutUs:AboutTwo.subtitle')}</span>
+                <h3 className="title">{t('AboutUs:AboutTwo.tittle')}</h3>
+                <p>
+                {t('AboutUs:AboutTwo.p')}
+                </p>
               </div>
+              <Accordion defaultActiveKey="1">
+                <Accordion.Item eventKey="1">
+                  <Accordion.Header>
+                    <FaCompress />  {t('AboutUs:AboutTwo.Strategy')}
+                  </Accordion.Header>
+                  <Accordion.Body>
+                  {t('AboutUs:AboutTwo.StrategyDescrip')}
+                  </Accordion.Body>
+                </Accordion.Item>
+                <Accordion.Item eventKey="2">
+                  <Accordion.Header>
+                    <FaCode /> {t('AboutUs:AboutTwo.Design')}
+                  </Accordion.Header>
+                  <Accordion.Body>
+                  {t('AboutUs:AboutTwo.DesignDescrip')}
+                  </Accordion.Body>
+                </Accordion.Item>
+                <Accordion.Item eventKey="3">
+                  <Accordion.Header>
+                    <FaGlobe /> {t('AboutUs:AboutTwo.Development')}
+                  </Accordion.Header>
+                  <Accordion.Body>
+                  {t('AboutUs:AboutTwo.DevelopmentDescrip')}
+                  </Accordion.Body>
+                </Accordion.Item>
+              </Accordion>
+            </div>              </div>
             </div>
           </div>
         </section>

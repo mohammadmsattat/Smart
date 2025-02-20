@@ -11,19 +11,27 @@ const AdminEditEmployee = () => {
   const { id } = useParams();
 const {
   img,
-  name,
-  onChangeName,
+  name_en,
+  name_ar,
+  onChangeName_en,
+  onChangeName_ar,
   onChangeImage,
-  job,
-  onChangejob,
+  setImg,
+  job_en,
+  job_ar,
+  onChangejob_en,
+  onChangejob_ar,
+  onImageChange,
   handelupdate,
+  response,
+  Loading,
 }=UseUpdateEmployee(id);
   return (
     <div className="Add-page">
       <Row className=" ">
-        <div className="admin-content-text pb-4">{t("Admin:Employee.update.head")} </div>
+        <div className="admin-content-text pb-4" info-head-ar>{t("Admin:Employee.update.head")} </div>
         <Col sm="8">
-          <div className="text-form pb-2"> {t("Admin:Employee.Add.photo")}</div>
+          <div className="text-form pb-2 info-head-ar"> {t("Admin:Employee.Add.photo")}</div>
           <div>
             <label for="upload-photo">
               <img
@@ -43,29 +51,66 @@ const {
             />
           </div>
           <div className="form-input-text">
+          <Row>
+            <Col>
             <label className="form-label" for="name">
-            {t("Admin:Employee.Add.name")}
+            {t("Admin:Employee.Add.name-en")}
             </label>
             <input
               id="name"
               type="text"
-              value={name}
+              value={name_en}
               className="input-form d-block mt-3 px-3"
               placeholder={t("Admin:Employee.Add.placeHolderName")}
-              onChange={onChangeName}
+              onChange={onChangeName_en}
             />
+            </Col>
+            <Col>
+            <label className="form-label" for="name">
+            {t("Admin:Employee.Add.name-ar")}
+            </label>
+            <input
+              id="name"
+              type="text"
+              value={name_ar}
+              className="input-form d-block mt-3 px-3"
+              placeholder={t("Admin:Employee.Add.placeHolderName")}
+              onChange={onChangeName_ar}
+            />
+            </Col>
+          </Row>
+          <Row>
+            <Col>
             <label className="form-label" for="job">
-            {t("Admin:Employee.Add.job")}
+            {t("Admin:Employee.Add.job-en")}
             </label>
             <input
               id="job"
               type="text"
               className="input-form d-block mt-3 px-3"
               placeholder={t("Admin:Employee.Add.placeHolderjob")}
-              value={job}
-              onChange={onChangejob}
+              value={job_en}
+              onChange={onChangejob_en}
 
             />
+            </Col>
+            <Col>
+            <label className="form-label" for="job">
+            {t("Admin:Employee.Add.job-ar")}
+            </label>
+            <input
+              id="job"
+              type="text"
+              className="input-form d-block mt-3 px-3"
+              placeholder={t("Admin:Employee.Add.placeHolderjob")}
+              value={job_ar}
+              onChange={onChangejob_ar}
+
+            />
+            </Col>
+          </Row>
+         
+          
           </div>
         </Col>
       </Row>

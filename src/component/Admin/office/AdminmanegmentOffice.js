@@ -8,8 +8,8 @@ import Model from "../Model";
 import { useTranslation } from "react-i18next";
 
 const AdminManegmentOffices = () => {
-      const { t } = useTranslation();
-  
+  const { t, i18n } = useTranslation();
+
   const [offices] = UseGetAllOffice();
 
   const { SubmitDelete, show, handleClose, handleShow } = UseDeleteOneOffice();
@@ -30,9 +30,11 @@ const AdminManegmentOffices = () => {
 
       <h3>{t("Admin:office.manegment.head")}</h3>
 
-      <Link to="/admin/add-office" >
+      <Link to="/admin/add-office">
         <div>
-          <button className="add-btn-2">{t("Admin:office.manegment.Add")}</button>
+          <button className="add-btn-2">
+            {t("Admin:office.manegment.Add")}
+          </button>
         </div>
       </Link>
 
@@ -44,9 +46,15 @@ const AdminManegmentOffices = () => {
                   <Card.Img variant="top" src={item.imageCover} />
                   <Card.Body>
                     <Card.Title className="card-head">
-                      {item.location}
+                      {i18n.language === "en"
+                        ? item.location_en
+                        : item.location_ar}
                     </Card.Title>
-                    <Card.Text>{trimString(item.description)}</Card.Text>
+                    <Card.Text>
+                      {i18n.language === "en"
+                        ? trimString(item.description_en)
+                        : trimString(item.description_ar)}
+                    </Card.Text>
                     <div className="manage-btn">
                       <Button
                         onClick={() => deleteModel(item._id)}

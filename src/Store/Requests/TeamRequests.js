@@ -78,6 +78,8 @@ export const UpdateEmployee = createAsyncThunk(
   "team/updateemployee",
   async ({ id, formData }, { rejectWithValue }) => {
     try {
+      console.log(formData);
+      
       const config = {
         headers: {
           Authorization: ` Bearer ${sessionStorage.getItem("token")}`,
@@ -91,6 +93,8 @@ export const UpdateEmployee = createAsyncThunk(
       );
       return response;
     } catch (error) {
+      console.log(error);
+      
       if (error.response) {
         return rejectWithValue(error.response.data);
       } else {

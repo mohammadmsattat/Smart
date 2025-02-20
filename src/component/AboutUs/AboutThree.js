@@ -1,69 +1,82 @@
-import React from 'react';
-import SectionTitle from '../sectionTitle/SectionTitle';
-
-const Datas = [
-    {
-        id: 1,
-        title: "Exceed clients’ and colleagues’ expectations",
-        para: "Ut id orci ultricies, gravida arcu ac, elementum eros. Curabitur tortor ipsum, imperdiet eget odio ac, faucibus ultricies nisl. Maecenas scelerisque dignissim elit."
-    },
-    {
-        id: 2,
-        title: "Take ownership and question the status quo in a constructive manner",
-        para: "Nulla facilisi. Vestibulum vel urna eget magna condimentum faucibus. Sed arcu mi, semper sed suscipit vel, rhoncus vel justo."
-    },
-    {
-        id: 3,
-        title: "Be brave, curious and experiment – learn from all successes and failures",
-        para: "Quisque aliquet quis est in faucibus. Aenean eget lorem ac risus placerat convallis eget a eros. Suspendisse dignissim ultrices tellus, id placerat mauris lacinia a."
-    },
-    {
-        id: 4,
-        title: "Act in a way that makes all of us proud",
-        para: "Proin dignissim facilisis tortor a mattis. Morbi non maximus nunc, ut mattis tellus. In hac habitasse platea dictumst. Mauris viverra enim tellus, vel ultrices dolor aliquam non."
-    },
-    {
-        id: 5,
-        title: "Build an inclusive, transparent and socially responsible culture",
-        para: "Maecenas eros sapien, egestas at elit nec, eleifend sagittis orci."
-    }
-]
-
-
-
+import React from "react";
+import SectionTitle from "../sectionTitle/SectionTitle";
+import { useTranslation } from "react-i18next";
 
 const AboutThree = () => {
-    return (
-        <div className="section section-padding bg-color-dark pb--80 pb_lg--40 pb_md--20">
-            <div className="container">
-                <SectionTitle 
-                    subtitle="Our Valus"
-                    title="Why should you work with us?"
-                    description="Nulla facilisi. Nullam in magna id dolor blandit rutrum eget vulputate augue sed eu leo eget risus imperdiet."
-                    textAlignment="heading-left heading-light-left mb--100"
-                    textColor=""
-                />
+  const { t } = useTranslation();
+  const Datas = [
+    {
+      id: 1,
+      title: `${t("Service:Data.one.title")}`,
+      para: `${t("Service:Data.one.para")}`,
+    },
+    {
+      id: 2,
+      title:`${t("Service:Data.two.title")}`,
+      para: `${t("Service:Data.two.para")}`,
+    },
+    {
+      id: 3,
+      title:`${t("Service:Data.three.title")}`,
+      para: `${t("Service:Data.three.para")}`,
+    },
+    {
+      id: 4,
+      title: `${t("Service:Data.four.title")}`,
+      para: `${t("Service:Data.four.para")}`,
+    },
+    {
+      id: 5,
+      title: `${t("Service:Data.five.title")}`,
+      para: `${t("Service:Data.five.para")}`,
+    },
+  ];
 
-                <div className="row">
-                    {Datas.map((data) => (
-                        <div className="col-lg-4" key={data.id}>
-                            <div className="about-quality">
-                                <h3 className="sl-number">{data.id}</h3>
-                                <h5 className="title">{data.title}</h5>
-                                <p>{data.para}</p>
-                            </div>
-                        </div>
-                    ))}
+  return (
+    <div className="section section-padding bg-color-dark pb--80 pb_lg--40 pb_md--20">
+      <div className="container">
+        <SectionTitle
+          subtitle={t("Service:Data.subtitle")}
+          title={t("Service:Data.title")}
+          description={t("Service:Data.description")}
+          textAlignment="heading-left heading-light-left mb--100"
+          textColor=""
+        />
 
-                </div>
+        <div className="row">
+          {Datas.map((data) => (
+            <div className="col-lg-4" key={data.id}>
+              <div className="about-quality">
+                <h3 className="sl-number">{data.id}</h3>
+                <h5 className="title">{data.title}</h5>
+                <p>{data.para}</p>
+              </div>
             </div>
-            <ul className="list-unstyled shape-group-10">
-                <li className="shape shape-1"><img src={process.env.PUBLIC_URL + "/images/others/circle-1.png"} alt="Circle" /></li>
-                <li className="shape shape-2"><img src={process.env.PUBLIC_URL + "/images/others/line-3.png"} alt="Circle" /></li>
-                <li className="shape shape-3"><img src={process.env.PUBLIC_URL + "/images/others/bubble-5.png"} alt="Circle" /></li>
-            </ul>
+          ))}
         </div>
-    )
-}
+      </div>
+      <ul className="list-unstyled shape-group-10">
+        <li className="shape shape-1">
+          <img
+            src={process.env.PUBLIC_URL + "/images/others/circle-1.png"}
+            alt="Circle"
+          />
+        </li>
+        <li className="shape shape-2">
+          <img
+            src={process.env.PUBLIC_URL + "/images/others/line-3.png"}
+            alt="Circle"
+          />
+        </li>
+        <li className="shape shape-3">
+          <img
+            src={process.env.PUBLIC_URL + "/images/others/bubble-5.png"}
+            alt="Circle"
+          />
+        </li>
+      </ul>
+    </div>
+  );
+};
 
 export default AboutThree;

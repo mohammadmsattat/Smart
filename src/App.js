@@ -51,7 +51,8 @@ const App = () => {
 
   return (
     <BrowserRouter>
-      <ScrollToTop>
+    		<ScrollToTop>
+
         <Header />
         <DarkModeBtn />
         <Routes>
@@ -147,7 +148,8 @@ const App = () => {
           <Route path={"/login"} element={<LogInPage />} />
         </Routes>
         <Footer parentClass="" />
-      </ScrollToTop>
+        </ScrollToTop>
+
     </BrowserRouter>
   );
 };

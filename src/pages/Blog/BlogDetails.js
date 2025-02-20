@@ -1,28 +1,23 @@
 import React from "react";
 import BlogAuthor from "../../images/public/blogAuther.png";
-import blogdetails from "../../images/public/blogdetails.png";
-
 import ContactUsSectoin from "../../component/Contact/ContactUsSection";
-import BlogSidebar from "../../component/blog/BlogSidebar";
 import DiscipWithBack from "../../component/descripSection/DiscipWithBack";
 import { useParams } from "react-router-dom";
 import { UseGetOneBlog } from "../../Hooks/Blogs-Hooks/UseGetOneBlog";
 import { useTranslation } from "react-i18next";
 
 const BlogDetails = () => {
-    const {  i18n } = useTranslation();
-  
+  const { t, i18n } = useTranslation();
+
   const { id } = useParams();
-  const [blog,formattedDate] = UseGetOneBlog(id);
-  //console.log(blog);
-  //const date=blog.publishDate.split("T")[0]
-  
+  const [blog, formattedDate] = UseGetOneBlog(id);
+
   console.log(formattedDate);
 
   return (
     <>
       <main className="main-wrapper">
-        <DiscipWithBack title={"Blog Details"} page="Blog" />
+        <DiscipWithBack title={t("Blogs:Head.title")} page={t("Blogs:Head.page")} />
         <div className="section-padding-equal">
           <div className="container">
             <div className="row row-40">
@@ -32,9 +27,14 @@ const BlogDetails = () => {
                     <div className="post-thumbnail">
                       <img src={blog.imageCover} alt="Blog photo" />
                     </div>
-                    <div className="author-datails" style={{    display: 'flex',
-                                                          flexDirection: 'row',
-                                                          marginBottom:'2em'}}  >
+                    <div
+                      className="author-datails"
+                      style={{
+                        display: "flex",
+                        flexDirection: "row",
+                        marginBottom: "2em",
+                      }}
+                    >
                       <div className="author-thumb" style={{ width: "4em" }}>
                         <img
                           src={BlogAuthor}
@@ -42,26 +42,26 @@ const BlogDetails = () => {
                           style={{ borderRadius: "5em" }}
                         />
                       </div>
-                      <div className="info" style={{marginLeft:'1.5em'}}>
-                        <h6 className="author-name" style={{marginBottom:'.5em'}}>{blog.publisher}</h6>
+                      <div className="info" style={{ marginLeft: "1.5em" ,marginRight:'1.5em'}}>
+                        <h6
+                          className="author-name"
+                          style={{ marginBottom: ".5em" }}
+                        >
+                          {blog.publisher}
+                        </h6>
                         <ul className="blog-meta list-unstyled">
-                          <li>{ formattedDate}</li>
+                          <li>{formattedDate}</li>
                           <li>two min</li>
                         </ul>
                       </div>
                     </div>
                     <div>
                       <p>
-                     { i18n.language==='en'?blog.text_en:blog.text_ar}
+                        {i18n.language === "en" ? blog.text_en : blog.text_ar}
                       </p>
                     </div>
                   </div>
                 </div>
-
-              </div>
-
-              <div className="col-lg-4">
-                <BlogSidebar />
               </div>
             </div>
           </div>

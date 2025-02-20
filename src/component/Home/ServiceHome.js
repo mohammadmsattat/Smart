@@ -2,8 +2,11 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 import { UseGetAllServices } from "../../Hooks/service-Hooks/UseGetAllServices";
+import { useTranslation } from "react-i18next";
+import { trimString } from "../../utils";
 
 const ServiceHome = () => {
+  const{t,i18n}=useTranslation();
   const [Services] = UseGetAllServices();
 
   return (
@@ -17,13 +20,17 @@ const ServiceHome = () => {
 
             <div className="content">
               <h5 className="title">
-                <Link to={`/service/${item._id}`}>{item.name}</Link>
+                <Link to={`/service/${item._id}`}>{
+                  i18n.language==='en'? item.name_en :item.name_ar
+                }</Link>
               </h5>
 
-              <p>{item.description}</p>
+              <p className="service-description">{
+                i18n.language==='en'?trimString(item.description_en):trimString(item.description_ar)
+              }</p>
 
               <Link to={`/service/${item._id}`} className="more-btn">
-                Find out more
+              {t('Home:Service.findOut')}
               </Link>
             </div>
           </div>

@@ -8,11 +8,11 @@ import Model from "../Model";
 import { useTranslation } from "react-i18next";
 
 const AdminManegmentService = () => {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
 
   const [services] = UseGetAllServices();
 
-  const { SubmitDelete, show, handleClose, handleShow } = UseDeleteOneSrevice();
+  const { SubmitDelete, show, handleClose, handleShow } = UseDeleteOneSrevice(); //delete service 
   const [Delid, setDelId] = useState("");
 
   const deleteModel = (id) => {
@@ -33,7 +33,9 @@ const AdminManegmentService = () => {
 
       <Link to="/admin/add-service" style={{ textDecoration: "none" }}>
         <div>
-          <button className="add-btn-2">{t("Admin:service.manegment.Add")}</button>
+          <button className="add-btn-2">
+            {t("Admin:service.manegment.Add")}
+          </button>
         </div>
       </Link>
 
@@ -45,14 +47,15 @@ const AdminManegmentService = () => {
                 <Card.Img variant="top" src={item.imageCover} />
                 <Card.Body>
                   <Card.Title>
-                    <Link
-                      to={`/service/${item._id}`}
-                    
-                    >
-                      {item.name}
+                    <Link to={`/service/${item._id}`}>
+                      {i18n.language === "en" ? item.name_en : item.name_ar}
                     </Link>
                   </Card.Title>
-                  <Card.Text>{trimString(item.description)}</Card.Text>
+                  <Card.Text>
+                    {i18n.language === "en"
+                      ? trimString(item.description_en)
+                      : trimString(item.description_ar)}
+                  </Card.Text>
                   <div className="manage-btn">
                     <Button
                       onClick={() => deleteModel(item._id)}

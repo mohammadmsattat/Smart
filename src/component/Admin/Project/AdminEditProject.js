@@ -6,23 +6,28 @@ import { useParams } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 
 const AdminEditProject = () => {
-  
   const { t } = useTranslation();
 
   //get project data
   const { id } = useParams();
   const {
     img,
-    name,
+    name_en,
+    name_ar,
     commingSoon,
-    category,
-    onChangeName,
+    category_en,
+    category_ar,
+    onChangeName_en,
+    onChangeName_ar,
     onChangeImage,
+    onCategoryChange_en,
+    onCategoryChange_ar,
     onchecked,
-    setcategory,
     setImg,
-    description,
-    onChangeDecription,
+    description_en,
+    description_ar,
+    onChangeDecription_en,
+    onChangeDecription_ar,
     onImageChange,
     handelupdate,
     response,
@@ -32,9 +37,11 @@ const AdminEditProject = () => {
   return (
     <div className="Add-page">
       <Row>
-        <div className="admin-content-text pb-4">{t("Admin:project.update.head")} </div>
+        <div className="admin-content-text info-head-ar pb-4">
+          {t("Admin:project.update.head")}{" "}
+        </div>
         <Col sm="8">
-          <div className="text-form pb-2"> {t("Admin:project.Add.photo")}</div>
+          <div className="text-form pb-2 info-head-ar"> {t("Admin:project.Add.photo")}</div>
           <div>
             <label for="upload-photo">
               <img
@@ -54,31 +61,65 @@ const AdminEditProject = () => {
             />
           </div>
           <div className="form-input-text">
-            <label className="form-label" for="name">
-            {t("Admin:project.Add.name")}
-            </label>
-            <input
-              id="name"
-              type="text"
-              value={name}
-              onChange={onChangeName}
-              className="input-form d-block mt-3 px-3"
-              placeholder={t("Admin:project.Add.placeHolderName")}
-            />
-             <label className="form-label" for="category">
-             {t("Admin:project.Add.category")}
-            </label>
-            <input
-              id="category"
-              value={category}
+            <Row>
+              <Col>
+                <label className="form-label" for="name">
+                  {t("Admin:project.Add.name-en")}
+                </label>
+                <input
+                  id="name"
+                  type="text"
+                  value={name_en}
+                  onChange={onChangeName_en}
+                  className="input-form d-block mt-3 px-3"
+                  placeholder={t("Admin:project.Add.placeHolderName")}
+                />
+              </Col>
+              <Col>
+                <label className="form-label" for="name">
+                  {t("Admin:project.Add.name-ar")}
+                </label>
+                <input
+                  id="name"
+                  type="text"
+                  value={name_ar}
+                  onChange={onChangeName_ar}
+                  className="input-form d-block mt-3 px-3"
+                  placeholder={t("Admin:project.Add.placeHolderName")}
+                />
+              </Col>
+            </Row>
+            <Row>
+              <Col>
+                <label className="form-label" for="category">
+                  {t("Admin:project.Add.category-en")}
+                </label>
+                <input
+                  id="category"
+                  value={category_en}
+                  type="text"
+                  onChange={onCategoryChange_en}
+                  className="input-form d-block mt-3 px-3"
+                  placeholder={t("Admin:project.Add.placeHolderCat")}
+                />
+              </Col>
+              <Col>
+                <label className="form-label" for="category">
+                  {t("Admin:project.Add.category-ar")}
+                </label>
+                <input
+                  id="category"
+                  value={category_ar}
+                  type="text"
+                  onChange={onCategoryChange_ar}
+                  className="input-form d-block mt-3 px-3"
+                  placeholder={t("Admin:project.Add.placeHolderCat")}
+                />
+              </Col>
+            </Row>
 
-              type="text"
-              onChange={(e) => setcategory(e.target.value)}
-              className="input-form d-block mt-3 px-3"
-              placeholder={t("Admin:project.Add.placeHolderCat")}
-            />
             <label className="form-label" for="job">
-            {t("Admin:project.Add.Description")}
+              {t("Admin:project.Add.Description-en")}
             </label>
             <textarea
               id="job"
@@ -86,17 +127,36 @@ const AdminEditProject = () => {
               placeholder={t("Admin:project.Add.placeHolderdes")}
               rows="5"
               cols="33"
-              value={description}
-              onChange={onChangeDecription}
+              value={description_en}
+              onChange={onChangeDecription_en}
             />
-
+            <label className="form-label" for="job">
+              {t("Admin:project.Add.Description-ar")}
+            </label>
+            <textarea
+              id="job"
+              className="input-form-textarea d-block mt-3 px-3"
+              placeholder={t("Admin:project.Add.placeHolderdes")}
+              rows="5"
+              cols="33"
+              value={description_ar}
+              onChange={onChangeDecription_ar}
+            />
             <div className="check-comming-soon">
-            {
-              commingSoon? <input onClick={onchecked} id="comming-soon" type="checkbox" checked/>:
-                          <input onClick={onchecked}  id="comming-soon" type="checkbox" />
-            }
-              
-              <label for="comming-soon">{t("Admin:project.Add.commingSoon")}</label>
+              {commingSoon ? (
+                <input
+                  onClick={onchecked}
+                  id="comming-soon"
+                  type="checkbox"
+                  checked
+                />
+              ) : (
+                <input onClick={onchecked} id="comming-soon" type="checkbox" />
+              )}
+
+              <label for="comming-soon">
+                {t("Admin:project.Add.commingSoon")}
+              </label>
             </div>
           </div>
         </Col>

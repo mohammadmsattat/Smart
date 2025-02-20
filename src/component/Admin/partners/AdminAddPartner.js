@@ -12,9 +12,9 @@ const AdminAddPartner = () => {
   return (
     <div className="Add-page">
       <Row className=" ">
-        <div className="admin-content-text pb-4">{t("Admin:partner.Add.head")} </div>
+        <div className="admin-content-text pb-4 info-head-ar">{t("Admin:partner.Add.head")} </div>
         <Col sm="8">
-          <div className="text-form pb-2"> {t("Admin:partner.Add.photo")}</div>
+          <div className="text-form pb-2 info-head-ar"> {t("Admin:partner.Add.photo")}</div>
           <div>
             <label for="upload-photo">
               <img

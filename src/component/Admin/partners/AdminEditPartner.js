@@ -14,9 +14,9 @@ const AdminEditPartner = () => {
   return (
     <div className="Add-page">
       <Row className=" ">
-        <div className="admin-content-text pb-4">{t("Admin:partner.update.head")}</div>
+        <div className="admin-content-text pb-4 info-head-ar">{t("Admin:partner.update.head")}</div>
         <Col sm="8">
-          <div className="text-form pb-2"> {t("Admin:partner.Add.head")}</div>
+          <div className="text-form pb-2 info-head-ar"> {t("Admin:partner.Add.head")}</div>
           <div>
             <label for="upload-photo">
               <img

@@ -16,14 +16,13 @@ const AboutUs = () => {
                                 <span className="subtitle">{t('Home:AboutUs.AboutUs')}</span>
                                 <h2 className="title mb--40">{t('Home:AboutUs.title')}</h2>
                                 <p>{t('Home:AboutUs.description1')} </p>
-                                <p> {t('Home:AboutUs.description2')}</p>
                             </div>
                         </div>
                     </div>
 
                     <div className="col-xl-5 col-lg-6 offset-xl-1">
                         <div className="contact-form-box">
-                            <h3 className="title">Get a free Keystroke quote now</h3>
+                            <h3 className="title">{t('Home:contact')}</h3>
                            <FormOne />
                         </div>
                     </div>

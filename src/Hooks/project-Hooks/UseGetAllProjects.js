@@ -6,15 +6,12 @@ export const UseGetAllProjects = (cat) => {
   const [Projects, setProjects] = useState([]);
   const dispatch = useDispatch();
 
-  var url=""
+  var url = "";
 
-  if(cat){
-    url=`/api/v1/project?category=${cat}`
-  }
-
-  else{
-     url="/api/v1/project"
-
+  if (cat) {
+    url = `/api/v1/project?category=${cat}`;
+  } else {
+    url = "/api/v1/project";
   }
 
   useEffect(() => {
@@ -37,10 +34,6 @@ export const UseGetAllProjects = (cat) => {
 
   //slice data for home page
   let Data = Projects.slice(0, 6);
-  let filters=Data.splice(0,2) 
-  console.log(filters);
-  
- 
 
-  return [Projects,Data,filters];
+  return [Projects, Data];
 };

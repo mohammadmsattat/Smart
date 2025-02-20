@@ -38,7 +38,7 @@ const AboutFour = () => {
                             </TrackVisibility>
                             <span className="symbol">+</span>
                             </h2>
-                            <span className="counter-title">Years on the market</span>
+                            <span className="counter-title">{t('AboutUs:aboutfour.year-counter')}</span>
                             </div>
                             <div className="single-counterup">
                             <h2 className="count-number">
@@ -51,7 +51,7 @@ const AboutFour = () => {
                             </TrackVisibility>
                             <span className="symbol">+</span>
                             </h2>
-                            <span className="counter-title">Projects delivered so far</span>
+                            <span className="counter-title">{t('AboutUs:aboutfour.projects-counter')}</span>
                             </div>
                         </div>
                         </div>

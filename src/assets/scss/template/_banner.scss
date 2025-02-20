@@ -22,7 +22,8 @@
     }
 
     .banner-content {
-        @media #{$md-layout}{
+        animation: fadeInUp 1.5s ease-out;      
+          @media #{$md-layout}{
             margin-bottom: 90px;
         }
         @media #{$sm-layout}{
@@ -104,6 +105,8 @@
     }
     .banner-thumbnail {
         position: relative;
+        animation: zoomIn 2s ease-out;
+
     }
     .banner-social {
         display: flex;
@@ -185,6 +188,9 @@
                 }
             }
             .large-thumb-2 {
+                animation: slideInRight  ;
+                animation-delay: 1s; 
+
                 text-align: right;
                 margin-top: -260px;
                 margin-right: -50px;
@@ -215,6 +221,7 @@
                 .shape {
                     position: absolute;
                     &.shape-1 {
+                        animation: slideInLeft 1.5s ease-out;
                         top: -25px;
                         right: 20px;
                         left: auto;

@@ -10,6 +10,8 @@
         filter: grayscale(100%);
         opacity: 0.3;
         transition: var(--transition);
+        height: 8em;
+        width: 15em;
     }
     &:hover, &.active {
         img {

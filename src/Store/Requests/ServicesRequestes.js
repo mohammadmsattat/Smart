@@ -19,6 +19,8 @@ export const GetAllServices = createAsyncThunk(
 export const PostService = createAsyncThunk(
   "service/postservice",
   async (formData) => {
+    console.log(formData);
+    
     try {
       const config = {
         headers: {

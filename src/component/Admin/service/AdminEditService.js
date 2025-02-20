@@ -11,16 +11,25 @@ const AdminEditService = () => {
   const { id } = useParams();
   const {
     img,
-    name,
+    name_en,
+    name_ar,
     commingSoon,
     onchecked,
-    onChangeName,
+    onChangeName_en,
+    onChangeName_ar,
     onChangeImage,
-    description,
-    onChangeDecription,
+    setImg,
+    description_en,
+    description_ar,
+    onChangeDecription_ar,
+    onChangeDecription_en,
+    onImageChange,
     handelupdate,
+    response,
+    Loading,
   } = UseUpdateService(id);
 
+  console.log(response);
   
   return (
     <div className="Add-page">
@@ -47,19 +56,37 @@ const AdminEditService = () => {
             />
           </div>
           <div className="form-input-text">
+          <Row>
+            <Col>
             <label className="form-label" for="name">
-            {t("Admin:service.Add.name")}
+            {t("Admin:service.Add.name-en")}
             </label>
             <input
               id="name"
               type="text"
-              value={name}
-              onChange={onChangeName}
+              value={name_en}
+              onChange={onChangeName_en}
               className="input-form d-block mt-3 px-3"
               placeholder={t("Admin:service.Add.placeHolderName")}
             />
+            </Col>
+            <Col>
+            <label className="form-label" for="name">
+            {t("Admin:service.Add.name-ar")}
+            </label>
+            <input
+              id="name"
+              type="text"
+              value={name_ar}
+              onChange={onChangeName_ar}
+              className="input-form d-block mt-3 px-3"
+              placeholder={t("Admin:service.Add.placeHolderName")}
+            />
+            </Col>
+          </Row>
+          
             <label className="form-label" for="description">
-            {t("Admin:service.Add.Description")}
+            {t("Admin:service.Add.Description-en")}
             </label>
             <textarea
               id="description"
@@ -67,8 +94,20 @@ const AdminEditService = () => {
               placeholder={t("Admin:service.Add.placeHolderdes")}
               rows="5"
               cols="33"
-              value={description}
-              onChange={onChangeDecription}
+              value={description_en}
+              onChange={onChangeDecription_en}
+            />
+             <label className="form-label" for="description">
+            {t("Admin:service.Add.Description-ar")}
+            </label>
+            <textarea
+              id="description"
+              className="input-form-textarea d-block mt-3 px-3"
+              placeholder={t("Admin:service.Add.placeHolderdes")}
+              rows="5"
+              cols="33"
+              value={description_ar}
+              onChange={onChangeDecription_ar}
             />
 
             <div className="check-comming-soon">

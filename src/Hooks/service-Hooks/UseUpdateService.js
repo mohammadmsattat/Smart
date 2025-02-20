@@ -13,9 +13,12 @@ export const UseUpdateService = (id) => {
 
   //service  variabels
   const [img, setImg] = useState(null);
-  const [name, setName] = useState("");
+  const [name_en, setName_en] = useState("");
+  const [name_ar, setName_ar] = useState("");
   const [selectedFile, setSelectedFile] = useState(null);
-  const [description, setDescription] = useState("");
+  const [description_en, setDescription_en] = useState("");
+  const [description_ar, setDescription_ar] = useState("");
+
   const [commingSoon, setCommingSoon] = useState(false);
 
   useEffect(() => {
@@ -26,12 +29,15 @@ export const UseUpdateService = (id) => {
   }, []);
 
   const service = useSelector((state) => state.ServicesSlice.getOneService);
+  console.log(service);
 
   useEffect(() => {
     if (service.data) {
       setImg(service.data.data.imageCover);
-      setName(service.data.data.name);
-      setDescription(service.data.data.description);
+      setName_en(service.data.data.name_en);
+      setName_ar(service.data.data.name_ar);
+      setDescription_en(service.data.data.description_en);
+      setDescription_ar(service.data.data.description_ar);
       setCommingSoon(service.data.data.commingSoon);
     }
   }, [service]);
@@ -45,12 +51,18 @@ export const UseUpdateService = (id) => {
   };
 
   //to change name state
-  const onChangeName = (event) => {
-    setName(event.target.value);
+  const onChangeName_en = (event) => {
+    setName_en(event.target.value);
+  };
+  const onChangeName_ar = (event) => {
+    setName_ar(event.target.value);
   };
   //to change description state
-  const onChangeDecription = (event) => {
-    setDescription(event.target.value);
+  const onChangeDecription_en = (event) => {
+    setDescription_en(event.target.value);
+  };
+  const onChangeDecription_ar = (event) => {
+    setDescription_ar(event.target.value);
   };
   //to change file state
   const onChangeImage = (event) => {
@@ -73,29 +85,37 @@ export const UseUpdateService = (id) => {
   const handelupdate = async (event) => {
     event.preventDefault();
 
-    if (name === "" || description === "") {
+    if (
+      name_en === "" ||
+      name_ar === "" ||
+      description_en === "" ||
+      description_ar === ""
+    ) {
       toast.error("Please complete all fields");
       return;
     }
-    if (name.length < 3 ) {
+    if (name_en.length < 3 || name_ar.length < 3) {
       toast.error(" name is short ");
       return;
     }
-    if (description.length < 25) {
+    if (description_en.length < 25 || description_ar.length < 25) {
       toast.error(" decription is short ");
       return;
     }
 
     // Create a FormData object
     const formData = new FormData();
-    formData.append("name", name);
-    formData.append("description", description);
+    formData.append("name_en", name_en);
+    formData.append("name_ar", name_ar);
+    formData.append("description_en", description_en);
+    formData.append("description_ar", description_ar);
     formData.append("commingSoon", commingSoon);
 
     // If there's a file selected, append it
     if (selectedFile !== null) {
       formData.append("imageCover", selectedFile);
     }
+    console.log(formData);
 
     // Dispatch the thunk with the FormData
     await dispatch(UpdateService({ id, formData }));
@@ -115,14 +135,18 @@ export const UseUpdateService = (id) => {
 
   return {
     img,
-    name,
+    name_en,
+    name_ar,
     commingSoon,
     onchecked,
-    onChangeName,
+    onChangeName_en,
+    onChangeName_ar,
     onChangeImage,
     setImg,
-    description,
-    onChangeDecription,
+    description_en,
+    description_ar,
+    onChangeDecription_ar,
+    onChangeDecription_en,
     onImageChange,
     handelupdate,
     response,
